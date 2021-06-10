@@ -117,6 +117,9 @@ main {
     font-weight: 500;
     border: 0;
 }
+.guia_talla, .info_oculta, .mas_detalles {
+    display: none;
+}
 
 @media (min-width: 767px) {
 
@@ -126,24 +129,63 @@ main {
     }
     .carrusel {
         margin: 0;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
     }
     .carrusel img {
-        width: 50vw;
+        width: 95%;
     }
     .contenedor_datos {
         width: 30vw;
         padding-left: 8px;
     }
+    .contenedor_titulo {
+        font-size: large;
+    }
     .carrusel_imagenes{
         width: 16vw;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #eee;
     }
+
     .carrusel_imagenes img {
         width: 15vw;
     }
 
     .contenedor_color, .contenedor_talla,
     .contenedor_cantidad{
+        display: block;
+    }
+    .guia_talla {
+        display: block;
+        margin-left: 8px;
+        height: 1.5rem;
+    }
+    .contenedor_botones {
+        display: none;
+    }
+    .mas_detalles {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+    }
+    .mas_detalles p {
+        margin-left: 8px;
+    }
+    .info_oculta h3 {
+        font-weight: 500;
+        margin-top: 8px;
+    }
+    .info_oculta p {
+        margin-top: 8p;
+    }
+    input[type="checkbox"]:checked + .info_oculta {
         display: block;
     }
 }
