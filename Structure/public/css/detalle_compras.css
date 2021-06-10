@@ -1,3 +1,6 @@
+@import url(header_styles.css);
+@import url(footer_style.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -6,71 +9,8 @@
     font-weight: 100;
 }
 
-.header-contenedor {
-    position: fixed;
-    width: 100vw;
+body {
     background-color: white;
-    height: 60px;
-    display: flex;
-    padding: 8px;
-    justify-content: space-between;
-}
-
-#logo-header {
-    height: 40px;
-    margin-left: 8px;
-}
-
-.contenedor-logo {
-    height: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.contenedor-buttons {
-    display: flex;
-    align-items: center;
-    
-}
-
-.contenedor-buttons span {
-    margin-right: 8px;
-}
-
-.contenedor_menu {
-    position: fixed;
-    margin-top: 60px;
-    background-color: white;
-    padding: 8px;
-    width: 100vw;
-    height: calc(100vh - 60px);
-    display: none;
-}
-
-.close_button {
-    text-align: center;
-    padding: 8px;
-    width: 100%;
-}
-
-.contenedor_menu li {
-    border-bottom: 1px solid #D9E8F5;
-    padding: 16px 0 16px 0;
-}
-
-.contenedor_menu li:hover {
-    background-color: red;
-}
-
-.contenedor_menu a{
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-}
-
-input[type="checkbox"]:checked + .contenedor_menu{
-    display: flex;
-    flex-direction: column;
 }
 
 main {
@@ -88,6 +28,9 @@ main {
 .carrusel{
     text-align: center;
     margin-top: 8px;
+}
+.carrusel_imagenes{
+    display: none;
 }
 
 .image_carrusel {
@@ -175,76 +118,32 @@ main {
     border: 0;
 }
 
-footer {
-    background-color: #eee;
-    padding: 16px;
-}
+@media (min-width: 767px) {
 
-.footer_seccion {
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 0;
-}
+    .contenedor_producto{
+        display: flex;
+        justify-content: space-between;
+    }
+    .carrusel {
+        margin: 0;
+    }
+    .carrusel img {
+        width: 50vw;
+    }
+    .contenedor_datos {
+        width: 30vw;
+        padding-left: 8px;
+    }
+    .carrusel_imagenes{
+        width: 16vw;
+        display: block;
+    }
+    .carrusel_imagenes img {
+        width: 15vw;
+    }
 
-.footer_seccion > p {
-    font-weight: 500;
-}
-
-.copyright {
-    padding-top: 8px;
-    font-size: 12px;
-}
-
-.detalles_ocultos {
-    border-bottom: 1px solid black;
-    padding-bottom: 8px;
-    display: none;
-}
-.detalles_ocultos ul{
-    list-style-type: none;
-    font-size: 14px;
-}
-.detalles_ocultos li {
-    margin-top: 8px;
-}
-
-input[type="checkbox"]:checked + .detalles_ocultos{
-    display: flex;
-}
-
-.footer_contacto {
-    flex-direction: column;
-    padding: 0 8px 8px;
-    font-size: 14px;
-}
-.footer_contacto *{
-    margin-top: 8px;
-}
-.footer_contacto input {
-    border: 0px;
-    background-color: #ccc;
-    color: black;
-    width: 100%;
-    height: 2rem;
-    padding: 0 8px;
-}
-.footer_contacto button {
-    border: 0;
-    background-color: black;
-    color: white;
-    height: 2rem;
-    font-weight: 500;
-}
-.social_media {
-    padding-right: 8px;
-}
-.social_media img {
-    width: 1.5rem;
-    margin-right: 8px;
-}
-
-@media (min-width: 560px) {
-    
+    .contenedor_color, .contenedor_talla,
+    .contenedor_cantidad{
+        display: block;
+    }
 }
