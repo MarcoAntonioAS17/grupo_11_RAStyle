@@ -1,38 +1,108 @@
-@media (max-width:767px) {
+* {
+    box-sizing: border-box;
+    font-family: roboto;
+}
+
+/* @media (max-width:767px) { */
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                CABECERA                                                */
-    .cabecera {
+
+    .header-contenedor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background-color: #D9E8F5;
+        height: 60px;
         display: flex;
         justify-content: space-between;
+        z-index: 100;
+    }
+    
+    #logo-header {
+        height: 40px;
+        margin-left: 8px;
+    }
+    
+    .contenedor-logo {
+        padding: 8px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contenedor-buttons {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .contenedor-buttons span {
+        margin-right: 12px;
+    }
+    
+    .contenedor-buttons a {
+        display:flex;
+        align-items: center;
+        text-decoration: none;
+        color: #000;
+        transition: all 300ms;
+    }
+
+    .contenedor-buttons a:hover {
+        color: #304269;
+        transform: scale(1.5);
         /* background-color: #91BED4; */
+    }
+
+    .contenedor-buttons a:active {
+        color: red;
+    }
+
+    .contenedor_menu {
+        position: fixed;
+        margin-top: 60px;
+        background-color: white;
+        padding: 8px;
+        width: 100%;
+        height: calc(100vh - 60px);
+        display: none;
+    }
+    
+    .close_button {
+        text-align: center;
+        padding: 8px;
+        width: 100%;
+    }
+    
+    .contenedor_menu li {
+        border-bottom: 1px solid #D9E8F5;
+        padding: 16px 0 16px 0;
+    }
+    
+    .contenedor_menu li:hover {
         background-color: #D9E8F5;
     }
-    .navbar-logo-menu{
+    
+    .contenedor_menu a{
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+    
+    input[type="checkbox"]:checked + .contenedor_menu{
         display: flex;
-        padding: 10px;
-        align-items: center;
+        flex-direction: column;
     }
-    .tool-icons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 10px;
-    }
-    .tool-icons img{
-        height: 30px;
-        margin: 0 5px;
-    }
-    .logo-principal {
-        height: 40px;
-        margin-left: 15px;
-    }
-    .menu-icon {
-        height: 25px;
-    }
+    
 
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                BODY                                                */
-
+    .cuerpo {
+        position: relative;
+        top: 60px;
+        left: 0;
+    }
     /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
     /*                                          Carrusel Grande                                         */
 
@@ -51,101 +121,164 @@
 
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                FOOTER                                                */
-    .pie-pagina {
-        background-color:#D9E8F5;
-        font-family: Roboto; 
+    footer {
+        background-color: #D9E8F5;
+        padding: 16px;
     }
-    .titulos-footer {
-        display: block;
-        list-style: none;
-    }
-    .titulos-footer li div{
-        display: flex;
-        align-items: center;
-        justify-content:space-between;
-    }
-    .titulos-footer li p {
-        font-size: 15px;
-        margin: 3px 0;
-    }
-    .titulos-footer li img{
-        width: 15px;
-        height: 15px;
-        margin-right: 30px;
-    }
-    .titulos-footer li a {
-        text-decoration: none;
-        color: #304269;
-    }
-    #redes-sociales li img {
-        width: 25px;
-        height: 25px;
-    }
-    #contactanos-superior {
-        display: flex;
-        justify-content: space-between;
-        color: #304269;
-    }
-    #email-contactanos {
-        width: 50vw;
-        margin-left: 5px;
-    }
-    #contactanos-texto {
-        padding: 5px;
-        margin-top: 5px;
-        height: 50px;
-        width: 85vw;
-    }
-    #submit {
-        margin-right: 5vw;
-    }
-    #encabezados-footer {
-        font-weight: 500;
-        margin-top: 15px;
-    }
-    #redes-sociales {
-        list-style: none;
-        display: flex;
-        margin-top:3px;
-        margin-bottom:10px;
+    
+    .footer {
+        position: relative;
+        top: 60px;
     }
 
-}
+    .footer_seccion {
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+    }
+    
+    .footer_seccion > p {
+        font-weight: 500;
+    }
+    
+    .copyright {
+        padding-top: 8px;
+        font-size: 12px;
+    }
+    
+    .detalles_ocultos {
+        border-bottom: 1px solid black;
+        padding-bottom: 8px;
+        display: none;
+    }
+    .detalles_ocultos ul{
+        list-style-type: none;
+        font-size: 14px;
+    }
+    .detalles_ocultos li {
+        margin-top: 8px;
+    }
+
+    .detalles_ocultos a {
+        text-decoration: none;
+        color: black;
+        transition: all 300ms;
+    }
+    
+    .detalles_ocultos a:hover {
+        color: #304269;
+        font-size: 17px;
+    }
+
+    .detalles_ocultos a:active {
+        color: red;
+    }
+
+    input[type="checkbox"]:checked + .detalles_ocultos{
+        display: flex;
+    }
+    
+    .footer_contacto {
+        flex-direction: column;
+        padding: 0 8px 8px;
+        font-size: 14px;
+    }
+
+    .footer_contacto *{
+        margin-top: 8px;
+    }
+
+    .footer_contacto input {
+        border: 0px;
+        background-color: #ccc;
+        color: black;
+        width: 100%;
+        height: 2rem;
+        padding: 0 8px;
+    }
+
+    .footer_contacto button {
+        border: 0;
+        background-color: black;
+        color: white;
+        height: 2rem;
+        font-weight: 500;
+        width: 49%;
+    }
+
+    #contact_mensaje {
+        width: 100%;
+        height: 80px;
+    }
+
+    #contact_email {
+        background-color: white;
+    }
+
+    #reset-submit {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    textarea::placeholder {
+        color: rgba(0,0,0,0.5);
+    }
+
+    .social_media {
+        padding-right: 8px;
+    }
+
+    .social_media img {
+        width: 1.5rem;
+        margin-right: 8px;
+    }
+
+    .social_media a:hover {
+        color: #304269;
+        /* background-color: #91BED4; */
+    }
+    
+    .social_media a:active {
+        color: red;
+    }
+    
+    footer p {
+        text-align: center;
+    }
+/* } */
 
 
 /* @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ */
 @media (min-width:768px) {
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                CABECERA                                                */
-    .cabecera {
-        display: flex;
-        justify-content: space-between;
-        /* background-color: #91BED4; */
-        background-color: #D9E8F5;
+    .contenedor-buttons span {
+        margin-right: 1rem;
     }
-    .navbar-logo-menu{
+    .contenedor_menu {
+        background-color: transparent;
+        display: inline-flex;
+        height: inherit;
+        position: relative;
+        padding: 8px;
+        margin-top: 0;
+    }
+    .contenedor-logo label, .contenedor_menu label  {
+        display: none;
+    }
+    .contenedor_menu li {
+        list-style-type: none;
+        border: 0;
+        margin-left: 1rem;
+        padding: 0;
+    }
+    .navbar_menu{
         display: flex;
-        padding: 10px;
         align-items: center;
     }
-    .tool-icons {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 10px;
-    }
-    .tool-icons img{
-        height: 45px;
-        margin: 0 8px;
-    }
-    .logo-principal {
-        height: 60px;
-        margin-left: 25px;
-    }
-    .menu-icon {
-        height: 35px;
-    }
-
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                BODY                                                */
 
@@ -167,12 +300,34 @@
 
     /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
     /*                                                FOOTER                                                */
+    footer {
+        padding: 2rem 2rem 1rem 2rem;
+    }
+    .contenedor_footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer_seccion, .detalles_ocultos {
+        border: 0;
+    }
+    .footer_contacto {
+        width: 30vw;
+    }
+    .footer_contacto button {
+        width: 100%;
+    }
+    .footer_seccion label {
+        display: none;
+    }
+    .detalles_ocultos {
+        display: block;
+    }
 
-}
-
-/* @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ */
-@media (min-width:1024px) {
-    .logo-principal {
-        width: 50px;
+    .social_media {
+        flex-direction: column;
+    }
+    .social_media img {
+        margin-top: 1rem;
+        width: 2rem;
     }
 }
