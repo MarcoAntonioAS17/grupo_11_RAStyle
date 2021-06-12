@@ -81,6 +81,8 @@ footer p {
     .contenedor_footer {
         display: flex;
         justify-content: space-between;
+        max-width: 1300px;
+        margin: auto;
     }
     .footer_seccion, .detalles_ocultos {
         border: 0;

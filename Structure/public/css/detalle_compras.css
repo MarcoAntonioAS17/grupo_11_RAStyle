@@ -123,6 +123,16 @@ main {
 
 @media (min-width: 767px) {
 
+    main {
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .contenedor_main {
+        max-width: 1300px;
+        
+    }
+
     .contenedor_producto{
         display: flex;
         justify-content: space-between;
@@ -146,16 +156,17 @@ main {
         font-size: large;
     }
     .carrusel_imagenes{
-        width: 16vw;
+        width: 8vw;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         background-color: #eee;
     }
 
     .carrusel_imagenes img {
-        width: 15vw;
+        width: 95%;
+        margin: 8px 0;
     }
 
     .contenedor_color, .contenedor_talla,
@@ -165,7 +176,7 @@ main {
     .guia_talla {
         display: block;
         margin-left: 8px;
-        height: 1.5rem;
+        min-height: 1.5rem;
     }
     .contenedor_botones {
         display: none;
