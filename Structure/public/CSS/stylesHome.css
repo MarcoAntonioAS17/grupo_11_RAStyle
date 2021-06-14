@@ -3,331 +3,118 @@
     font-family: roboto;
 }
 
-/* @media (max-width:767px) { */
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                CABECERA                                                */
 
-    .header-contenedor {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        background-color: #D9E8F5;
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        z-index: 100;
-    }
-    
-    #logo-header {
-        height: 40px;
-        margin-left: 8px;
-    }
-    
-    .contenedor-logo {
-        padding: 8px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-    
-    .contenedor-buttons {
-        padding: 8px;
-        display: flex;
-        align-items: center;
-    }
-    
-    .contenedor-buttons span {
-        margin-right: 12px;
-    }
-    
-    .contenedor-buttons a {
-        display:flex;
-        align-items: center;
-        text-decoration: none;
-        color: #000;
-        transition: all 300ms;
-    }
+.cuerpo {
+    position: relative;
+    top: 60px;
+    left: 0;
+}
+.carrusel-grande img{
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 25vh;
+}
 
-    .contenedor-buttons a:hover {
-        color: #304269;
-        transform: scale(1.5);
-        /* background-color: #91BED4; */
-    }
+.carrusel-pequeño img{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 25vh;
+}
 
-    .contenedor-buttons a:active {
-        color: red;
-    }
+.seccion-enfasis {
+    width: 100%;
+    height: 25vh;
+    background-color: #91BEDB;
+    margin-top: 15px;
+    margin-bottom: 15px; 
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.seccion-enfasis img {
+    height: 80%;
+    position:absolute;
+    top: 10%;
+    left: 5%;
+}
+#titulo-enfasis {
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    width: 55%;
+    max-height: 7.5%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+#descripcion-enfasis {
+    position: absolute;
+    top: calc(15% + 26px);
+    left: 40%;
+    width: 55%;
+    max-height: 20%;
+    font-size: 12px;
+    text-align: center;
+}
+.ver-mas-button {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 20%;
+    height: 15%;
+    top: 65%;
+    left: 57%;
+    justify-content: center;
+    text-decoration: none;
+    border: #304269 1px solid;
+    background-color: white;
+    color: #304269;
+    transition: all 300ms;
+}
+.ver-mas-button:hover {
+    background-color: #304269;
+    transform: scale(1.2);
+    color: white;
+    border: white;
+}
 
-    .contenedor_menu {
-        position: fixed;
-        margin-top: 60px;
-        background-color: white;
-        padding: 8px;
+
+/* @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @@ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ */
+@media (min-width:785px) {
+
+    .carrusel-grande img{
         width: 100%;
-        height: calc(100vh - 60px);
-        display: none;
+        height: 60vh;
     }
-    
-    .close_button {
-        text-align: center;
-        padding: 8px;
+
+    .carrusel-pequeño img{
         width: 100%;
-    }
-    
-    .contenedor_menu li {
-        border-bottom: 1px solid #D9E8F5;
-        padding: 16px 0 16px 0;
-    }
-    
-    .contenedor_menu li:hover {
-        background-color: #D9E8F5;
-    }
-    
-    .contenedor_menu a{
-        text-decoration: none;
-        color: black;
-        font-weight: 500;
-    }
-    
-    input[type="checkbox"]:checked + .contenedor_menu{
-        display: flex;
-        flex-direction: column;
-    }
-    
-
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                BODY                                                */
-    .cuerpo {
-        position: relative;
-        top: 60px;
-        left: 0;
-    }
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Grande                                         */
-
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Pequeño 1                                         */
-    
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Sección de Énfasis                                         */
-
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Pwqueño 2                                         */
-
-
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                FOOTER                                                */
-    footer {
-        background-color: #D9E8F5;
-        padding: 16px;
-    }
-    
-    .footer {
-        position: relative;
-        top: 60px;
+        height: 60vh;
     }
 
-    .footer_seccion {
-        border-bottom: 1px solid black;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-    }
-    
-    .footer_seccion > p {
-        font-weight: 500;
-    }
-    
-    .copyright {
-        padding-top: 8px;
-        font-size: 12px;
-    }
-    
-    .detalles_ocultos {
-        border-bottom: 1px solid black;
-        padding-bottom: 8px;
-        display: none;
-    }
-    .detalles_ocultos ul{
-        list-style-type: none;
-        font-size: 14px;
-    }
-    .detalles_ocultos li {
-        margin-top: 8px;
-    }
-
-    .detalles_ocultos a {
-        text-decoration: none;
-        color: black;
-        transition: all 300ms;
-    }
-    
-    .detalles_ocultos a:hover {
-        color: #304269;
-        font-size: 17px;
-    }
-
-    .detalles_ocultos a:active {
-        color: red;
-    }
-
-    input[type="checkbox"]:checked + .detalles_ocultos{
-        display: flex;
-    }
-    
-    .footer_contacto {
-        flex-direction: column;
-        padding: 0 8px 8px;
-        font-size: 14px;
-    }
-
-    .footer_contacto *{
-        margin-top: 8px;
-    }
-
-    .footer_contacto input {
-        border: 0px;
-        background-color: #ccc;
-        color: black;
+    .seccion-enfasis {
         width: 100%;
-        height: 2rem;
-        padding: 0 8px;
+        height: 60vh;
+    }
+    #titulo-enfasis {
+        left: 42%;
+        width: 60%;
+        max-height: 12.5%;
+        font-size: 24px;
+    }
+    #descripcion-enfasis {
+        top: 30%;
+        left: 45%;
+        width: 52%;
+        font-size: 15px;
+    }
+    .ver-mas-button {
+        width: 20%;
+        height: 15%;
+        top: 60%;
+        left: 60%;
     }
 
-    .footer_contacto button {
-        border: 0;
-        background-color: black;
-        color: white;
-        height: 2rem;
-        font-weight: 500;
-        width: 49%;
-    }
-
-    #contact_mensaje {
-        width: 100%;
-        height: 80px;
-    }
-
-    #contact_email {
-        background-color: white;
-    }
-
-    #reset-submit {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    textarea::placeholder {
-        color: rgba(0,0,0,0.5);
-    }
-
-    .social_media {
-        padding-right: 8px;
-    }
-
-    .social_media img {
-        width: 1.5rem;
-        margin-right: 8px;
-    }
-
-    .social_media a:hover {
-        color: #304269;
-        /* background-color: #91BED4; */
-    }
-    
-    .social_media a:active {
-        color: red;
-    }
-    
-    footer p {
-        text-align: center;
-    }
-/* } */
-
-
-/* @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ */
-@media (min-width:768px) {
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                CABECERA                                                */
-    .contenedor-buttons span {
-        margin-right: 1rem;
-    }
-    .contenedor_menu {
-        background-color: transparent;
-        display: inline-flex;
-        height: inherit;
-        position: relative;
-        padding: 8px;
-        margin-top: 0;
-    }
-    .contenedor-logo label, .contenedor_menu label  {
-        display: none;
-    }
-    .contenedor_menu li {
-        list-style-type: none;
-        border: 0;
-        margin-left: 1rem;
-        padding: 0;
-    }
-    .navbar_menu{
-        display: flex;
-        align-items: center;
-    }
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                BODY                                                */
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Grande                                         */
-
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Pequeño 1                                         */
-    
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Sección de Énfasis                                         */
-
-
-    /* *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* */
-    /*                                          Carrusel Pwqueño 2                                         */
-
-
-    /* %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% */
-    /*                                                FOOTER                                                */
-    footer {
-        padding: 2rem 2rem 1rem 2rem;
-    }
-    .contenedor_footer {
-        display: flex;
-        justify-content: space-between;
-    }
-    .footer_seccion, .detalles_ocultos {
-        border: 0;
-    }
-    .footer_contacto {
-        width: 30vw;
-    }
-    .footer_contacto button {
-        width: 100%;
-    }
-    .footer_seccion label {
-        display: none;
-    }
-    .detalles_ocultos {
-        display: block;
-    }
-
-    .social_media {
-        flex-direction: column;
-    }
-    .social_media img {
-        margin-top: 1rem;
-        width: 2rem;
-    }
 }
