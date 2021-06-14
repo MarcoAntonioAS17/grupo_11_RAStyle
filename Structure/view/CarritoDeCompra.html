@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAStyle Carrito De Compras</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/f226d612e4.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!--Header-->
+<header>
+    <div class="header-contenedor">
+        <div class="contenedor-logo">
+            <label for="show-nav">
+                <span id="span_show" class="material-icons-outlined">menu</span>
+            </label>
+  
+            <img id="logo-header" src="./images/Logo_sin_fondo.png" alt="logo">
+        </div>
+  
+        <input type="checkbox" id="show-nav" hidden>
+        <div class="contenedor_menu">
+            <ul class="navbar_menu">
+                <li><a href="">Hot Sale</a></li>
+                <li><a href="">Hombres</a></li>
+                <li><a href="">Mujeres</a></li>
+                <li><a href="">Promociones</a></li>
+            </ul>
+            <label for="show-nav" class="close_button">
+                <span id="span_hide" class="material-icons-outlined">close</span>
+            </label>
+        </div>
+  
+        <div class="contenedor-buttons">
+            <span class="material-icons">search</span>
+            <span class="material-icons">account_circle</span>
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="material-icons-outlined">shopping_bag</span>
+        </div>
+  
+    </div>
+  
+  </header>
+  <!--Carrito de Compras-->
+  <main>
+    <div class="nav"><a href="#" class="Home">
+        <i class="fas fa-home"></i></a>
+
+    <a href="#" class="Flecha">
+    <i class="fas fa-chevron-right">Mi carrito de compras</i></a>
+</div>
+
+<div class="contenedor1">
+<div class="sub-contenedor1"><img src="images/blazer.jpg"></div>
+<div class="texto"><p>Blazer Dama. Blanco y Negro</p></div>
+<div class="precio"><p>MXN $350.00</p><div class="cancelar"><i class="fas fa-window-close"></i></div></div>
+<div class="desc"><p>MXN $250.00</p></div>
+<div class="color"><p>Color <i class="fas fa-circle"></i></p></div>
+<div class="talla"><p>Talla M</p></div>
+<div class="contenedor_cantidad">
+    <p>Cantidad <button><span class="material-icons">remove</span></button>
+    <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+    <button><span class="material-icons">add</span></button></p> 
+    </div>
+</div>
+
+
+<div class="contenedor1">
+    <div class="sub-contenedor1"><img src="images/sudadera1.jpg"></div>
+    <div class="texto"><p>Sudadera deportiva Reebok</p></div>
+    <div class="precio"><p>MXN $150.00</p><div class="cancelar"><i class="fas fa-window-close"></i></div></div>
+    <div class="desc"><p>MXN $100.00</p></div>
+    <div class="color"><p>Color <i class="fas fa-circle"></i></p></div>
+    <div class="talla"><p>Talla G</p></div>
+    <div class="contenedor_cantidad">
+        <p>Cantidad <button><span class="material-icons">remove</span></button>
+        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+        <button><span class="material-icons">add</span></button></p> 
+        </div>
+    </div>
+
+    <div class="contenedor1">
+        <div class="sub-contenedor1"><img src="images/playera.jpg"></div>
+        <div class="texto"><p>Playera juvenil caballero</p></div>
+        <div class="precio"><p>MXN $180.00</p><div class="cancelar"><i class="fas fa-window-close"></i></div></div>
+        <div class="desc"><p>MXN $150.00</p></div>
+        <div class="color"><p>Color <i class="fas fa-circle"></i></p></div>
+        <div class="talla"><p>Talla S</p></div>
+        <div class="contenedor_cantidad">
+            <p>Cantidad <button><span class="material-icons">remove</span></button>
+            <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+            <button><span class="material-icons">add</span></button></p> 
+            </div>
+        </div>
+
+        <div class="contenedor2">
+            <div class="subcontenedor2">
+            <div class="resumen"><h2>RESUMEN DEL PEDIDO</h2></div>
+            <div class="articulos"><h4>3 ARTÍCULOS EN MI BOLSA </h4></div>
+            <div class="total"><h2>TOTAL A PAGAR</h2></div>
+            <div class="pesos"><h3>MXN $600.00</h3></div>
+        </div>
+            <div class="subcontenedor3">
+            <div class="proceder"><button>PROCEDER A PAGAR</p></button></div>
+            <div class="seguir"><button>SEGUIR COMPRANDO</p></button></div>
+          </div> 
+        </div>   
+
+    </main>
+        <!--Footer-->
+        <footer>
+            <div class="contenedor_footer">
+                <div>
+                    <div class="footer_seccion">
+                        <p>RAStyle</p>
+                        <label for="show_footer_section">
+                            <span class="material-icons">add</span>
+                        </label>
+                    </div>
+                    <input type="checkbox" id="show_footer_section" hidden>
+                    <div class="detalles_ocultos">
+                        <ul>
+                            <li>Acerca de nosotros</li>
+                            <li>Política de privacidad</li>
+                            <li>Programa de afiliados</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer_seccion">
+                        <p >¿Necesitas ayuda?</p>
+                        <label for="show_footer_section2">
+                            <span class="material-icons">add</span>
+                        </label>
+                    </div>
+                    <input type="checkbox" id="show_footer_section2" hidden>
+                    <div class="detalles_ocultos">
+                        <ul>
+                            <li>Información de envíos</li>
+                            <li>¿Cómo compras?</li>
+                            <li>Devoluciones</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer_seccion social_media">
+                        <p >Redes Sociales</p>
+                        <div>
+                            <img src="./images/facebook_black_24dp.svg" alt="link_facebook">
+                            <img src="./images/twitter-round.svg" alt="link_twitter">
+                            <img src="./images/instagram-round.svg" alt="link_instagram">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer_seccion">
+                        <p >Contáctanos</p>
+                        <label for="show_footer_section3">
+                            <span class="material-icons">add</span>
+                        </label>
+                    </div>
+                    <input type="checkbox" id="show_footer_section3" hidden>
+                    <div class="detalles_ocultos footer_contacto">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="contact_email" placeholder="email" required>
+                        <label for="contact_mensaje">Mensaje:</label>
+                        <input type="text" name="message" id="contact_mensaje" placeholder="Escribte tu mensaje" required>
+                        <button>ENVIAR</button>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2021 RAStyle.inc Todos los derechos reservador</p>
+        </footer>
+</body>
+</html>
