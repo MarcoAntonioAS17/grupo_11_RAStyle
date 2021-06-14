@@ -16,11 +16,67 @@
     height: 25vh;
 }
 
-.carrusel-pequeño img{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    width: 100%;
-    height: 25vh;
+.titulos-carrusel {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: -5px;
+}
+.cassusel-pequeño {
+    display:flex;
+    justify-content: space-between;
+    padding: 1.5vw;
+    margin-bottom: -40px;
+}
+.producto-en-carrusel img {
+    width: 30vw;
+}
+.producto-en-carrusel p {
+    max-width: 28vw;
+    position: relative;
+    bottom: 6vw;
+}
+.precio-producto-carrusel {
+    font-weight: bold;
+}
+.nombre-producto-carrusel {
+    font-size: 14px;
+}
+.producto-en-carrusel .nombre-producto-carrusel{
+    bottom: 8vw;
+}
+
+.marcar-producto-favorito {
+    position: relative;
+    bottom: 37vw;
+    left: 22vw;
+    color: #304269;
+}
+.marcar-producto-favorito .material-icons-outlined {
+    font-size: 28px;
+}
+
+.navegacion-carrusel {
+    display: flex;
+    justify-content: Center;
+    position:relative;
+    bottom: 3vw;
+}
+.navegacion-carrusel span {
+    color: black;
+}
+.array-back-carrusel {
+    margin-right: 30px;
+}
+.array-forward-carrusel {
+    margin-left: 30px;
+}
+.punto-elemento-carrusel{
+    margin: 0 5px;
+}
+.punto-elemento-carrusel .material-icons-outlined{
+    font-size: 16px;
+    position:relative;
+    top: 3px;
 }
 
 .seccion-enfasis {
