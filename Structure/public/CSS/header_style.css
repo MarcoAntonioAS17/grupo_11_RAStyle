@@ -1,0 +1,126 @@
+.header-contenedor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: #D9E8F5;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+#logo-header {
+    height: 40px;
+    margin-left: 8px;
+}
+
+.contenedor-logo {
+    padding: 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-buttons {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-buttons span {
+    margin-right: 12px;
+}
+
+.contenedor-buttons a {
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    transition: all 300ms;
+}
+
+.contenedor-buttons a:hover {
+    color: #304269;
+    transform: scale(1.5);
+    /* background-color: #91BED4; */
+}
+
+.contenedor-buttons a:active {
+    color: red;
+}
+
+.contenedor_menu {
+    position: fixed;
+    margin-top: 60px;
+    background-color: white;
+    padding: 8px;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: none;
+}
+
+.close_button {
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+}
+
+.contenedor_menu li {
+    border-bottom: 1px solid #D9E8F5;
+    padding: 16px 0 16px 0;
+}
+
+.contenedor_menu li:hover {
+    background-color: #D9E8F5;
+}
+
+.contenedor_menu a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+input[type="checkbox"]:checked + .contenedor_menu{
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width:785px) {
+
+    .contenedor-buttons span {
+        margin-right: 1rem;
+    }
+    .contenedor_menu {
+        background-color: transparent;
+        display: inline-flex;
+        height: inherit;
+        position: relative;
+        padding: 8px;
+        margin-top: 0;
+    }
+    .contenedor-logo label, .contenedor_menu label  {
+        display: none;
+    }
+    .contenedor_menu li {
+        list-style-type: none;
+        border: 0;
+        margin-left: 1rem;
+        padding: 0;
+    }
+    .navbar_menu{
+        display: flex;
+        align-items: center;
+        margin-right: 5px;
+    }
+    .navbar_menu a{
+        font-size: 16px;
+        transition: all 300ms;
+        margin-left: 15px;
+    }
+    .navbar_menu a:hover{
+        font-size: 20px;
+        color:#304269;
+    }
+
+}
