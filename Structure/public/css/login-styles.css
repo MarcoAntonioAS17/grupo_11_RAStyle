@@ -7,11 +7,12 @@
 
 body {
     height: 100px;
-    font-family: sans-serif;
+    font-family: roboto;
 }
 
 .login-info{
 padding: 15px;
+margin-bottom: 1px black;
 }
 
 .login-container{
@@ -52,10 +53,16 @@ top: 65px;
 
 }
 
-.o{
-    text-align: center;
-}
 
+.contenedor-o{
+    width: 15px;
+    height: 15px;
+    background-color:  white;
+    text-align: center;
+    position: absolute;
+    right: 50%;
+    top: 270px;
+}
 
 .btn{
     background-color: #000;
@@ -113,6 +120,15 @@ top: 65px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .contenedor-o{
+            width: 15px;
+            height: 15px;
+            background-color:  white;
+            text-align: center;
+            position: absolute;
+            right: 50%;
+            top: 400px;
         }
         
     }
