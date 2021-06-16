@@ -133,13 +133,21 @@
                     </label>
                 </div>
                 <input type="checkbox" id="show_footer_section3" hidden>
-                <div class="detalles_ocultos footer_contacto">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="contact_email" placeholder="email" required>
-                    <label for="contact_mensaje">Mensaje:</label>
-                    <input type="text" name="message" id="contact_mensaje" placeholder="Escribte tu mensaje" required>
-                    <button>ENVIAR</button>
-                </div>
+                <form class="detalles_ocultos footer_contacto" name="submit">
+                    <div id="contactanos-superior">
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="contact_email" placeholder="luis.gonzalez@gmail.com" name="submit">
+                        </div>
+                    </div>
+                    <div>
+                        <textarea placeholder="Escribte tu mensaje..." id="contact_mensaje" name="submit" required> </textarea>
+                    </div>
+                    <div id="reset-submit">
+                        <button type="submit" name="submit" class="button-contactanos">Enviar</button>
+                        <button type="reset" name="submit" class="button-contactanos">Borrar</button>
+                    </div>
+                </form>
             </div>
         </div>
         <p class="copyright">&copy; 2021 RAStyle.inc Todos los derechos reservador</p>
