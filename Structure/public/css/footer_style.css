@@ -34,6 +34,21 @@ footer {
     margin-top: 8px;
 }
 
+.detalles_ocultos a {
+    text-decoration: none;
+    color: black;
+    transition: all 300ms;
+}
+
+.detalles_ocultos a:hover {
+    color: #304269;
+    font-size: 17px;
+}
+
+.detalles_ocultos a:active {
+    color: red;
+}
+
 input[type="checkbox"]:checked + .detalles_ocultos{
     display: flex;
 }
@@ -60,13 +75,45 @@ input[type="checkbox"]:checked + .detalles_ocultos{
     color: white;
     height: 2rem;
     font-weight: 500;
+    width: 49%;
 }
+
+#contact_mensaje {
+    width: 100%;
+    height: 80px;
+}
+
+#contact_email {
+    background-color: white;
+}
+
+#reset-submit {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+#reset-submit button {
+    transition: all 300ms;
+}
+#reset-submit button:hover {
+    background-color: #304269;
+    transform: scale(1.1);
+}
+
 .social_media {
     padding-right: 8px;
 }
 .social_media img {
     width: 1.5rem;
     margin-right: 8px;
+}
+
+.social_media a:hover {
+    color: #304269;
+    /* background-color: #91BED4; */
+}
+.social_media a:active {
+    color: red;
 }
 
 footer p {
@@ -98,6 +145,10 @@ footer p {
     }
     .detalles_ocultos {
         display: block;
+    }
+    .footer_contacto button {
+        font-weight: 500;
+        width: 48%;
     }
 
     .social_media {
