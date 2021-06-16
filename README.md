@@ -17,3 +17,6 @@ En la plataforma de e-commerce se encontrará un amplio catálogo de moda para u
 **Brenda Carmen Ramirez Reyes** - Actualmente soy estudiante de octavo semestre en la licenciatura en informática Administrativa, tengo 22 años y tengo interés en el desarrollo web.
 
 **Marco Antonio Arcos Sánchez** - Estudiante de octavo semestre en Ingeniería Informática por la Universidad Veracruzana, apasionado por la tecnología y el desarrollo de software, 22 años con gran interés en desarrollo Full Stack y en Inteligencia Artificial.
+
+## Enlace a la tablero de Trello:
+[Trello](https://trello.com/b/PjD2lSLN/equipo-11-proyecto-integrador) => https://trello.com/b/PjD2lSLN/equipo-11-proyecto-integrador

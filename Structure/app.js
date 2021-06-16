@@ -14,3 +14,11 @@ app.listen(3000, () => {
 app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './view/home.html'));
 })
+
+app.get('/detalle_producto', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './view/detalle_producto.html'));
+})
+
+app.get('/registro', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './view/registro.html'));
+})
