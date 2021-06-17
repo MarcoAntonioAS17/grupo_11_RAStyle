@@ -177,6 +177,7 @@ body {
     flex-direction: column;
 }
 
+
 @media (min-width: 767px) {
     .Home{
         margin: auto;
@@ -200,13 +201,13 @@ body {
     
     .contenedor1{
         background-color: #F8F9F9;
-        width: 500px;
+        width: 600px;
         height: 150px;
-        padding: 16px;
-        float:center;
+        padding: 8,16px;
+        float:left;
         margin: auto;
         margin-top: 15px;
-        margin-bottom: 25px;
+        margin-bottom: 18px;
     }
     
     .contenedor1 p{
@@ -278,40 +279,44 @@ body {
     
     .contenedor2{
         background-color: #F8F9F9;
-        width: 300px;
-        height: 90px;
+        width: 280px;
+        height: 250px;
         padding: 8px;
-        float:center;
         margin: auto;
         margin-top: 10px;
         border-radius: 5px;
+        position: absolute;
+        left: 680px;
+        top:1500;
+        
+        
     }
     
     .subcontenedor2{
-        width: 180px;
+        width: 300px;
         height: 80px;
-        float:left;
+        float:center;
     }
     
     .resumen{
-        font-size: 9px;
+        font-size: 14px;
         font-weight: bold;
         line-height:0;
     }
     
     
     .articulos{
-        font-size: 8px;
+        font-size: 13px;
         line-height:0;
     }
     
     .total{
-        font-size: 9px;
+        font-size: 15px;
         font-weight: bold;
     }
     
     .pesos{
-        font-size: 11px;
+        font-size: 14px;
         font-weight: bold;
         color: red;
         line-height:0;
@@ -320,15 +325,17 @@ body {
     .subcontenedor3{
         width: 92px;
         height: 80px;
-        float:right;
+        position: absolute;
+        left: 40%;
+        top: 130px;
+        float:center;
     }
     
     .proceder button{
         margin: auto;
-     
-        width: 90px;
+        width: 200px;
         height: 35px;
-        font-size: 9px;
+        font-size: 16px;
         background-color: black;
         color: white;
         display: flex;
@@ -340,11 +347,12 @@ body {
     .seguir button{
         margin: auto;
         margin-top: 10px;
-        width: 90px;
+        width: 200px;
         height: 35px;
-        font-size: 9px;
+        font-size: 16px;
         background-color: grey;
         color: white;
+        align-items: center;
         display: flex;
         float: right;
         flex-direction: column;
