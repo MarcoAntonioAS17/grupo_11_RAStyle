@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/CSS/normalize.css">
+    <link href="./css/detalle_compras.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet"> 
+    
+
+    <title>Detalles de producto</title>
+</head>
+<body>
+    <header>
+        <div class="header-contenedor">
+            
+            <div class="contenedor-logo">
+                <label for="show-nav">
+                    <span id="span_show" class="material-icons-outlined">menu</span>
+                </label>
+                
+                <img id="logo-header" src="./images/Logo_sin_fondo.png" alt="logo">
+            </div>
+            
+            <input type="checkbox" id="show-nav" hidden>
+            <div class="contenedor_menu">
+                <ul class="navbar_menu">
+                    <li><a href="">Hot Sale</a></li>
+                    <li><a href="">Hombres</a></li>
+                    <li><a href="">Mujeres</a></li>
+                    <li><a href="">Promociones</a></li>
+                </ul>
+                <label for="show-nav" class="close_button">
+                    <span id="span_hide" class="material-icons-outlined">close</span>
+                </label>
+            </div>
+
+            <div class="contenedor-buttons">
+                <a href="#"><span class="material-icons">search</span></a>
+                <a href="#"><span class="material-icons">account_circle</span></a>
+                <a href="#"><span class="material-icons-outlined">favorite_border</span></a>
+                <a href="#"><span class="material-icons-outlined">shopping_bag</span></a>
+            </div>
+            
+        </div>
+        
+    </header>
+    <main>
+        <div class="contenedor_main">
+        <div class="ruta">
+            <span class="material-icons-outlined">home</span>
+            <span class="material-icons-outlined">navigate_next</span>
+            Detalle de producto
+            <span class="material-icons-outlined">navigate_next</span>
+            Sudadera deportiva
+        </div>
+        <div class="contenedor_producto">
+            <div class="carrusel_imagenes">
+                <span class="material-icons-outlined">expand_less</span>
+                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+                <span class="material-icons-outlined">expand_more</span>
+            </div>
+            <div class="carrusel">
+                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+            </div>
+            <div class="contenedor_datos">
+                <div class="contenedor_titulo">
+                    <h3 class="item_nombre">Sudadera deportiva Rebook</h3>
+                    <span id="icon_encanta" class="material-icons-outlined">favorite_border</span>
+                    <p class="item_precio">$100.00 MXN</p>
+                </div>
+                <div class="contenedor_color">
+                    <p>Selecciona color </p>
+                    <div>
+                        <button name="color" class="item_color" style="background-color: red;"/>
+                        <button name="color" class="item_color" style="background-color: blue;"/>
+                        <button name="color" class="item_color" style="background-color: black;"/>
+                        <button name="color" class="item_color" style="background-color: white;"/>
+                    </div>
+                </div>
+                <div class="contenedor_talla">
+                    <p>Selecciona tu talla </p>
+                    <div>
+                        <button class="item_talla">XS</button>
+                        <button class="item_talla">S</button>
+                        <button class="item_talla">M</button>
+                        <button class="item_talla">G</button>
+                        <button class="item_talla">XG</button>
+                        <button class="guia_talla">Guía de tallas</button>
+                    </div>
+                    
+                </div>
+                <div class="contenedor_cantidad">
+                    <p>Cantidad </p> 
+                    <div class="input_cantidad">
+                        <button>
+                            <span class="material-icons">remove</span>
+                        </button>
+                        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+                        <button>
+                            <span class="material-icons">add</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="contenedor_botones">
+                    <button>Guía de tallas</button>
+                    <button>Información del producto</button>
+                </div>
+                <button class="agregar_item">Agregar al carrito</button>
+                
+                <label for="mas_info">
+
+                <div class="mas_detalles">
+                    
+                        <span class="material-icons">add</span>
+                        <p>Información del producto</p>
+                    
+                </div>
+            </label>
+                <input type="checkbox" name="" id="mas_info" hidden>
+                <div class="info_oculta">
+                    <h3>Descripción </h3> 
+                    <p>
+                        Chamarra basica con estilo liso, bolsillos frontales y capucha ajustable con cordondes.
+                    </p>
+                    <h3> Composición + Cuidados </h3>
+                    <p>Todos nuestros articulos estan fabricados con textiles y materiales sinteticos y naturales. 
+                        Leer las indicaciones de cuidado que se encuentran en las etiquetas para garantizar su durabilidad. </p>
+                    
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="contenedor_footer">
+            <div>
+                <div class="footer_seccion">
+                    <p>RAStyle</p>
+                    <label for="show_footer_section">
+                        <span class="material-icons">add</span>
+                    </label>
+                </div>
+                <input type="checkbox" id="show_footer_section" hidden>
+                <div class="detalles_ocultos">
+                    <ul>
+                        <a href="#"><li>Acerca de nosotros</li></a>
+                        <a href="#"><li>Política de privacidad</li></a>
+                        <a href="#"><li>Programa de afiliados</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="footer_seccion">
+                    <p >¿Necesitas ayuda?</p>
+                    <label for="show_footer_section2">
+                        <span class="material-icons">add</span>
+                    </label>
+                </div>
+                <input type="checkbox" id="show_footer_section2" hidden>
+                <div class="detalles_ocultos">
+                    <ul>
+                        <a href="#"><li>Información de envíos</li></a>
+                        <a href="#"><li>¿Cómo compras?</li></a>
+                        <a href="#"><li>Devoluciones</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="footer_seccion social_media">
+                    <p >Redes Sociales</p>
+                    <div>
+                        <a href="#"><img src="images/facebook-icon.png" alt="link_facebook"></a>
+                        <a href="#"><img src="images/twitter-icon.png" alt="link_twitter"></a>
+                        <a href="#"><img src="images/instagram-icon.png" alt="link_instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="footer_seccion">
+                    <p >Contáctanos</p>
+                    <label for="show_footer_section3">
+                        <span class="material-icons">add</span>
+                    </label>
+                </div>
+                <input type="checkbox" id="show_footer_section3" hidden>
+                <form class="detalles_ocultos footer_contacto" name="submit">
+                    <div id="contactanos-superior">
+                        <div>
+                            <label for="email">Email:</label>
+                            <input type="email" id="contact_email" placeholder="luis.gonzalez@gmail.com" name="submit">
+                        </div>
+                    </div>
+                    <div>
+                        <textarea placeholder="Escribte tu mensaje..." id="contact_mensaje" name="submit" required> </textarea>
+                    </div>
+                    <div id="reset-submit">
+                        <button type="submit" name="submit" class="button-contactanos">Enviar</button>
+                        <button type="reset" name="submit" class="button-contactanos">Borrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2021 RAStyle.inc Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,87 @@
+@import url(header_styles.css);
+@import url(footer_style.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+main {
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.contenedor {
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+h3 {
+    font-weight: 500;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+.full_name {
+    display: flex;
+    justify-content: space-between;
+}
+.full_name > * {
+    width: 49%;
+}
+.full_name input {
+    width: 100%;
+}
+input {
+    height: 2rem;
+    padding: 0 8px;
+}
+.contenedor_email, .contenedor_password {
+    margin-top: 1rem;
+}
+.contenedor_email *, .contenedor_password *{
+    width: 100%;
+}
+.contenedor_button {
+    padding-top: 3rem;
+    text-align: center;
+}
+.contenedor_button button {
+    width: 50%;
+    height: 2rem;
+    background-color: black;
+    color: white;
+    font-weight: 400;
+    border: 0;
+    border-radius: 8px;
+}
+
+.contenedor_button > p{
+    margin-top: 8px;
+    font-size: 12px;
+}
+.contenedor_button a {
+    color: black;
+    font-weight: 500;
+}
+
+@media (min-width: 767px) {
+    .contenedor {
+        padding: 4rem 2rem;
+        min-height: auto;
+        border: 1px solid #333;
+    }
+    main {
+        min-height: 100vh;
+        padding-top: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}

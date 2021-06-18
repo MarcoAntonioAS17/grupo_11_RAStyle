@@ -1,0 +1,361 @@
+@import url(header_styles.css);
+@import url(footer_style.css);
+*{
+    box-sizing: border-box;
+}
+
+body {
+    height: 100px;
+    font-family: sans-serif;
+}
+
+.Home{
+    margin: auto;
+    margin-top: 65px;
+    background-color: white;
+    color: grey;
+    font-size: 15px;
+}
+.Flecha{
+    margin: auto;
+    margin-top: 65px;
+    background-color: white;
+    color: grey;
+    font-size: 10px;
+    display: inline-block;
+}
+
+.nav{
+    margin: auto;
+}
+.contenedor1{
+    background-color: #F8F9F9;
+    width: 330px;
+    height: 110px;
+    padding: 8px;
+    float:center;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.contenedor1 p{
+    line-height: 1px;
+}
+
+
+.sub-contenedor1 img{
+    width: 95px;
+    height: 85px;
+    float:left;
+}
+
+.texto{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.precio{
+    font-size: 7px;
+}
+
+.desc{
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
+}
+
+.cancelar i{
+    font-size: 25px;
+    float: right;
+}
+
+
+.color{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.talla{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.contenedor_cantidad p{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.contenedor_cantidad span{
+    width: 8px;
+    font-size: 8px;
+    align-items: center;
+}
+
+.contenedor_cantidad input{
+
+    font-size: 8px;
+    align-items: center;
+    width: 30px;
+}
+
+.contenedor_cantidad button{
+    font-size: 8px;
+    align-items: center;
+}
+
+.contenedor2{
+    background-color: #F8F9F9;
+    width: 300px;
+    height: 90px;
+    padding: 8px;
+    float:center;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.subcontenedor2{
+    width: 180px;
+    height: 80px;
+    float:left;
+}
+
+.resumen{
+    font-size: 9px;
+    font-weight: bold;
+    line-height:0;
+}
+
+
+.articulos{
+    font-size: 8px;
+    line-height:0;
+}
+
+.total{
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.pesos{
+    font-size: 11px;
+    font-weight: bold;
+    color: red;
+    line-height:0;
+}
+
+.subcontenedor3{
+    width: 92px;
+    height: 80px;
+    float:right;
+}
+
+.proceder button{
+    margin: auto;
+ 
+    width: 90px;
+    height: 35px;
+    font-size: 9px;
+    background-color: black;
+    color: white;
+    display: flex;
+    float: right;
+    flex-direction: column;
+    
+}
+
+.seguir button{
+    margin: auto;
+    margin-top: 10px;
+    width: 90px;
+    height: 35px;
+    font-size: 9px;
+    background-color: grey;
+    color: white;
+    display: flex;
+    float: right;
+    flex-direction: column;
+}
+
+
+@media (min-width: 767px) {
+    .Home{
+        margin: auto;
+        margin-top: 65px;
+        background-color: white;
+        color: grey;
+        font-size: 25px;
+    }
+    .Flecha{
+        margin: auto;
+        margin-top: 65px;
+        background-color: white;
+        color: grey;
+        font-size: 15px;
+        display: inline-block;
+    }
+    
+    .nav{
+        margin: auto;
+    }
+    
+    .contenedor1{
+        background-color: #F8F9F9;
+        width: 600px;
+        height: 150px;
+        padding: 8,16px;
+        float:left;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 18px;
+    }
+    
+    .contenedor1 p{
+        line-height: 1px;
+    }
+    
+    
+    .sub-contenedor1 img{
+        width: 130px;
+        height: 118px;
+        float:left;
+    }
+    
+    .texto{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .precio{
+        font-size: 9px;
+    }
+    
+    .desc{
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+    }
+    
+    .cancelar i{
+        font-size: 25px;
+        float: right;
+    }
+    
+    
+    .color{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .talla{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .contenedor_cantidad p{
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .contenedor_cantidad span{
+        width: 12px;
+        font-size: 12px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contenedor_cantidad input{
+    
+        font-size: 12px;
+        align-items: center;
+        width: 30px;
+    }
+    
+    .contenedor_cantidad button{
+        font-size: 8px;
+        align-items: center;
+    }
+    
+    .contenedor2{
+        background-color: #F8F9F9;
+        width: 280px;
+        height: 250px;
+        padding: 8px;
+        margin: auto;
+        margin-top: 10px;
+        border-radius: 5px;
+        position: absolute;
+        left: 680px;
+        top:1500;
+        
+        
+    }
+    
+    .subcontenedor2{
+        width: 300px;
+        height: 80px;
+        float:center;
+    }
+    
+    .resumen{
+        font-size: 14px;
+        font-weight: bold;
+        line-height:0;
+    }
+    
+    
+    .articulos{
+        font-size: 13px;
+        line-height:0;
+    }
+    
+    .total{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    .pesos{
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+        line-height:0;
+    }
+    
+    .subcontenedor3{
+        width: 92px;
+        height: 80px;
+        position: absolute;
+        left: 40%;
+        top: 130px;
+        float:center;
+    }
+    
+    .proceder button{
+        margin: auto;
+        width: 200px;
+        height: 35px;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+        display: flex;
+        float: right;
+        flex-direction: column;
+        
+    }
+    
+    .seguir button{
+        margin: auto;
+        margin-top: 10px;
+        width: 200px;
+        height: 35px;
+        font-size: 16px;
+        background-color: grey;
+        color: white;
+        align-items: center;
+        display: flex;
+        float: right;
+        flex-direction: column;
+    }
+    
+}
