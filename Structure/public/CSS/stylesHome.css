@@ -172,5 +172,16 @@
         top: 60%;
         left: 60%;
     }
-
+    .producto-en-carrusel p {
+        position:static;
+    }
+    .precio-producto-carrusel {
+        margin-top: -3vh;
+    }
+    .navegacion-carrusel {
+        margin-top: 8vh;
+    }
+    .marcar-producto-favorito {
+        left: 26vw;
+    }
 }
