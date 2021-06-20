@@ -1,0 +1,202 @@
+@import url(header_styles.css);
+@import url(footer_style.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    padding: 60px 16px 16px 16px;   
+}
+
+.ruta {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 12px;
+}
+
+.carrusel{
+    text-align: center;
+    margin-top: 8px;
+}
+.carrusel_imagenes{
+    display: none;
+}
+
+.image_carrusel {
+    width: 95%;
+}
+
+.contenedor_titulo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.item_nombre {
+    font-weight: 500;
+}
+
+.item_precio {
+    width: 100vw;
+}
+
+.contenedor_color, .contenedor_talla,
+.contenedor_cantidad, .contenedor_botones {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor_color div, .contenedor_talla div {
+    display: flex;
+}
+
+.item_color {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid gray;
+    border-radius: 50px;
+    margin-left: 8px;
+}
+
+.item_talla {
+    width: 2rem;
+    margin-left: 8px;
+}
+
+.input_cantidad {
+    display: flex;
+}
+
+.contenedor_cantidad input[type=number]{
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.input_cantidad button {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #ddd;
+}
+
+.input_cantidad input {
+    border: 1px solid #ddd;
+    text-align: center;
+    font-weight: 500;
+    width: 4rem;
+    height: 2rem;
+}
+
+.contenedor_botones button{
+    height: 2rem;
+    width: 45vw;
+    padding: 0 8px;
+    border: 1px solid #bbb;
+}
+
+.agregar_item {
+    margin-top: 8px;
+    width: 100%;
+    color: white;
+    background-color: black;
+    height: 2rem;
+    font-weight: 500;
+    border: 0;
+}
+.guia_talla, .info_oculta, .mas_detalles {
+    display: none;
+}
+
+@media (min-width: 767px) {
+
+    main {
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+    .contenedor_main {
+        max-width: 1300px;
+        
+    }
+
+    .contenedor_producto{
+        display: flex;
+        justify-content: space-between;
+    }
+    .carrusel {
+        margin: 0;
+        background-color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50vw;
+    }
+    .carrusel img {
+        width: 95%;
+    }
+    .contenedor_datos {
+        width: 30vw;
+        padding-left: 8px;
+    }
+    .contenedor_titulo {
+        font-size: large;
+    }
+    .carrusel_imagenes{
+        width: 8vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #eee;
+    }
+
+    .carrusel_imagenes img {
+        width: 95%;
+        margin: 8px 0;
+    }
+
+    .contenedor_color, .contenedor_talla,
+    .contenedor_cantidad{
+        display: block;
+    }
+    .guia_talla {
+        display: block;
+        margin-left: 8px;
+        min-height: 1.5rem;
+    }
+    .contenedor_botones {
+        display: none;
+    }
+    .mas_detalles {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+    }
+    .mas_detalles p {
+        margin-left: 8px;
+    }
+    .info_oculta h3 {
+        font-weight: 500;
+        margin-top: 8px;
+    }
+    .info_oculta p {
+        margin-top: 8p;
+    }
+    input[type="checkbox"]:checked + .info_oculta {
+        display: block;
+    }
+}
