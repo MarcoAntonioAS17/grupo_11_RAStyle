@@ -3,33 +3,32 @@ const path = require('path');
 
 const app = express();
 
+// REQUERIR ARCHIVOS DE RUTAS
+const homeRoutes = require('./routes/homeRoutes.js');
+const carritoRoutes = require('./routes/carritoRoutes.js');
+const loginRoutes = require('./routes/loginRoutes.js');
+const detalleProductoRoutes = require('./routes/detalleProductoRoutes.js');
+const registroRoutes = require('./routes/registroRoutes.js');
+//
+
 const PORT = process.env.PORT || 3000;
 
-const publicPath= path.resolve(__dirname, './public');
+const publicPath= path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
 
+// Definir EJS como motor
 app.set('view engine','ejs');
 
 app.listen(PORT, () => {
-    console.log('Servidor corriendo en el puerto ',PORT);
+    console.log('Servidor corriendo en el puerto ', PORT);
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './view/home.html'));
-})
+app.get('/', homeRoutes);
 
-app.get('/detalle_producto', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './view/detalle_producto.html'));
-})
+app.use('/detalle_producto', detalleProductoRoutes);
 
-app.get('/registro', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './view/registro.html'));
-})
+app.use('/registro', registroRoutes)
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './view/login.html'));
-})
+app.use('/login', loginRoutes)
 
-app.get('/carrito', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './view/CarritoDeCompra.html'));
-})
+app.use('/carrito', carritoRoutes)
