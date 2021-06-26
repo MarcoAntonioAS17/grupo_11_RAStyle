@@ -23,7 +23,7 @@ app.listen(PORT, () => {
     console.log('Servidor corriendo en el puerto ', PORT);
 });
 
-app.get('/', homeRoutes);
+app.use('/', homeRoutes);
 
 app.use('/detalle_producto', detalleProductoRoutes);
 

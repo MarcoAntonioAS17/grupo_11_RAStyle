@@ -1,0 +1,38 @@
+[
+    {
+        "id":11111,
+        "nombre":"Nombre del Producto.",
+        "precio":"MXN $199.99",
+        "descripcion":"Descripción del producto. Descripción del producto.",
+        "photo1":"images/imagen_enfasis.jpg",
+        "color":"Negro",
+        "talla":["Grande"],
+        "cantidad":10,
+        "enOferta":true,
+        "precioOferta":"MXN $159.99"
+    },
+    {
+        "id":22222,
+        "nombre":"Nombre del Producto.",
+        "precio":"MXN $299.99",
+        "descripcion":"Descripción del producto. Descripción del producto.",
+        "photo1":"images/imagen_enfasis.jpg",
+        "color":"Azul",
+        "talla":["Mediana"],
+        "cantidad":6,
+        "enOferta":false,
+        "precioOferta":""
+    },
+    {
+        "id":33333,
+        "nombre":"Nombre del Producto.",
+        "precio":"MXN $299.99",
+        "descripcion":"Descripción del producto. Descripción del producto.",
+        "photo1":"images/imagen_enfasis.jpg",
+        "color":"Rojo",
+        "talla":["Chico","Grande"],
+        "cantidad":5,
+        "enOferta":true,
+        "precioOferta":"MXN $259.99"
+    }
+]

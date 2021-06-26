@@ -1,55 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link href="./css/detalle_compras.css" rel="stylesheet" type="text/css">
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined">
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;500&display=swap" rel="stylesheet"> 
-    
-
+    <%- include('./partials/head') %>
+    <link href="./css/detalleComprasStyles.css" rel="stylesheet" type="text/css">
     <title>Detalles de producto</title>
 </head>
 <body>
-    <header>
-        <div class="header-contenedor">
-            
-            <div class="contenedor-logo">
-                <label for="show-nav">
-                    <span id="span_show" class="material-icons-outlined">menu</span>
-                </label>
-                
-                <img id="logo-header" src="./images/Logo_sin_fondo.png" alt="logo">
-            </div>
-            
-            <input type="checkbox" id="show-nav" hidden>
-            <div class="contenedor_menu">
-                <ul class="navbar_menu">
-                    <li><a href="">Hot Sale</a></li>
-                    <li><a href="">Hombres</a></li>
-                    <li><a href="">Mujeres</a></li>
-                    <li><a href="">Promociones</a></li>
-                </ul>
-                <label for="show-nav" class="close_button">
-                    <span id="span_hide" class="material-icons-outlined">close</span>
-                </label>
-            </div>
+    <!-- Header -->
+    <%- include('./partials/header') %>
 
-            <div class="contenedor-buttons">
-                <a href="#"><span class="material-icons">search</span></a>
-                <a href="#"><span class="material-icons">account_circle</span></a>
-                <a href="#"><span class="material-icons-outlined">favorite_border</span></a>
-                <a href="#"><span class="material-icons-outlined">shopping_bag</span></a>
-            </div>
-            
-        </div>
-        
-    </header>
+    <!-- Body -->
     <main>
         <div class="contenedor_main">
         <div class="ruta">
@@ -140,76 +100,9 @@
         </div>
         </div>
     </main>
-    <footer class="footer">
-        <div class="contenedor_footer">
-            <div>
-                <div class="footer_seccion">
-                    <p>RAStyle</p>
-                    <label for="show_footer_section">
-                        <span class="material-icons">add</span>
-                    </label>
-                </div>
-                <input type="checkbox" id="show_footer_section" hidden>
-                <div class="detalles_ocultos">
-                    <ul>
-                        <a href="#"><li>Acerca de nosotros</li></a>
-                        <a href="#"><li>Política de privacidad</li></a>
-                        <a href="#"><li>Programa de afiliados</li></a>
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <div class="footer_seccion">
-                    <p >¿Necesitas ayuda?</p>
-                    <label for="show_footer_section2">
-                        <span class="material-icons">add</span>
-                    </label>
-                </div>
-                <input type="checkbox" id="show_footer_section2" hidden>
-                <div class="detalles_ocultos">
-                    <ul>
-                        <a href="#"><li>Información de envíos</li></a>
-                        <a href="#"><li>¿Cómo compras?</li></a>
-                        <a href="#"><li>Devoluciones</li></a>
-                    </ul>
-                </div>
-            </div>
-            <div>
-                <div class="footer_seccion social_media">
-                    <p >Redes Sociales</p>
-                    <div>
-                        <a href="#"><img src="images/facebook-icon.png" alt="link_facebook"></a>
-                        <a href="#"><img src="images/twitter-icon.png" alt="link_twitter"></a>
-                        <a href="#"><img src="images/instagram-icon.png" alt="link_instagram"></a>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="footer_seccion">
-                    <p >Contáctanos</p>
-                    <label for="show_footer_section3">
-                        <span class="material-icons">add</span>
-                    </label>
-                </div>
-                <input type="checkbox" id="show_footer_section3" hidden>
-                <form class="detalles_ocultos footer_contacto" name="submit">
-                    <div id="contactanos-superior">
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" id="contact_email" placeholder="luis.gonzalez@gmail.com" name="submit">
-                        </div>
-                    </div>
-                    <div>
-                        <textarea placeholder="Escribte tu mensaje..." id="contact_mensaje" name="submit" required> </textarea>
-                    </div>
-                    <div id="reset-submit">
-                        <button type="submit" name="submit" class="button-contactanos">Enviar</button>
-                        <button type="reset" name="submit" class="button-contactanos">Borrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <p class="copyright">&copy; 2021 RAStyle.inc Todos los derechos reservados</p>
-    </footer>
+    
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+    
 </body>
 </html>
