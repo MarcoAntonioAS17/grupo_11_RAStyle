@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <%- include('./partials/head') %>
-    <link href="./css/detalleComprasStyles.css" rel="stylesheet" type="text/css">
+    <link href="/css/detalleProductoStyles.css" rel="stylesheet" type="text/css">
     <title>Detalles de producto</title>
 </head>
 <body>
@@ -17,46 +17,51 @@
             <span class="material-icons-outlined">navigate_next</span>
             Detalle de producto
             <span class="material-icons-outlined">navigate_next</span>
-            Sudadera deportiva
+            <%= producto.nombre%>
         </div>
         <div class="contenedor_producto">
             <div class="carrusel_imagenes">
                 <span class="material-icons-outlined">expand_less</span>
-                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
-                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
-                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+                <img class="image_carrusel" src="<%= producto.photo1 %>" alt="sudadera">
+                <% if(producto.photo2) { %>
+                    <img class="image_carrusel" src="<%= producto.photo2 %>" alt="sudadera">
+                <%} else { %>
+                    <img class="image_carrusel" src="/images/imagen_enfasis.jpg" alt="sudadera">
+                <%}%>
+                <% if(producto.photo3) { %>
+                    <img class="image_carrusel" src="<%= producto.photo3 %>" alt="sudadera">
+                <%} else { %>
+                    <img class="image_carrusel" src="/images/imagen_enfasis.jpg" alt="sudadera">
+                <%}%>
                 <span class="material-icons-outlined">expand_more</span>
             </div>
             <div class="carrusel">
-                <img class="image_carrusel" src="./images/sudadera1.jpg" alt="sudadera">
+                <img class="image_carrusel" src="<%= producto.photo1 %>" alt="sudadera">
             </div>
             <div class="contenedor_datos">
                 <div class="contenedor_titulo">
-                    <h3 class="item_nombre">Sudadera deportiva Rebook</h3>
+                    <h3 class="item_nombre"><%= producto.nombre%></h3>
                     <span id="icon_encanta" class="material-icons-outlined">favorite_border</span>
-                    <p class="item_precio">$100.00 MXN</p>
+                    <p class="item_precio"><%= producto.precio%></p>
                 </div>
                 <div class="contenedor_color">
                     <p>Selecciona color </p>
                     <div>
-                        <button name="color" class="item_color" style="background-color: red;"/>
-                        <button name="color" class="item_color" style="background-color: blue;"/>
-                        <button name="color" class="item_color" style="background-color: black;"/>
-                        <button name="color" class="item_color" style="background-color: white;"/>
+                        <% for (let i=0; i<producto.color.length;i++) { %>
+                            <button name="color" class="item_color" style=<%="background-color:"+producto.color[i]%>>
+                        <% } %>
                     </div>
                 </div>
                 <div class="contenedor_talla">
                     <p>Selecciona tu talla </p>
                     <div>
-                        <button class="item_talla">XS</button>
-                        <button class="item_talla">S</button>
-                        <button class="item_talla">M</button>
-                        <button class="item_talla">G</button>
-                        <button class="item_talla">XG</button>
+                        <% for (let i=0; i<producto.talla.length;i++) { %>
+                            <button class="item_talla"><%= producto.talla[i] %></button>
+                        <% } %>
                         <button class="guia_talla">Guía de tallas</button>
                     </div>
-                    
                 </div>
+
                 <div class="contenedor_cantidad">
                     <p>Cantidad </p> 
                     <div class="input_cantidad">
@@ -88,11 +93,16 @@
                 <div class="info_oculta">
                     <h3>Descripción </h3> 
                     <p>
-                        Chamarra basica con estilo liso, bolsillos frontales y capucha ajustable con cordondes.
+                        <% if (producto.descripcion) { %>
+                            <%= producto.descripcion %> 
+                        <% } %>
                     </p>
                     <h3> Composición + Cuidados </h3>
-                    <p>Todos nuestros articulos estan fabricados con textiles y materiales sinteticos y naturales. 
-                        Leer las indicaciones de cuidado que se encuentran en las etiquetas para garantizar su durabilidad. </p>
+                    <p>
+                        <% if (producto.cuidados) { %>
+                            <%= producto.cuidados %> 
+                        <% } %>
+                    </p>
                     
                 </div>
 

@@ -23,120 +23,59 @@
             <h1>MI CARRITO DE COMPRAS</h1>
             <div class="contenedor_carrito_completo">
                 <div class="contenedor_carrito">
-                    <div class="contenedor1">
-                        <div class="contenedor_img">
-                            <img src="images/blazer.jpg">
-                        </div>
-                        <div class="contenedor_descripcion">
-                            <div class="texto">
-                                <p>Blazer Dama. Blanco y Negro</p>
+                    <% let totalPagar = 0; %>
+                    <% for(let i=0; i<productos.length; i++) { %>
+                        <div class="contenedor1">
+                            <div class="contenedor_img">
+                                <img src="<%= productos[i].photo1 %>">
                             </div>
-                            <div class="precio">
-                                <p>MXN $350.00</p>
-                                
-                            </div>
-                            <div class="desc">
-                                <p>MXN $250.00</p>
-                            </div>
-                            <div class="contenedor_detalles">
-                                <div class="color">
-                                    <p>Color <i class="fas fa-circle"></i></p>
+                            <div class="contenedor_descripcion">
+                                <div class="texto">
+                                    <a href=<%="/detalle_producto/"+productos[i].id%>><p><%= productos[i].nombre %></p></a>
                                 </div>
-                                <div class="talla">
-                                    <p>Talla M</p>
-                                </div>
-                                <div class="contenedor_cantidad">
-                                    <p>Cantidad 
-                                        <button> <span class="material-icons">remove</span> </button>
-                                        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
-                                        <button><span class="material-icons">add</span></button>
-                                    </p> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="contenedor_cancelar">
-                            <i class="fas fa-window-close"></i>
-                        </div>
-                    </div>
-
-                    <div class="contenedor1">
-                        <div class="contenedor_img">
-                            <img src="images/sudadera1.jpg">
-                        </div>
-                        <div class="contenedor_descripcion">
-                            <div class="texto">
-                                <p>Sudadera deportiva Reebok</p>
-                            </div>
-                            <div class="precio">
-                                <p>MXN $150.00</p>
-                                
-                            </div>
-                            <div class="desc">
-                                <p>MXN $100.00</p>
-                            </div>
-                            <div class="contenedor_detalles">
-                                <div class="color">
-                                    <p>Color <i class="fas fa-circle"></i></p>
-                                </div>
-                                <div class="talla">
-                                    <p>Talla G</p>
-                                </div>
-                                <div class="contenedor_cantidad">
-                                    <p>Cantidad 
-                                        <button><span class="material-icons">remove</span></button>
-                                        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
-                                        <button><span class="material-icons">add</span></button>
-                                    </p> 
+                                <% if (productos[i].enOferta == true) { %>
+                                    <div class="precio">
+                                        <p><%= productos[i].precio %></p>
+                                    </div>
+                                    <div class="desc">
+                                        <p><%= productos[i].precioOferta %></p>
+                                    </div>
+                                    <% totalPagar = totalPagar + productos[i].precioOfertaNum; %>
+                                <% } else { %>
+                                    <div class="desc">
+                                        <p><%= productos[i].precio %></p>
+                                    </div>
+                                    <% totalPagar = totalPagar + productos[i].precioNum; %>
+                                <% } %>
+                                <div class="contenedor_detalles">
+                                    <div class="color" style=<%="color:"+productos[i].color%>>
+                                        <p>Color <i class="fas fa-circle"></i></p>
+                                    </div>
+                                    <div class="talla">
+                                        <p>Talla <%= productos[i].talla[0] %></p>
+                                    </div>
+                                    <div class="contenedor_cantidad">
+                                        <p>Cantidad 
+                                            <button> <span class="material-icons">remove</span> </button>
+                                            <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+                                            <button><span class="material-icons">add</span></button>
+                                        </p> 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="contenedor_cancelar">
-                            <i class="fas fa-window-close"></i>
-                        </div>
-                    </div>
-
-                    <div class="contenedor1">
-                        <div class="contenedor_img">
-                            <img src="images/playera.jpg">
-                        </div>
-                        <div class="contenedor_descripcion">
-                            <div class="texto">
-                                <p>Playera juvenil caballero</p>
-                            </div>
-                            <div class="precio">
-                                <p>MXN $180.00</p>
-                            </div>
-                            <div class="desc">
-                                <p>MXN $150.00</p>
-                            </div>
-                            <div class="contenedor_detalles">
-                                <div class="color">
-                                    <p>Color <i class="fas fa-circle"></i></p>
-                                </div>
-                                <div class="talla">
-                                    <p>Talla S</p>
-                                </div>
-                                <div class="contenedor_cantidad">
-                                    <p>Cantidad 
-                                        <button><span class="material-icons">remove</span></button>
-                                        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
-                                        <button><span class="material-icons">add</span></button>
-                                    </p> 
-                                </div>
+                            <div class="contenedor_cancelar">
+                                <a href="#"><i class="fas fa-window-close"></i></a>
                             </div>
                         </div>
-                        <div class="contenedor_cancelar">
-                            <i class="fas fa-window-close"></i>
-                        </div>
-                    </div>
-
+                    <% } %>
                 </div>
+
                 <div class="contenedor2">
                     <div class="subcontenedor2">
                         <div class="resumen"><h2>RESUMEN DEL PEDIDO</h2></div>
-                        <div class="articulos"><h4>3 ARTÍCULOS EN MI BOLSA </h4></div>
+                        <div class="articulos"><h4><%=productos.length%> ARTÍCULOS EN MI BOLSA </h4></div>
                         <div class="total"><h2>TOTAL A PAGAR</h2></div>
-                        <div class="pesos"><h3>MXN $600.00</h3></div>
+                        <div class="pesos"><h3>MXN $<%=totalPagar%></h3></div>
                     </div>
                     <div class="subcontenedor3">
                         <div class="proceder"><button>PROCEDER A PAGAR</button></div>

@@ -7,11 +7,12 @@
 </head>
 
 <body class="pagina-completa">
-    
+    <!--Header-->
     <header>
         <%- include('./partials/header') %>
     </header>
 
+    <!--Body Home-->
     <section class="cuerpo">
         <div class="carrusel-grande">
             <img src="images/carrusel-react.jpg" alt="Vista ejemplo de carrusel">
@@ -19,20 +20,16 @@
         <h2 class="titulos-carrusel">PROMOCIONES</h2>
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
-                <article class="producto-en-carrusel">
+                <a href=<%="/detalle_producto/"+productos[i].id%>><article class="producto-en-carrusel">
                     <img src="<%= productos[i].photo1 %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                     <p class="precio-producto-carrusel"> <%= productos[i].precio %> </p>
                     <p class="nombre-producto-carrusel"><%= productos[i].nombre %></p>
-                </article>
+                </article></a>
             <% } %>
         </div>
         <article class="navegacion-carrusel">
-            <a href="#" class="array-back-carrusel"><span class="material-icons-outlined">arrow_back_ios</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="array-forward-carrusel"><span class="material-icons-outlined">arrow_forward_ios</span></a>
+            <%- include('./partials/navegacionCarrusel') %>
         </article>
         <div class="seccion-enfasis">
             <img src="images/item.jpg">
@@ -43,23 +40,20 @@
         <h2 class="titulos-carrusel">NUEVOS PRODUCTOS</h2>
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
-                <article class="producto-en-carrusel">
+                <a href=<%="/detalle_producto/"+productos[i].id%>><article class="producto-en-carrusel">
                     <img src="<%= productos[i].photo1 %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                     <p class="precio-producto-carrusel"> <%= productos[i].precio %> </p>
                     <p class="nombre-producto-carrusel"><%= productos[i].nombre %></p>
-                </article>
+                </article></a>
             <% } %>
         </div>
         <article class="navegacion-carrusel">
-            <a href="#" class="array-back-carrusel"><span class="material-icons-outlined">arrow_back_ios</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="punto-elemento-carrusel"><span class="material-icons-outlined">adjust</span></a>
-            <a href="#" class="array-forward-carrusel"><span class="material-icons-outlined">arrow_forward_ios</span></a>
+            <%- include('./partials/navegacionCarrusel') %>
         </article>
     </section>
 
+    <!--Footer-->
     <%- include('./partials/footer') %>
 
 </body>
