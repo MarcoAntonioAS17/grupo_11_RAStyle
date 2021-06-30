@@ -109,13 +109,17 @@
                         </div>
                     </div>
                     <div class="contenedor_listado_productos">
-                        <% for (let i = 0; i < 10; i++) { %>
-                        <article class="contenedor_producto">
-                            <img src="/images/item.jpg" alt="foto del producto" class="producto-img">
-                            <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
-                            <p class="precio-producto"> $ 100.00 MXN </p>
-                            <p class="nombre-producto">Camisa formal </p>
-                        </article>
+                        <% for(let j=0; j < 3; j++) { %>
+                        <% for(let i=0; i < productos.length; i++) { %>
+                            <a href=<%="/detalle_producto/"+productos[i].id%>>
+                                <article class="contenedor_producto">
+                                    <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img">
+                                    <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
+                                    <p class="precio-producto">MXN $<%= productos[i].precio %></p>
+                                    <p class="nombre-producto"><%= productos[i].nombre %> </p>
+                                </article>
+                            </a>
+                        <%}%>
                         <%}%>
                     </div>
                 </div>

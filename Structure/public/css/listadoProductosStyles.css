@@ -70,6 +70,7 @@ main {
 
 .contenedor_producto img {
     width: 100%;
+    height: 10rem;
 }
 
 .contenedor_producto .precio-producto {
@@ -79,7 +80,7 @@ main {
 .marcar-producto-favorito {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 10px;
 }
 
 .contenedor_filtros {
@@ -156,6 +157,7 @@ main {
     .contenedor_producto {
         max-width: 200px;
     }
-    
-
+    .contenedor_producto img {
+        height: 14rem;
+    }
 }

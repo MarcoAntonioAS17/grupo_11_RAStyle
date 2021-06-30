@@ -48,8 +48,8 @@
                                     <% totalPagar = totalPagar + productos[i].precio; %>
                                 <% } %>
                                 <div class="contenedor_detalles">
-                                    <div class="color" style=<%="color:"+productos[i].color%>>
-                                        <p>Color <i class="fas fa-circle"></i></p>
+                                    <div class="color" >
+                                        <p>Color <div class="circulo_color" style=<%="background-color:"+productos[i].color%>></div>    </p>
                                     </div>
                                     <div class="talla">
                                         <p>Talla <%= productos[i].talla[0] %></p>
