@@ -19,6 +19,7 @@ app.use(express.static(publicPath));
 
 // Definir EJS como motor
 app.set('view engine','ejs');
+app.set('views',path.join(__dirname, '/views'));
 
 app.listen(PORT, () => {
     console.log('Servidor corriendo en el puerto ', PORT);
