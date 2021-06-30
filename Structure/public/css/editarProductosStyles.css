@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    padding: 60px 8px 8px 8px;   
+}
+
+.ruta {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 12px;
+}
+
+.titulo h1{
+    font-size: x-large;
+    font-weight: 500;
+}
+.titulo p {
+    font-size: x-small;
+    color: grey;
+}
+
+form {
+    margin-top: 8px;
+}
+.contenedor_input {
+    margin-top: 8px;
+}
+.contenedor_input *{
+    width: 100%;
+    height: 2rem;
+}
+.contenedor_input label {
+    color: gray;
+}
+.contenedor_input input, .contenedor_input select, textarea {
+    padding-left: 8px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+textarea {
+    min-height: 5rem !important;
+}
+
+/*Tallas y colores*/
+.tallas_colores {
+    margin-top: 1rem;
+}
+.tallas_colores h1 {
+    font-size: large;
+    font-weight: 400;
+}
+.seccion_tallas_colores, .seccion_inventario {
+    margin-top: 8px;
+}
+.seccion_tallas_colores p, .seccion_inventario > p {
+    color: gray;
+}
+.list_tallas, .list_colores{
+    font-size: small;
+    display: flex;
+    justify-content: space-between;
+}
+.list_tallas div div, .list_colores div > div {
+    margin-top: 4px;
+    padding: 1px 8px;
+}
+
+.list_colores div div label{
+    display: flex;
+    cursor: pointer;
+}
+.list_colores div div label *{
+    margin-right: 4px;
+}
+.list_colores div div:hover{
+    background-color: #d9e8f5;
+    border-radius: 3px;
+}
+.circulo_color {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+
+/*Sección de Inventario*/
+
+.inventario_encabezado {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    border-bottom: 1px solid gray;
+}
+.inventario_encabezado label {
+    font-size: small;
+}
+.encabezado_apl_todos {
+    display: flex;
+    align-items: center;
+}
+.encabezado_apl_todos > p {
+    margin-right: 8px;
+    font-size: small;
+}
+.contenedor_inventario label {
+    color: gray;
+}
+
+.inventario_item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid gray;
+    row-gap: 8px;
+}
+.item_descripcion {
+    display: flex;
+}
+.item_descripcion > * {
+    margin-left: 8px;
+}
+.item_descripcion input[type="number"] {
+    width: 100%;
+    text-align: right;
+}
+.item_mitad {
+    width: 50%;
+    display: flex;
+}
+
+/*Contenedor lateral*/
+.contenedor_images {
+    padding: 8px 0;
+}
+.contenedor_images > p {
+    color: gray;
+}
+.contenedor_fotos {
+    margin: 8px 0;
+    display: flex;
+}
+.contenedor_fotos div{
+    width: 8rem;
+    height: 8rem;
+    border: 1px solid gray;
+    margin-right: 8px;
+    border-radius: 10px;
+}
+.contenedor_fotos > div {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/*Botones*/
+.contenedor_botones {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+}
+.contenedor_botones button{
+    height: 2rem;
+    border: 1px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#guardar {
+    background-color: #d9e8f5;
+    width: 100%;
+}
+.contenedor_botones div {
+    width: 100%;
+    display: flex;
+}
+.contenedor_botones div button{
+    background-color: white;
+    width: 50%;
+}
+#pausa {
+    margin-left: 8px;
+}
+
+.oculto_movil {
+    display: none;
+}
+
+@media (min-width: 767px) {
+    
+    main {
+        display: flex;
+        justify-content: center;
+    }
+    .contenedor_main {
+        max-width: 1300px;
+        min-width: 100vh;
+    }
+    .contenedor_edicion {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid gray;
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+    .contenedor_inputs {
+        width: 100%;
+        margin-right: 1rem;
+    }
+    .contenedor_inputs label{
+        padding-left: 8px;
+    }
+    .contenedor_input_50 {
+        display: flex;
+        justify-content: space-between;
+    }
+    .contenedor_input_50 > *{
+        width: 100%;
+    }
+    .contenedor_input_50 div ~ div{
+        margin-left: 1rem;
+    }
+    .tallas_colores > .seccion_tc {
+        display: flex;
+        justify-content: space-between;
+    }
+    .seccion_tc > div{
+        width: 50%;
+    }
+    .seccion_tc> div ~ div {
+        margin-left: 1rem;
+    }
+
+    .seccion_inventario {
+        padding-top: 1rem;
+    }
+    .oculto_movil {
+        display: block;
+    }
+    .inventario_encabezado {
+        align-items: center;
+        text-align: center;
+    }
+    .inventario_encabezado > * {
+        width: 15%;
+    }
+    .encabezado_apl_todos > p {
+        font-size: medium;
+    }
+    .encabezado_apl_todos {
+        flex-direction: column;
+    }
+    .inventario_item {
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+    .inventario_item > div {
+        width: 15%;
+    }
+    .item_descripcion {
+        justify-content: center;
+        align-items: center;
+    }
+    .item_descripcion input[type="number"] {
+        height: 2rem;
+    }
+    .contenedor_inventario {
+        margin-bottom: 1rem;
+    }
+
+    #linea_division {
+        background-color: #ccc;
+        width: 1px;
+    }
+    .contenedor_lateral {
+        width: 20vw;
+        margin: 8px 1rem;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        text-align: center;
+    }
+    .contenedor_images {
+        margin-top: 1rem;
+    }
+    .contenedor_fotos {
+        flex-direction: column;
+    }
+    .contenedor_fotos div {
+        width: 100%;
+        height: 20vw;
+        margin-bottom: 8px;
+    }
+    .button_agregar_foto {
+        height: auto !important;
+        padding: 8px 0 !important;
+        cursor: pointer;
+    }
+
+    .oculto_desk {
+        display: none;
+    }
+}
