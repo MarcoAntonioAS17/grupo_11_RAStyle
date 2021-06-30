@@ -22,27 +22,26 @@
         <div class="contenedor_producto">
             <div class="carrusel_imagenes">
                 <span class="material-icons-outlined">expand_less</span>
-                <img class="image_carrusel" src="<%= producto.photo1 %>" alt="sudadera">
-                <% if(producto.photo2) { %>
-                    <img class="image_carrusel" src="<%= producto.photo2 %>" alt="sudadera">
-                <%} else { %>
-                    <img class="image_carrusel" src="/images/imagen_enfasis.jpg" alt="sudadera">
-                <%}%>
-                <% if(producto.photo3) { %>
-                    <img class="image_carrusel" src="<%= producto.photo3 %>" alt="sudadera">
-                <%} else { %>
-                    <img class="image_carrusel" src="/images/imagen_enfasis.jpg" alt="sudadera">
-                <%}%>
+                <% for (let i=0; i<producto.photos.length; i++) { %>
+                    <% if(producto.photos[i]) { %>
+                        <img class="image_carrusel" src="<%= producto.photos[i] %>" alt="sudadera">
+                    <% } %>
+                <% } %>
                 <span class="material-icons-outlined">expand_more</span>
             </div>
             <div class="carrusel">
-                <img class="image_carrusel" src="<%= producto.photo1 %>" alt="sudadera">
+                <img class="image_carrusel" src="<%= producto.photos[0] %>" alt="sudadera">
             </div>
             <div class="contenedor_datos">
                 <div class="contenedor_titulo">
                     <h3 class="item_nombre"><%= producto.nombre%></h3>
                     <span id="icon_encanta" class="material-icons-outlined">favorite_border</span>
-                    <p class="item_precio"><%= producto.precio%></p>
+                    <% if (producto.enOferta == false) { %>
+                        <p class="item_precio">MXN $<%=producto.precio%></p>
+                    <% } else { %>
+                        <p class="item_precio">MXN $<%=producto.precioOferta%></p>
+                    <% } %>
+                    
                 </div>
                 <div class="contenedor_color">
                     <p>Selecciona color </p>

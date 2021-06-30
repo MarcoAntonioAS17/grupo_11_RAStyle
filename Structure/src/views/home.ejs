@@ -21,9 +21,9 @@
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
                 <a href=<%="/detalle_producto/"+productos[i].id%>><article class="producto-en-carrusel">
-                    <img src="<%= productos[i].photo1 %>" alt="foto del producto" class="producto-img-carrusel">
+                    <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
-                    <p class="precio-producto-carrusel"> <%= productos[i].precio %> </p>
+                    <p class="precio-producto-carrusel"> MXN $<%= productos[i].precio %> </p>
                     <p class="nombre-producto-carrusel"><%= productos[i].nombre %></p>
                 </article></a>
             <% } %>
@@ -41,9 +41,9 @@
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
                 <a href=<%="/detalle_producto/"+productos[i].id%>><article class="producto-en-carrusel">
-                    <img src="<%= productos[i].photo1 %>" alt="foto del producto" class="producto-img-carrusel">
+                    <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
-                    <p class="precio-producto-carrusel"> <%= productos[i].precio %> </p>
+                    <p class="precio-producto-carrusel"> MXN $<%= productos[i].precio %> </p>
                     <p class="nombre-producto-carrusel"><%= productos[i].nombre %></p>
                 </article></a>
             <% } %>

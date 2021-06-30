@@ -27,7 +27,7 @@
                     <% for(let i=0; i<productos.length; i++) { %>
                         <div class="contenedor1">
                             <div class="contenedor_img">
-                                <img src="<%= productos[i].photo1 %>">
+                                <img src="<%= productos[i].photos[0] %>">
                             </div>
                             <div class="contenedor_descripcion">
                                 <div class="texto">
@@ -35,17 +35,17 @@
                                 </div>
                                 <% if (productos[i].enOferta == true) { %>
                                     <div class="precio">
-                                        <p><%= productos[i].precio %></p>
+                                        <p>MXN $<%= productos[i].precio %></p>
                                     </div>
                                     <div class="desc">
-                                        <p><%= productos[i].precioOferta %></p>
+                                        <p>MXN $<%= productos[i].precioOferta %></p>
                                     </div>
-                                    <% totalPagar = totalPagar + productos[i].precioOfertaNum; %>
+                                    <% totalPagar = totalPagar + productos[i].precioOferta; %>
                                 <% } else { %>
                                     <div class="desc">
-                                        <p><%= productos[i].precio %></p>
+                                        <p>MXN $<%= productos[i].precio %></p>
                                     </div>
-                                    <% totalPagar = totalPagar + productos[i].precioNum; %>
+                                    <% totalPagar = totalPagar + productos[i].precio; %>
                                 <% } %>
                                 <div class="contenedor_detalles">
                                     <div class="color" style=<%="color:"+productos[i].color%>>
