@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    
+    <title>Listado de productos</title>
+    <link rel="stylesheet" href="/css/listadoProductosStyles.css">
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <!-- Body -->
+    <main>
+        <div class="contenedor_main">
+            <div class="ruta">
+                <span class="material-icons-outlined">home</span>
+                <span class="material-icons-outlined">navigate_next</span>
+                Hombres
+                <span class="material-icons-outlined">navigate_next</span>
+                Playeras
+            </div>
+            
+            <div class="contenedor_listado_general">
+                <div class="contenedor_filtros">
+                    <h2>Filtros</h2>
+                    <div class="filtros">
+                        <div class="item_filtro">
+                            <h3>Precio</h3>
+                            <div>
+                                <input type="checkbox" name="filtro_precio_1" id="filtro_precio_1">
+                                <label for="filtro_precio_1">$0.00 - $100.00</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_precio_2" id="filtro_precio_2">
+                                <label for="filtro_precio_2">$100.00 - $200.00</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_precio_3" id="filtro_precio_3">
+                                <label for="filtro_precio_3">$2000.00 - $300.00</label>
+                            </div>
+                        </div>
+                        
+                        <div class="item_filtro">
+                            <h3>Talla</h3>
+                            <div>
+                                <input type="checkbox" name="filtro_talla_1" id="filtro_talla_1">
+                                <label for="filtro_talla_1">Pequeña (S)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_talla_2" id="filtro_talla_2">
+                                <label for="filtro_talla_2">Mediana (M)</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_talla_3" id="filtro_talla_3">
+                                <label for="filtro_talla_3">Grande (L)</label>
+                            </div>
+                        </div>
+                        <div class="item_filtro item_filtro_color">
+                            <h3>Color</h3>
+                            <div>
+                                <input type="checkbox" name="filtro_color_1" id="filtro_color_1">
+                                <label for="filtro_color_1"> 
+                                    <div class="filtro_color" style="background-color: black;"></div>
+                                     Negro
+                                </label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_color_2" id="filtro_color_2">
+                                <label for="filtro_color_2">
+                                    <div class="filtro_color" style="background-color: red;"></div>
+                                    Rojo
+                                </label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filtro_color_3" id="filtro_color_3">
+                                <label for="filtro_color_3">
+                                    <div class="filtro_color" style="background-color: blue;"></div>
+                                    Azul
+                                </label>
+                            </div>
+                        </div>
+                        <div class="item_filtro">
+                            <h3>En Descuento</h3>
+                            <div>
+                                <input type="checkbox" name="filtro_descuento" id="filtro_descuento">
+                                <label for="filtro_descuento">Solo con descuento</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contenedor_listado">
+                    <div class="contenedor_encabezado_lista">
+                        <h1>PLAYERAS HOMBRES</h1>
+                        <div class="contenedor_encabezado_lista_controles">
+                            <label for="checkbox_filtros">Filtros</label>
+                                <input type="checkbox" name="checkbox_filtros" id="checkbox_filtros" hidden>
+                            <div class="contenedor_button_ordenar">
+                                <div>
+                                    <div>Ordenar por</div>
+                                    <div>Menor precio</div>
+                                </div>
+                                <div>
+                                    <span class="material-icons-outlined">
+                                        expand_more
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contenedor_listado_productos">
+                        <% for (let i = 0; i < 10; i++) { %>
+                        <article class="contenedor_producto">
+                            <img src="/images/item.jpg" alt="foto del producto" class="producto-img">
+                            <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
+                            <p class="precio-producto"> $ 100.00 MXN </p>
+                            <p class="nombre-producto">Camisa formal </p>
+                        </article>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+    
+</body>
+</html>

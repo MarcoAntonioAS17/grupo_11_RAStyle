@@ -5,5 +5,7 @@ const detalleProductoController = require("../controllers/detalleProductoControl
 
 router.get('/:idProducto', detalleProductoController.index);
 
+router.get('/editar', detalleProductoController.editar);
+
 
 module.exports = router;

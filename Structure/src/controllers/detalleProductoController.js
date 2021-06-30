@@ -7,6 +7,9 @@ let detalleProductoController = {
 
         res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
+    editar: (req, res) => {
+        res.render('editarProductos.ejs')
+    },
 }
 
 module.exports = detalleProductoController;

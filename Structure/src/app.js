@@ -9,6 +9,7 @@ const carritoRoutes = require('./routes/carritoRoutes.js');
 const loginRoutes = require('./routes/loginRoutes.js');
 const detalleProductoRoutes = require('./routes/detalleProductoRoutes.js');
 const registroRoutes = require('./routes/registroRoutes.js');
+const coleccionesRoutes = require('./routes/coleccionesRoutes');
 //
 
 const PORT = process.env.PORT || 3000;
@@ -27,8 +28,10 @@ app.use('/', homeRoutes);
 
 app.use('/detalle_producto', detalleProductoRoutes);
 
-app.use('/registro', registroRoutes)
+app.use('/registro', registroRoutes);
 
-app.use('/login', loginRoutes)
+app.use('/login', loginRoutes);
 
-app.use('/carrito', carritoRoutes)
+app.use('/carrito', carritoRoutes);
+
+app.use('/coleccion', coleccionesRoutes);

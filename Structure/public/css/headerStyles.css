@@ -1,3 +1,6 @@
+header {
+    z-index: 100;
+}
 
 .header-contenedor {
     position: fixed;
@@ -6,9 +9,6 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
-    top: 0;
-    right: 0;
-    z-index: 100;
 }
 
 #logo-header {

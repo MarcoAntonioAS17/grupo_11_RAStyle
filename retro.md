@@ -1,16 +1,18 @@
 # **Restrospectiva**
-##### Equipo 11 - Sprint 1
+##### Equipo 11 - Sprint 3
 
 ### *Comenzar a hacer:*
-- Usar las ramas en el repositorio para organizar mejor los flujos de trabajo y las versiones del proyecto.
-- Usar Trello para administrar las tareas en el sprint.
-- Trabajar con el modelo Mobile First.
+- Prestar atención a los detalles.
+- Definir con anticipación la estructura a seguir para que la trabaje todo el equipo.
 ### *Hacer más:*
-- Reunirnos con más tiempo de anticipación y/o más frecuentemente.
+- Practicar más los temas vistos en clase.
+- Cuidar los tiempos de entrega y reunir los trabajos individuales.
 ### *Continuar haciendo:*
-- La división del trabajo equitativamente entre los miembros del equipo, para no sobrecargar a nadie. 
-- Llegar a las reuniones con un conocimiento previo de lo que se tratará.
+- Dividiendo el trabajo entre los integrantes del equipo. 
+- Reuniones para la presentación de avances.
+- Apoyándonos en equipo para la solución de problemas.
 ### *Hacer menos:*
-- N/A
+- Commits con muy pocos cambios.
 ### *Dejar de hacer:*
-- Procrastinar al momento de hacer las tareas que se tienen asignadas.
+- Procrastinar 
+- No implementar ayudas en css.
