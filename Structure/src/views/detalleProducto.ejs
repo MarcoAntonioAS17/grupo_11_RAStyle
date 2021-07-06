@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link href="/css/detalleProductoStyles.css" rel="stylesheet" type="text/css">
+    <title>Detalles de producto</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <!-- Body -->
+    <main>
+        <div class="contenedor_main">
+        <div class="ruta">
+            <span class="material-icons-outlined">home</span>
+            <span class="material-icons-outlined">navigate_next</span>
+            Detalle de producto
+            <span class="material-icons-outlined">navigate_next</span>
+            <%= producto.nombre%>
+        </div>
+        <div class="contenedor_producto">
+            <div class="carrusel_imagenes">
+                <span class="material-icons-outlined">expand_less</span>
+                <% for (let i=0; i<producto.photos.length; i++) { %>
+                    <% if(producto.photos[i]) { %>
+                        <img class="image_carrusel" src="<%= producto.photos[i] %>" alt="sudadera">
+                    <% } %>
+                <% } %>
+                <span class="material-icons-outlined">expand_more</span>
+            </div>
+            <div class="carrusel">
+                <img class="image_carrusel" src="<%= producto.photos[0] %>" alt="sudadera">
+            </div>
+            <div class="contenedor_datos">
+                <div class="contenedor_titulo">
+                    <h3 class="item_nombre"><%= producto.nombre%></h3>
+                    <span id="icon_encanta" class="material-icons-outlined">favorite_border</span>
+                    <% if (producto.enOferta == false) { %>
+                        <p class="item_precio">MXN $<%=producto.precio%></p>
+                    <% } else { %>
+                        <p class="item_precio">MXN $<%=producto.precioOferta%></p>
+                    <% } %>
+                    
+                </div>
+                <div class="contenedor_color">
+                    <p>Selecciona color </p>
+                    <div>
+                        <% for (let i=0; i<producto.color.length;i++) { %>
+                            <button name="color" class="item_color" style=<%="background-color:"+producto.color[i]%>>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="contenedor_talla">
+                    <p>Selecciona tu talla </p>
+                    <div>
+                        <% for (let i=0; i<producto.talla.length;i++) { %>
+                            <button class="item_talla"><%= producto.talla[i] %></button>
+                        <% } %>
+                        <button class="guia_talla">Guía de tallas</button>
+                    </div>
+                </div>
+
+                <div class="contenedor_cantidad">
+                    <p>Cantidad </p> 
+                    <div class="input_cantidad">
+                        <button>
+                            <span class="material-icons">remove</span>
+                        </button>
+                        <input type="number" value="1" min="1" step="1" name="cantidad" id="">
+                        <button>
+                            <span class="material-icons">add</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="contenedor_botones">
+                    <button>Guía de tallas</button>
+                    <button>Información del producto</button>
+                </div>
+                <button class="agregar_item">Agregar al carrito</button>
+                
+                <label for="mas_info">
+
+                <div class="mas_detalles">
+                    
+                        <span class="material-icons">add</span>
+                        <p>Información del producto</p>
+                    
+                </div>
+            </label>
+                <input type="checkbox" name="" id="mas_info" hidden>
+                <div class="info_oculta">
+                    <h3>Descripción </h3> 
+                    <p>
+                        <% if (producto.descripcion) { %>
+                            <%= producto.descripcion %> 
+                        <% } %>
+                    </p>
+                    <h3> Composición + Cuidados </h3>
+                    <p>
+                        <% if (producto.cuidados) { %>
+                            <%= producto.cuidados %> 
+                        <% } %>
+                    </p>
+                    
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+    
+</body>
+</html>

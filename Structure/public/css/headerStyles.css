@@ -1,3 +1,8 @@
+header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+}
 
 .header-contenedor {
     position: fixed;
@@ -6,9 +11,6 @@
     height: 60px;
     display: flex;
     justify-content: space-between;
-    top: 0;
-    right: 0;
-    z-index: 100;
 }
 
 #logo-header {
@@ -22,6 +24,19 @@
     display: flex;
     align-items: center;
 }
+/*
+.contenedor-logo img {
+    animation: agrandarLogo 1000ms linear infinite alternate;
+}
+
+ @keyframes agrandarLogo{
+    0% {
+        height: 40px;
+    }
+    100% {
+        height: 50px;
+    }
+} */
 
 .contenedor-buttons {
     padding: 8px;

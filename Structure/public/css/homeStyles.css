@@ -1,39 +1,40 @@
 * {
     box-sizing: border-box;
     font-family: roboto;
+    padding: 0;
+    margin: 0;
 }
 
-
+header {
+    position: fixed;
+    z-index: 100;
+}
 .cuerpo {
-    position: relative;
-    top: 60px;
-    left: 0;
+    margin-top: 60px;
 }
 .carrusel-grande img{
-    margin-top: 10px;
     margin-bottom: 15px;
     width: 100%;
     height: 25vh;
+    position: sticky;
+    z-index: 0;
 }
 
 .titulos-carrusel {
     text-align: center;
     margin-top: 30px;
-    margin-bottom: -5px;
 }
 .cassusel-pequeño {
     display:flex;
     justify-content: space-between;
     padding: 1.5vw;
-    margin-bottom: -40px;
 }
 .producto-en-carrusel img {
     width: 30vw;
+    height: 10rem;
 }
 .producto-en-carrusel p {
     max-width: 28vw;
-    position: relative;
-    bottom: 6vw;
 }
 .precio-producto-carrusel {
     font-weight: bold;
@@ -44,11 +45,12 @@
 .producto-en-carrusel .nombre-producto-carrusel{
     bottom: 8vw;
 }
-
-.marcar-producto-favorito {
+.producto-en-carrusel{
     position: relative;
-    bottom: 37vw;
-    left: 22vw;
+}
+.marcar-producto-favorito {
+    position: absolute;
+    right: 10px;
     color: #304269;
 }
 .marcar-producto-favorito .material-icons-outlined {
@@ -58,8 +60,6 @@
 .navegacion-carrusel {
     display: flex;
     justify-content: Center;
-    position:relative;
-    bottom: 3vw;
 }
 .navegacion-carrusel span {
     color: black;
@@ -156,7 +156,6 @@
     }
     #titulo-enfasis {
         left: 42%;
-        width: 60%;
         max-height: 12.5%;
         font-size: 25px;
     }
@@ -172,16 +171,10 @@
         top: 60%;
         left: 60%;
     }
-    .producto-en-carrusel p {
-        position:static;
-    }
-    .precio-producto-carrusel {
-        margin-top: -3vh;
-    }
-    .navegacion-carrusel {
-        margin-top: 8vh;
-    }
     .marcar-producto-favorito {
-        left: 26vw;
+        top: 10px;
+    }
+    .producto-en-carrusel img {
+        height: 20rem;
     }
 }

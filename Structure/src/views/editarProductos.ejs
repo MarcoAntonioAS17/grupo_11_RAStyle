@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link href="/css/editarProductosStyles.css" rel="stylesheet" type="text/css">
+    <title>Detalles de producto</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <!-- Body -->
+    <main>
+        <div class="contenedor_main">
+            <div class="ruta">
+                <span class="material-icons-outlined">home</span>
+                <span class="material-icons-outlined">navigate_next</span>
+                Detalle de producto
+                <span class="material-icons-outlined">navigate_next</span>
+                Sudadera deportiva
+                <span class="material-icons-outlined">navigate_next</span>
+                Editar
+            </div>
+            <div class="contenedor_edicion">
+                <div class="contenedor_inputs">
+                    <div class="titulo">
+                        <h1>Edición de Producto</h1>
+                        <p>ID 120FF2V4J9</p>
+                    </div>
+                    <div>
+                        <form action="">
+                            <div class="info_basica">
+                                <div class="contenedor_input_50">
+                                    <div class="contenedor_input">
+                                        <label for="item_nombre">Nombre del producto</label>
+                                        <input type="text" id="item_nombre" name="item_nombre">
+                                    </div>
+                                    <div class="contenedor_input">
+                                        <label for="item_coleccion">Colección</label>
+                                        <select id="item_coleccion">
+                                            <optgroup label="2021">
+                                                <option value="1">Otoño</option>
+                                                <option value="2">Verano</option>
+                                                <option value="3">Invierno</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contenedor_input_50">
+                                    <div class="contenedor_input">
+                                        <label for="item_categoria">Categoría</label>
+                                        <select id="item_categoria">
+                                            <option value="1">Hombres</option>
+                                            <option value="2">Mujeres</option>
+                                        </select>
+                                    </div>
+                                    <div class="contenedor_input">
+                                        <label for="item_subcategoria">Subcategoría</label>
+                                        <select id="item_subcategoria">
+                                            <option value="1">Playeras</option>
+                                            <option value="2">Camisas</option>
+                                            <option value="3">Jeans</option>
+                                            <option value="4">Zapatos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="contenedor_input">
+                                    <label for="item_info">Informacón del producto</label>
+                                    <textarea id="item_info" name="item_info" rows="4" ></textarea>
+                                </div>
+                            </div>
+                            <div class="tallas_colores">
+                                <h1>Tallas y colores</h1>
+                                <div class="seccion_tc">
+                                    <div class="seccion_tallas_colores">
+                                        <p>Tallas disponibles</p>
+                                        <div class="list_tallas">
+                                            <div >
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_XXL">
+                                                    <label for="item_talla_XXL">Extra Extra Grande (XXL)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_XL">
+                                                    <label for="item_talla_XL">Extra Grande (XL)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_L">
+                                                    <label for="item_talla_L">Grande (L)</label>
+                                                </div>
+                                            </div>
+                                            <div >
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_M">
+                                                    <label for="item_talla_M">Mediana (M)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_S">
+                                                    <label for="item_talla_S">Pequeña (S)</label>
+                                                </div>
+                                                <div>
+                                                    <input type="checkbox" name="" id="item_talla_XS">
+                                                    <label for="item_talla_XS">Extra pequeña (XS)</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="seccion_tallas_colores">
+                                        <p>Colores disponibles</p>
+                                        <div class="list_colores">
+                                            <div >
+                                                <div>
+                                                    <label for="item_color_blanco">
+                                                        <input type="checkbox" name="" id="item_color_blanco">
+                                                        <div class="circulo_color" style="background-color: white;"></div>    
+                                                        Blanco
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_rojo">
+                                                        <input type="checkbox" name="" id="item_color_rojo">
+                                                        <div class="circulo_color" style="background-color: red;"></div>    
+                                                        Rojo
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_azul">
+                                                        <input type="checkbox" name="" id="item_color_azul">
+                                                        <div class="circulo_color" style="background-color: blue;"></div>    
+                                                        Azul
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div >
+                                                <div>
+                                                    <label for="item_color_negro">
+                                                        <input type="checkbox" name="" id="item_color_negro">
+                                                        <div class="circulo_color" style="background-color: black;"></div>    
+                                                        Negro
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_rosa">
+                                                        <input type="checkbox" name="" id="item_color_rosa">
+                                                        <div class="circulo_color" style="background-color: pink;"></div>    
+                                                        Rosa
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_verde">
+                                                        <input type="checkbox" name="" id="item_color_verde">
+                                                        <div class="circulo_color" style="background-color: green;"></div>    
+                                                        Verde
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div >
+                                                <div>
+                                                    <label for="item_color_naranja">
+                                                        <input type="checkbox" name="" id="item_color_naranja">
+                                                        <div class="circulo_color" style="background-color: orange;"></div>    
+                                                        Naranja
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_marron">
+                                                        <input type="checkbox" name="" id="item_color_marron">
+                                                        <div class="circulo_color" style="background-color: brown;"></div>    
+                                                        Marron
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <label for="item_color_amarillo">
+                                                        <input type="checkbox" name="" id="item_color_amarillo">
+                                                        <div class="circulo_color" style="background-color: yellow;"></div>    
+                                                        Amarillo
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="seccion_inventario">
+                                    <p>Inventario</p>
+                                    <div class="contenedor_inventario">
+                                        <div class="inventario_encabezado ">
+                                            <p class="oculto_movil">Talla</p>
+                                            <p class="oculto_movil">Color</p>
+                                            <p class="oculto_movil">Cantidad</p>
+                                            <div class="encabezado_apl_todos">
+                                                <p>Precio</p>
+                                                <label for="item_precio_todos">
+                                                    <input type="checkbox" name="item_precio_todos" id="item_precio_todos">
+                                                    Aplic. a todos
+                                                </label>
+                                            </div>
+                                            <div class="encabezado_apl_todos">
+                                                <p>Descuento</p>
+                                                <label for="item_descuento_todos">
+                                                    <input type="checkbox" name="item_descuento_todos" id="item_descuento_todos">
+                                                    Aplic. a todos
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="inventario_item">
+                                            <div class="item_descripcion item_tc">
+                                                <label class="oculto_desk">Talla: </label> <p class="oculto_desk">L</p>
+                                                <p class="oculto_movil">Grande (L)</p>
+                                            </div>
+                                            <div class="item_descripcion item_tc">
+                                                <label class="oculto_desk" >Color: </label> 
+                                                <div class="circulo_color" style="background-color: white;"></div>
+                                                <p class="oculto_movil">Blanco</p>
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_cantidad">Cantidad: </label>
+                                                <input type="number" name="item_cantidad" id="item_cantidad">
+                                                <p>Pzas.</p>
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_precio">Precio: </label>
+                                                <label class="oculto_movil" for="item_precio">$ </label>
+                                                <input type="number" name="item_precio" id="item_precio">
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_desc">Descuento: </label>
+                                                <input type="checkbox" name="item_desc" id="item_desc">
+                                                <input type="number" name="item_desc" id="item_desc">
+                                            </div>
+                                        </div>
+                                        <div class="inventario_item">
+                                            <div class="item_descripcion item_tc">
+                                                <label class="oculto_desk">Talla: </label> <p class="oculto_desk">L</p>
+                                                <p class="oculto_movil">Grande (L)</p>
+                                            </div>
+                                            <div class="item_descripcion item_tc">
+                                                <label class="oculto_desk" >Color: </label> 
+                                                <div class="circulo_color" style="background-color: black;"></div>
+                                                <p class="oculto_movil">Blanco</p>
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_cantidad">Cantidad: </label>
+                                                <input type="number" name="item_cantidad" id="item_cantidad">
+                                                <p>Pzas.</p>
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_precio">Precio: </label>
+                                                <label class="oculto_movil" for="item_precio">$ </label>
+                                                <input type="number" name="item_precio" id="item_precio">
+                                            </div>
+                                            <div class="item_descripcion item_mitad">
+                                                <label class="oculto_desk" for="item_desc">Descuento: </label>
+                                                <input type="checkbox" name="item_desc" id="item_desc">
+                                                <input type="number" name="item_desc" id="item_desc">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="linea_division"></div>
+                <div class="contenedor_lateral">
+                    <div class="contenedor_images">
+                        <p>Agregar imagenes</p>
+                        <div class="contenedor_fotos">
+                            <div class="button_agregar_foto">
+                                <label >+</label>
+                                <p>Agregar nueva foto</p>
+                            </div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="contenedor_botones">
+                        <button id="guardar">GUARDAR</button>
+                        <div>
+                            <button id="publicar">PUBLICAR</button>
+                            <button id="pausa">PAUSAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+    
+</body>
+</html>
