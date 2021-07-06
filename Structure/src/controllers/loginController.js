@@ -1,4 +1,4 @@
-let loginController = {
+const loginController = {
     index: function(req,res) {
         res.render('login.ejs');
     },

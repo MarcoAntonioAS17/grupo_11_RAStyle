@@ -1,8 +1,8 @@
-let productos = require('../databases/productos.json')
+const productos = require('../databases/productos.json')
 
-let carritoController = {
+const carritoController = {
     index: function(req,res) {
-        res.render('carritoCompras.ejs',{'productos':productos});
+        res.render('carritoCompras.ejs',{productos});
     },
 }
 

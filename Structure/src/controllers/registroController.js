@@ -1,4 +1,4 @@
-let registroController = {
+const registroController = {
     index: function(req,res) {
         res.render('registro.ejs');
     },
