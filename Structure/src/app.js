@@ -3,6 +3,9 @@ const path = require('path');
 
 const app = express();
 
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
+
 // REQUERIR ARCHIVOS DE RUTAS
 const homeRoutes = require('./routes/homeRoutes.js');
 const carritoRoutes = require('./routes/carritoRoutes.js');
@@ -36,3 +39,9 @@ app.use('/login', loginRoutes);
 app.use('/carrito', carritoRoutes);
 
 app.use('/coleccion', coleccionesRoutes);
+
+//app.use('/busqueda', busquedaRoutes);
+
+app.use((req,res)=>{
+    res.status(404).render('error404.ejs');
+})

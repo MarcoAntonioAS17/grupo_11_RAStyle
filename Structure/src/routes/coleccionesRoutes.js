@@ -6,6 +6,9 @@ const detalleProductoController = require("../controllers/detalleProductoControl
 
 router.get('/playeras', coleccionesController.listadoProductos);
 
+router.get('/busqueda', coleccionesController.busqueda);
+router.post('/', coleccionesController.leerFormulario);
+
 router.get('/playeras/editar', detalleProductoController.editar);
 
 router.get('/playeras/:idProducto', detalleProductoController.index);

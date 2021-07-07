@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/css/busquedaStyles.css">
+    <title>Search</title>
+</head>
+<body>
+    <!--Header-->
+    <%- include('./partials/header') %>
+
+    <!--Body-->
+    <div id="contenedor-body"><div id="contenedor-principal">
+        <h1 class="title">Búsqueda de Productos</h1>
+        <form action="/coleccion" method="post">
+            <div class="seccion-busqueda">
+                <input type="text" placeholder="Escribe las palabras clave" id="buscar" name="buscar" required>
+                <button type="submit" id="submit">Buscar</button>
+            </div>
+            <div class="radio-buttons">
+                <div class="radio-button">
+                    <input type="radio" id="id" name="filtro" value="id">
+                    <label for="id">Id</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="nombre" name="filtro" value="nombre">
+                    <label for="nombre">Nombre</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="color" name="filtro" value="color" required>
+                    <label for="color">Color</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="talla" name="filtro" value="talla">
+                    <label for="talla">Talla</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="oferta" name="filtro" value="enOferta">
+                    <label for="oferta">En Oferta</label>
+                </div><br>
+            </div>
+        </form>
+    </div> </div>
+    
+    <!--Footer-->
+    <%- include('./partials/footer') %>
+</body>
+</html>

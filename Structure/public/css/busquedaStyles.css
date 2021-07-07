@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+
+#contenedor-body {
+    padding: 10px;
+}
+
+#contenedor-principal {
+    margin-top: 70px;
+    border: 2px solid #304269;
+    padding: 10px;
+}
+
+.radio-buttons {
+    padding: 15px 0;
+    margin-left: 36vw;
+}
+
+.radio-buttons .radio-button{
+    margin-bottom: -20px;
+}
+
+.radio-buttons label {
+    color: #304269;
+    font-weight: 370;
+}
+
+.seccion-busqueda {
+    display: flex;
+    justify-content: space-between;
+}
+#buscar {
+    width: 70vw;
+    height: 30px;
+    border: 1px solid #304269;
+}
+#submit {
+    background-color:#304269;
+    color:white;
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+    margin: 10 0px;
+    color: #304269;
+}
+
+@media (min-width: 767px) {
+    #contenedor-body {
+        display: flex;
+        justify-content: center;
+        padding: 6vh 0;
+    }
+    #contenedor-principal {
+        border: none;
+        width: 60vw;
+        content: center;
+    }
+    
+    .radio-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 0;
+        padding: 15px 0px;
+    }
+    
+    #buscar {
+        width: 90%;
+        height: 30px;
+        border: 1px solid #304269;
+    }
+}
