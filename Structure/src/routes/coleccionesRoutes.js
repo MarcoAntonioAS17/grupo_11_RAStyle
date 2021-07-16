@@ -7,7 +7,10 @@ const detalleProductoController = require("../controllers/detalleProductoControl
 router.get('/playeras', coleccionesController.listadoProductos);
 
 router.get('/busqueda', coleccionesController.busqueda);
-router.post('/', coleccionesController.leerFormulario);
+router.get('/busqueda/buscar', coleccionesController.leerFormulario);
+
+router.get('/create', coleccionesController.create);
+router.post('/create', coleccionesController.createPost);
 
 router.get('/playeras/editar', detalleProductoController.editar);
 

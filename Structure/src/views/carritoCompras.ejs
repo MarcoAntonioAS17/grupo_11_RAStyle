@@ -26,9 +26,9 @@
                     <% let totalPagar = 0; %>
                     <% for(let i=0; i<productos.length; i++) { %>
                         <div class="contenedor1">
-                            <div class="contenedor_img">
+                            <a href=<%="/detalle_producto/"+productos[i].id%>><div class="contenedor_img">
                                 <img src="<%= productos[i].photos[0] %>">
-                            </div>
+                            </div></a>
                             <div class="contenedor_descripcion">
                                 <div class="texto">
                                     <a href=<%="/detalle_producto/"+productos[i].id%>><p><%= productos[i].nombre %></p></a>

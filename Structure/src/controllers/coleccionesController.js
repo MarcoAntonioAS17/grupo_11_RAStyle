@@ -1,4 +1,5 @@
 const productos = require('../databases/productos.json');
+const busquedaModels = require('../models/funcionesBusqueda');
 
 const coleccionesController = {
     listadoProductos: function (req, res) {
@@ -8,47 +9,46 @@ const coleccionesController = {
         res.render('busqueda.ejs');
     },
     leerFormulario: function(req,res) {
-        let data = req.body;
-        let field = data.filtro;
-        let clave = data.buscar;
+        const data = req.query;
+        const field = data.filtro;
+        const clave = data.buscar.split(" ");
+        const tipo = data.tipo;
         let filtrados=[];
-        let campoDeBusqueda="nombre";
-        let palabraClave="";
-        for (let item of productos) {
-            if (field === "nombre") {
-                campoDeBusqueda = item[field].toLowerCase();
-                palabraClave = clave.toLowerCase();
-                if (campoDeBusqueda.includes(palabraClave)) {
-                    filtrados.push(item);
-                }
-            } else if (field === "talla") {
-                campoDeBusqueda = item[field];
-                palabraClave = clave.toUpperCase();
-                if (campoDeBusqueda.includes(palabraClave)) {
-                    filtrados.push(item);
-                }
-            } else if (field === "enOferta") {
-                filtrados = productos.filter(item=>item.enOferta==true);
-            } else if (field === "color"){
-                campoDeBusqueda = item[field];
-                palabraClave = clave;
-                if (campoDeBusqueda.includes(palabraClave)) {
-                    filtrados.push(item);
-                }
-            } else {
-                campoDeBusqueda = item[field];
-                palabraClave = clave;
-                if (campoDeBusqueda == palabraClave) {
-                    filtrados.push(item);
-                }
-            }   
+        let datosProductos=[];
+
+        switch (tipo) {
+            case "hombres": 
+                datosProductos = productos.filter(item => {return item.categoria==="Hombre"});
+                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                break;
+            case "mujeres": 
+                datosProductos = productos.filter(item => {return item.categoria==="Mujer"});
+                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                break;
+            case "hotsale": 
+                datosProductos = productos.filter(item => {return item.hotsale===true});
+                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                break;
+            case "enOferta": 
+                datosProductos = productos.filter(item => {return item.enOferta===true});
+                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                break;
+            default: 
+                filtrados = busquedaModels.elegirBusqueda(clave,productos,field);
         }
+        
         if (filtrados.length > 0) {
             res.render('listadoProductos.ejs',{'productos':filtrados});
         } else {
             res.render('busquedaVacia.ejs')
         }
-        
+    },
+    create: function(req,res) {
+        res.render('editarProductos.ejs');
+    },
+    createPost: function(req,res) {
+        const data = req.body;
+        console.log(data);
     }
 }
 
