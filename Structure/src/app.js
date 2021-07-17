@@ -30,7 +30,7 @@ app.listen(PORT, () => {
 
 app.use('/', homeRoutes);
 
-app.use('/detalle_producto', detalleProductoRoutes);
+app.use('/products', detalleProductoRoutes);
 
 app.use('/registro', registroRoutes);
 

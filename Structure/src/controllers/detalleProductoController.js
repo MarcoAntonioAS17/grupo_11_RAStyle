@@ -1,5 +1,7 @@
 const productos = require('../databases/productos.json');
 
+
+
 const detalleProductoController = {
     index: function(req,res) {
         const idProducto = parseInt(req.params.idProducto);
@@ -8,7 +10,10 @@ const detalleProductoController = {
         res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
     editar: (req, res) => {
-        res.render('editarProductos.ejs')
+        const idProducto = parseInt(req.params.idProducto);
+        let productSelect = productos.find(producto => producto.id === idProducto);
+        productSelect.talla.forEach(talla => console.log(talla));
+        res.render('editarProductos.ejs', {"producto":productSelect});
     },
 }
 

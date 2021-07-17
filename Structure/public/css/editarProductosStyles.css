@@ -34,10 +34,10 @@ main {
 form {
     margin-top: 8px;
 }
-.contenedor_input {
+.contenedor_input, .contenedor_checkboxs {
     margin-top: 8px;
 }
-.contenedor_input *{
+.contenedor_input *, .contenedor_checkboxs label{
     width: 100%;
     height: 2rem;
 }
@@ -97,50 +97,10 @@ textarea {
     border: 1px solid black;
 }
 
-/*Sección de Inventario*/
-
-.inventario_encabezado {
+.contenedor_checkboxs {
     display: flex;
     justify-content: space-around;
-    padding: 1rem 0;
-    border-bottom: 1px solid gray;
-}
-.inventario_encabezado label {
-    font-size: small;
-}
-.encabezado_apl_todos {
-    display: flex;
     align-items: center;
-}
-.encabezado_apl_todos > p {
-    margin-right: 8px;
-    font-size: small;
-}
-.contenedor_inventario label {
-    color: gray;
-}
-
-.inventario_item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid gray;
-    row-gap: 8px;
-}
-.item_descripcion {
-    display: flex;
-}
-.item_descripcion > * {
-    margin-left: 8px;
-}
-.item_descripcion input[type="number"] {
-    width: 100%;
-    text-align: right;
-}
-.item_mitad {
-    width: 50%;
-    display: flex;
 }
 
 /*Contenedor lateral*/
@@ -241,43 +201,6 @@ textarea {
     }
     .seccion_tc> div ~ div {
         margin-left: 1rem;
-    }
-
-    .seccion_inventario {
-        padding-top: 1rem;
-    }
-    .oculto_movil {
-        display: block;
-    }
-    .inventario_encabezado {
-        align-items: center;
-        text-align: center;
-    }
-    .inventario_encabezado > * {
-        width: 15%;
-    }
-    .encabezado_apl_todos > p {
-        font-size: medium;
-    }
-    .encabezado_apl_todos {
-        flex-direction: column;
-    }
-    .inventario_item {
-        flex-wrap: nowrap;
-        justify-content: space-around;
-    }
-    .inventario_item > div {
-        width: 15%;
-    }
-    .item_descripcion {
-        justify-content: center;
-        align-items: center;
-    }
-    .item_descripcion input[type="number"] {
-        height: 2rem;
-    }
-    .contenedor_inventario {
-        margin-bottom: 1rem;
     }
 
     #linea_division {
