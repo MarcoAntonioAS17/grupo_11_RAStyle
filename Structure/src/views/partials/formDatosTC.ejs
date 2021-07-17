@@ -1,0 +1,95 @@
+
+<div class="seccion_tallas_colores">
+    <p>Tallas disponibles</p>
+    <div class="list_tallas">
+        <div >
+            <% [
+                { s: "XXL", l: "Extra Extra Grande" },
+                { s: "XL", l: "Extra Grande" },
+                { s: "L", l: "Grande" }
+            ].forEach(talla => { %>
+                <div>
+                    <input type="checkbox" name="talla" 
+                        id="item_talla_<%=talla.s%>" value= "<%= talla.s%>"
+                        <%= producto.talla.findIndex(tallaFind => tallaFind === talla.s) != -1 ? "checked" : null %>
+                    />
+                    <label for="item_talla_<%=talla.s %>"> <%=talla.l%> (<%=talla.s%>) </label>
+                </div>
+            <% }); %>
+        </div>
+        <div >
+            <% [
+                { s: "M", l: "Mediana" },
+                { s: "S", l: "Pequeña" },
+                { s: "XS", l: "Extra Pequeña"}
+            ].forEach(talla => { %>
+                <div>
+                    <input type="checkbox" name="talla" 
+                        id="item_talla_<%= talla.s %>" value= "<%= talla.s %>"
+                        <%= producto.talla.findIndex(tallaFind => tallaFind === talla.s) != -1 ? "checked" : null %>
+                    />
+                    <label for="item_talla_<%= talla.s %>"> <%= talla.l %> (<%= talla.s %>) </label>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<div class="seccion_tallas_colores">
+    <p>Colores disponibles</p>
+    <div class="list_colores">
+        <div >
+            <% [
+                { es: 'Blanco', en: 'white'},
+                { es: "Rojo", en: "red" },
+                { es: "Azul", en: "blue"}
+            ].forEach(color => { %>
+            <div>
+                <label for="item_color_<%= color.es %>">
+                    <input type="checkbox" name="color" 
+                        id="item_color_<%= color.es %>" value= "<%= color.en %>"
+                        <%= producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                    />
+                    <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
+                    <%= color.es %>
+                </label>
+            </div>
+            <% }); %>
+        </div>
+        <div >
+            <% [
+                { es: "Negro", en: "black"},
+                { es: "Rosa", en: "pink" },
+                { es: "Verde", en: "green"}
+            ].forEach(color => { %>
+            <div>
+                <label for="item_color_<%= color.es %>">
+                    <input type="checkbox" name="color" 
+                    id="item_color_<%= color.es %>" value= "<%= color.en %>"
+                        <%= producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                    />
+                    <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
+                    <%= color.es %>
+                </label>
+            </div>
+            <% }); %>
+        </div>
+        <div >
+            <% [
+                { es: "Amarillo", en: "yellow"},
+                { es: "Naranja", en: "orange"},
+                { es: "Marron", en: "brown" },
+            ].forEach(color => { %>
+            <div>
+                <label for="item_color_<%= color.es %>">
+                    <input type="checkbox" name="color" 
+                    id="item_color_<%= color.es %>" value= "<%= color.en %>"
+                    <%= producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                    />
+                    <div class="circulo_color" style="background-color: <%= color.en %>;"></div>    
+                    <%= color.es %>
+                </label>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+</div>

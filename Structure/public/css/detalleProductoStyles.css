@@ -54,7 +54,7 @@ main {
 }
 
 .contenedor_color, .contenedor_talla,
-.contenedor_cantidad, .contenedor_botones {
+.contenedor_cantidad, .contenedor_botones, .contenedor_botonesEditar {
     margin-top: 8px;
     display: flex;
     justify-content: space-between;
@@ -107,6 +107,19 @@ main {
     width: 45vw;
     padding: 0 8px;
     border: 1px solid #bbb;
+}
+
+.contenedor_botonesEditar a{
+    height: 2rem;
+    width: 45vw;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bbb;
+    background-color: #D9E8F5;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .agregar_item {

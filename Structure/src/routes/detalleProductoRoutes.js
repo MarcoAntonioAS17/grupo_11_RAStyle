@@ -9,4 +9,5 @@ router.get('/:idProducto', detalleProductoController.index);
 
 router.get('/:idProducto/edit', detalleProductoController.editar);
 
+router.put('/:idProducto/edit',detalleProductoController.actualizar);
 module.exports = router;

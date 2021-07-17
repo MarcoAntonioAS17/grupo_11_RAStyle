@@ -16,7 +16,7 @@ body {
 }
 #contenedor-principal img{
     position: absolute;
-    width: 100vw;
+    width: 100%;
     opacity: 0.1;
 }
 

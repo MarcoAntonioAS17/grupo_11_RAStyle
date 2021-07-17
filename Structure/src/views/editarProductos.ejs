@@ -6,27 +6,6 @@
     <title>Detalles de producto</title>
 </head>
 <body>
-    <% const tallas = [
-        {
-            s: "XXL",
-            l: "Extra Extra Grande"
-        },{
-            s: "XL",
-            l: "Extra Grande"
-        },{
-            s: "L",
-            l: "Grande"
-        },{
-            s: "M",
-            l: "Mediana"
-        },{
-            s: "S",
-            l: "Pequeña"
-        },{
-            s: "XS",
-            l: "Extra Pequeña"
-        }
-    ]%>
     <!-- Header -->
     <%- include('./partials/header') %>
 
@@ -36,14 +15,17 @@
             <div class="ruta">
                 <span class="material-icons-outlined">home</span>
                 <span class="material-icons-outlined">navigate_next</span>
-                Detalle de producto
+                Colecciones
                 <span class="material-icons-outlined">navigate_next</span>
-                Sudadera deportiva
+                Products
+                <span class="material-icons-outlined">navigate_next</span>
+                <%= producto.id%>
                 <span class="material-icons-outlined">navigate_next</span>
                 Editar
             </div>
             <div >
-                <form class="contenedor_edicion">
+                <form class="contenedor_edicion" 
+                    action="/products/<%=producto.id%>/edit?_method=PUT" method="POST">
                     <div class="contenedor_inputs">
                         <div class="titulo">
                             <h1>Edición de Producto</h1>
@@ -51,170 +33,15 @@
                         </div>
                         <div>
                             <div class="info_basica">
-                                <div class="contenedor_input_50">
-                                    <div class="contenedor_input">
-                                        <label for="item_nombre">Nombre del producto</label>
-                                        <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre%>">
-                                    </div>
-                                    <div class="contenedor_input">
-                                        <label for="item_coleccion">Colección</label>
-                                        <select id="item_coleccion" name="coleccion">
-                                            <optgroup label="2021">
-                                                <option value="1" <%= producto.coleccion===1 ? "selected" : null %>>Otoño</option>
-                                                <option value="2" <%= producto.coleccion===2 ? "selected" : null %>>Verano</option>
-                                                <option value="3" <%= producto.coleccion===3 ? "selected" : null %>>Invierno</option>
-                                            </optgroup>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="contenedor_input_50">
-                                    <div class="contenedor_input">
-                                        <label for="item_categoria">Categoría</label>
-                                        <select id="item_categoria" name="categoria">
-                                            <option value="1" <%= producto.categoria===1 ? "selected" : null %>>Hombres</option>
-                                            <option value="2" <%= producto.categoria===2 ? "selected" : null %>>Mujeres</option>
-                                        </select>
-                                    </div>
-                                    <div class="contenedor_input">
-                                        <label for="item_subcategoria">Subcategoría</label>
-                                        <select id="item_subcategoria" name="subcategoria">
-                                            <option value="1" <%= producto.subcategoria===1 ? "selected" : null %>>Playeras</option>
-                                            <option value="2" <%= producto.subcategoria===2 ? "selected" : null %>>Camisas</option>
-                                            <option value="3" <%= producto.subcategoria===3 ? "selected" : null %>>Jeans</option>
-                                            <option value="4" <%= producto.subcategoria===4 ? "selected" : null %>>Zapatos</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="contenedor_input">
-                                    <label for="item_info">Informacón del producto</label>
-                                    <textarea id="item_info" name="descripcion" rows="4" > <%= producto.descripcion %> </textarea>
-                                </div>
+                                <%- include('./partials/formDatosBasicos') %>
                             </div>
                             <div class="tallas_colores">
                                 <h1>Tallas y colores</h1>
                                 <div class="seccion_tc">
-                                    <div class="seccion_tallas_colores">
-                                        <p>Tallas disponibles</p>
-                                        <div class="list_tallas">
-                                            <div >
-                                                <% for(let i=0; i<3; i++) {%>
-                                                    <div>
-                                                        <input type="checkbox" name="<%=tallas[i].s%>" 
-                                                            id="item_talla_<%=tallas[i].s%>" value= "<%= tallas[i].s%>"
-                                                            <%= producto.talla.findIndex(talla => talla === tallas[i].s) != -1 ? "checked" : null %>
-                                                        />
-                                                        <label for="item_talla_<%=tallas[i].s %>"> <%=tallas[i].l%> (<%=tallas[i].s%>) </label>
-                                                    </div>
-                                                <%}%>
-                                            </div>
-                                            <div >
-                                                <% for(let i=3; i<6; i++) {%>
-                                                    <div>
-                                                        <input type="checkbox" name="<%=tallas[i].s%>" 
-                                                            id="item_talla_<%= tallas[i].s %>" value= "<%= tallas[i].s %>"
-                                                            <%= producto.talla.findIndex(talla => talla === tallas[i].s) != -1 ? "checked" : null %>
-                                                        />
-                                                        <label for="item_talla_<%= tallas[i].s %>"> <%= tallas[i].l %> (<%= tallas[i].s %>) </label>
-                                                    </div>
-                                                <%}%>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="seccion_tallas_colores">
-                                        <p>Colores disponibles</p>
-                                        <div class="list_colores">
-                                            <div >
-                                                <% [
-                                                    { es: 'Blanco', en: 'white'},
-                                                    { es: "Rojo", en: "red" },
-                                                    { es: "Azul", en: "blue"}
-                                                ].forEach(color => { %>
-                                                <div>
-                                                    <label for="item_color_<%= color.es %>">
-                                                        <input type="checkbox" name="<%= color.es%>" 
-                                                            id="item_color_<%= color.es %>"
-                                                            <%= producto.color.findIndex(colorProd => colorProd === color.es) != -1 ? "checked" : null %>
-                                                        />
-                                                        <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
-                                                        <%= color.es %>
-                                                    </label>
-                                                </div>
-                                                <% }); %>
-                                            </div>
-                                            <div >
-                                                <% [
-                                                    { es: "Negro", en: "black"},
-                                                    { es: "Rosa", en: "pink" },
-                                                    { es: "Verde", en: "green"}
-                                                ].forEach(color => { %>
-                                                <div>
-                                                    <label for="item_color_<%= color.es %>">
-                                                        <input type="checkbox" name="<%= color.es%>" 
-                                                            id="item_color_<%= color.es %>"
-                                                            <%= producto.color.findIndex(colorProd => colorProd === color.es) != -1 ? "checked" : null %>
-                                                        />
-                                                        <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
-                                                        <%= color.es %>
-                                                    </label>
-                                                </div>
-                                                <% }); %>
-                                            </div>
-                                            <div >
-                                                <% [
-                                                    { es: "Amarillo", en: "yellow"},
-                                                    { es: "Naranja", en: "orange"},
-                                                    { es: "Marron", en: "brown" },
-                                                ].forEach(color => { %>
-                                                <div>
-                                                    <label for="item_color_<%= color.es %>">
-                                                        <input type="checkbox" name="<%= color.es%>" 
-                                                            id="item_color_<%= color.es %>"
-                                                        <%= producto.color.findIndex(colorProd => colorProd === color.es) != -1 ? "checked" : null %>
-                                                        />
-                                                        <div class="circulo_color" style="background-color: <%= color.en %>;"></div>    
-                                                        <%= color.es %>
-                                                    </label>
-                                                </div>
-                                                <% }); %>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <%- include('./partials/formDatosTC') %>
                                 </div>
                                 <div class="seccion_inventario">
-                                    <h1>Inventario</h1>
-                                    <div>
-                                        <div class="contenedor_input_50">
-                                            <div class="contenedor_input">
-                                                <label for="precio">Precio</label>
-                                                <input type="number" name="precio" id="precio" value="<%= producto.precio %>">
-                                            </div>
-                                            <div class="contenedor_input">
-                                                <label for="cantidad">Cantidad</label>
-                                                <input type="number" name="cantidad" id="cantidad" value="<%= producto.cantidad %>">
-                                            </div>
-                                        </div>
-                                        <div class="contenedor_input_50">
-                                            <div class="contenedor_checkboxs">
-                                                <div>
-                                                    <input type="checkbox" name="enOferta" id="checkbox_enOferta"
-                                                    <%= producto.enOferta? "checked" : null%>
-                                                    />
-                                                    <label for="checkbox_enOferta">En oferta</label>
-                                                </div>
-                                                <div>
-                                                    <input type="checkbox" name="hotSale" id="checkbox_hotSale"
-                                                    <%= producto.hotsale? "checked" : null%>
-                                                    />
-                                                    <label for="checkbox_hotSale">Hot Sale</label>
-                                                </div>
-                                            </div>
-                                            <div class="contenedor_input">
-                                                <label for="precioOferta">Precio en oferta</label>
-                                                <input type="number" name="precioOferta" id="precioOferta" value="<%= producto.precioOferta%>">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                                    <%- include('./partials/formDatosInventario') %>
                                 </div>
                             </div>
                         </div>
@@ -244,9 +71,7 @@
             </div>
         </div>
     </main>
-    
     <!-- Footer -->
     <%- include('./partials/footer') %>
-    
 </body>
 </html>

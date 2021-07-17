@@ -1,0 +1,38 @@
+<div class="contenedor_input_50">
+    <div class="contenedor_input">
+        <label for="item_nombre">Nombre del producto *</label>
+        <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre%>" required>
+    </div>
+    <div class="contenedor_input">
+        <label for="item_coleccion">Colección</label>
+        <select id="item_coleccion" name="coleccion">
+            <optgroup label="2021">
+                <option value="1" <%= producto.coleccion===1 ? "selected" : null %>>Otoño</option>
+                <option value="2" <%= producto.coleccion===2 ? "selected" : null %>>Verano</option>
+                <option value="3" <%= producto.coleccion===3 ? "selected" : null %>>Invierno</option>
+            </optgroup>
+        </select>
+    </div>
+</div>
+<div class="contenedor_input_50">
+    <div class="contenedor_input">
+        <label for="item_categoria">Categoría *</label>
+        <select id="item_categoria" name="categoria" required>
+            <option value="1" <%= producto.categoria===1 ? "selected" : null %>>Hombres</option>
+            <option value="2" <%= producto.categoria===2 ? "selected" : null %>>Mujeres</option>
+        </select>
+    </div>
+    <div class="contenedor_input">
+        <label for="item_subcategoria">Subcategoría *</label>
+        <select id="item_subcategoria" name="subcategoria" required>
+            <option value="1" <%= producto.subcategoria===1 ? "selected" : null %>>Playeras</option>
+            <option value="2" <%= producto.subcategoria===2 ? "selected" : null %>>Camisas</option>
+            <option value="3" <%= producto.subcategoria===3 ? "selected" : null %>>Jeans</option>
+            <option value="4" <%= producto.subcategoria===4 ? "selected" : null %>>Zapatos</option>
+        </select>
+    </div>
+</div>
+<div class="contenedor_input">
+    <label for="item_info">Informacón del producto</label>
+    <textarea id="item_info" name="descripcion" rows="4" ><%= producto.descripcion %></textarea>
+</div>

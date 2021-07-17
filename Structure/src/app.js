@@ -13,12 +13,14 @@ const loginRoutes = require('./routes/loginRoutes.js');
 const detalleProductoRoutes = require('./routes/detalleProductoRoutes.js');
 const registroRoutes = require('./routes/registroRoutes.js');
 const coleccionesRoutes = require('./routes/coleccionesRoutes');
+const methodOverride = require('method-override');
 //
 
 const PORT = process.env.PORT || 3000;
 
 const publicPath= path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
+app.use(methodOverride('_method'));
 
 // Definir EJS como motor
 app.set('view engine','ejs');

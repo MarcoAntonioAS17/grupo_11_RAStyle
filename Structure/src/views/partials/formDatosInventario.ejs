@@ -1,0 +1,34 @@
+<h1>Inventario</h1>
+<div>
+    <div class="contenedor_input_50">
+        <div class="contenedor_input">
+            <label for="precio">Precio *</label>
+            <input type="number" name="precio" id="precio" value="<%= producto.precio %>" required>
+        </div>
+        <div class="contenedor_input">
+            <label for="cantidad">Cantidad *</label>
+            <input type="number" name="cantidad" id="cantidad" value="<%= producto.cantidad %>" required>
+        </div>
+    </div>
+    <div class="contenedor_input_50">
+        <div class="contenedor_checkboxs">
+            <div>
+                <input type="checkbox" name="enOferta" id="checkbox_enOferta"
+                <%= producto.enOferta? "checked" : null%>
+                />
+                <label for="checkbox_enOferta">En oferta</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hotsale" id="checkbox_hotSale"
+                <%= producto.hotsale? "checked" : null%>
+                />
+                <label for="checkbox_hotSale">Hot Sale</label>
+            </div>
+        </div>
+        <div class="contenedor_input">
+            <label for="precioOferta">Precio en oferta</label>
+            <input type="number" name="precioOferta" id="precioOferta" value="<%= producto.precioOferta%>">
+        </div>
+    </div>
+    
+</div>
