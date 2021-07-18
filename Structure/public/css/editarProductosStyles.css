@@ -121,9 +121,23 @@ textarea {
     margin-right: 8px;
     border-radius: 10px;
 }
-.contenedor_fotos > div {
+.contenedor_fotos > div{
     text-align: center;
     padding: 2rem 0;
+}
+
+.button_agregar_foto {
+    border: 1px solid gray;
+    margin-right: 8px;
+    border-radius: 10px;
+    text-align: center;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 8px;
+    padding: 1rem 8px;
+}
+.button_agregar_foto input {
+    width: 100%;
 }
 
 /*Botones*/
@@ -228,8 +242,12 @@ textarea {
     }
     .button_agregar_foto {
         height: auto !important;
-        padding: 8px 0 !important;
+        width: 100%;
+        padding: 8px 8px !important;
         cursor: pointer;
+    }
+    .button_agregar_foto input {
+        width: 100%;
     }
 
     .oculto_desk {

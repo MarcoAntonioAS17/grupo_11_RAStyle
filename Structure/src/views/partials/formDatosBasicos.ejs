@@ -1,7 +1,7 @@
 <div class="contenedor_input_50">
     <div class="contenedor_input">
         <label for="item_nombre">Nombre del producto *</label>
-        <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre%>" required>
+        <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre? producto.nombre : null%>" required>
     </div>
     <div class="contenedor_input">
         <label for="item_coleccion">Colección</label>

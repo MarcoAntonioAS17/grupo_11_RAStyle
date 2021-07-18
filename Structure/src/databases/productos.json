@@ -35,6 +35,7 @@
     ],
     "color": [
       "white",
+      "red",
       "black"
     ],
     "talla": [
@@ -81,11 +82,11 @@
       "/images/playera.jpg"
     ],
     "color": [
-      "red",
       "green"
     ],
     "talla": [
-      "S"
+      "S",
+      "XS"
     ],
     "cantidad": 6,
     "enOferta": true,
