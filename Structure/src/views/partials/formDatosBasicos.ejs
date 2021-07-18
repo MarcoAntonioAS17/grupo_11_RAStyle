@@ -2,6 +2,9 @@
     <div class="contenedor_input">
         <label for="item_nombre">Nombre del producto *</label>
         <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre? producto.nombre : null%>" required>
+        <% if (locals.errors && errors.nombre) { %>
+            <label class="feedback"><%= errors.nombre.msg %></label>
+        <% } %>
     </div>
     <div class="contenedor_input">
         <label for="item_coleccion">Colección</label>
@@ -12,6 +15,9 @@
                 <option value="3" <%= producto.coleccion===3 ? "selected" : null %>>Invierno</option>
             </optgroup>
         </select>
+        <% if (locals.errors && errors.coleccion) { %>
+            <label class="feedback"><%= errors.coleccion.msg %></label>
+        <% } %>
     </div>
 </div>
 <div class="contenedor_input_50">
@@ -21,6 +27,9 @@
             <option value="1" <%= producto.categoria===1 ? "selected" : null %>>Hombres</option>
             <option value="2" <%= producto.categoria===2 ? "selected" : null %>>Mujeres</option>
         </select>
+        <% if (locals.errors && errors.categoria) { %>
+            <label class="feedback"><%= errors.categoria.msg %></label>
+        <% } %>
     </div>
     <div class="contenedor_input">
         <label for="item_subcategoria">Subcategoría *</label>
@@ -30,9 +39,15 @@
             <option value="3" <%= producto.subcategoria===3 ? "selected" : null %>>Jeans</option>
             <option value="4" <%= producto.subcategoria===4 ? "selected" : null %>>Zapatos</option>
         </select>
+        <% if (locals.errors && errors.subcategoria) { %>
+            <label class="feedback"><%= errors.subcategoria.msg %></label>
+        <% } %>
     </div>
 </div>
 <div class="contenedor_input">
     <label for="item_info">Informacón del producto</label>
     <textarea id="item_info" name="descripcion" rows="4" ><%= producto.descripcion %></textarea>
+    <% if (locals.errors && errors.descripcion) { %>
+        <label class="feedback"><%= errors.descripcion.msg %></label>
+    <% } %>
 </div>

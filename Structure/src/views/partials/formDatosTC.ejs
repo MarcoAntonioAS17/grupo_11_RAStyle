@@ -33,6 +33,9 @@
             <% }); %>
         </div>
     </div>
+    <% if (locals.errors && errors.talla) { %>
+        <label class="feedback"><%= errors.talla.msg %></label>
+    <% } %>
 </div>
 <div class="seccion_tallas_colores">
     <p>Colores disponibles</p>
@@ -91,5 +94,9 @@
             </div>
             <% }); %>
         </div>
+
     </div>
+    <% if (locals.errors && errors.color) { %>
+        <label class="feedback"><%= errors.color.msg %></label>
+    <% } %>
 </div>

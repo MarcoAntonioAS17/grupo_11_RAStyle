@@ -25,23 +25,23 @@
   {
     "id": 22222,
     "nombre": "Blazer Dama. Blanco y Negro",
-    "coleccion": 3,
+    "coleccion": 1,
     "categoria": 1,
-    "subcategoria": 4,
+    "subcategoria": 1,
     "precio": 350,
     "descripcion": "Descripción del producto. Descripción del producto.",
     "photos": [
       "/images/blazer.jpg"
     ],
     "color": [
-      "white",
       "red",
-      "black"
+      "blue"
     ],
     "talla": [
-      "M"
+      "XL",
+      "S"
     ],
-    "cantidad": 6,
+    "cantidad": 10,
     "enOferta": false,
     "precioOferta": 250,
     "hotsale": true

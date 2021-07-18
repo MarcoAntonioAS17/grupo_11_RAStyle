@@ -44,8 +44,53 @@ const detalleProductoController = {
             console.log("=========Datos======");
             console.log(req.body);
             console.log("=========Errores======");
-            console.log(errors.mapped())
-            res.render('editarProductos.ejs', {errors: errors.mapped(), "producto": req.body })
+            console.log(errors.mapped());
+            let esqueleto = {
+                id: req.params.idProducto,
+                nombre: "",
+                coleccion: 1,
+                categoria: 1,
+                subcategoria: 1,
+                precio: 0,
+                descripcion: "",
+                photos: [],
+                color: [],
+                talla: [],
+                cantidad: 0,
+                enOferta: false,
+                precioOferta: 0,
+                hotsale: false
+            };
+            esqueleto = {
+                ...esqueleto,
+                ...req.body
+            }
+            console.log("------------Datos y Esqueleto----------");
+            console.log(esqueleto);
+            if (typeof esqueleto.color === "object") {
+                esqueleto = {
+                    ...esqueleto,
+                    color: [...esqueleto.color],
+                };
+            } else if (typeof esqueleto.color === "string"){
+                esqueleto = {
+                    ...esqueleto,
+                    color: [esqueleto.color],
+                };
+            }
+            
+            if (typeof esqueleto.talla === "object") {
+                esqueleto = {
+                    ...esqueleto,
+                    talla: [...esqueleto.talla],
+                };
+            } else if (typeof esqueleto.talla === "string"){
+                esqueleto.talla = [esqueleto.talla];
+            }
+
+            console.log("=========Esqueleto======");
+            console.log(esqueleto);
+            res.render('editarProductos.ejs', {errors: errors.mapped(), "producto": esqueleto })
             return;
         } 
 
@@ -83,6 +128,18 @@ const detalleProductoController = {
             productos[productoIndex] = {
                 ...productos[productoIndex],
                 color: [data.color],
+            };
+        }
+
+        if (typeof data.talla === "object") {
+            productos[productoIndex] = {
+                ...productos[productoIndex],
+                talla: [...data.talla],
+            };
+        } else if (typeof data.talla === "string"){
+            productos[productoIndex] = {
+                ...productos[productoIndex],
+                talla: [data.talla],
             };
         }
         
