@@ -12,11 +12,12 @@
     <!--Body-->
     <div id="contenedor-body"><div id="contenedor-principal">
         <h1 class="title">Búsqueda de Productos</h1>
-        <form action="/coleccion" method="post">
+        <form action="/products/busqueda/buscar" method="get">
             <div class="seccion-busqueda">
                 <input type="text" placeholder="Escribe las palabras clave" id="buscar" name="buscar" required>
                 <button type="submit" id="submit">Buscar</button>
             </div>
+            <h3>Elige en que sección te gustaría filtrar</h3>
             <div class="radio-buttons">
                 <div class="radio-button">
                     <input type="radio" id="id" name="filtro" value="id">
@@ -34,9 +35,24 @@
                     <input type="radio" id="talla" name="filtro" value="talla">
                     <label for="talla">Talla</label>
                 </div><br>
+            </div>
+            <h3>¿En qué categoría quieres buscar?</h3>
+            <div class="radio-buttons">
                 <div class="radio-button">
-                    <input type="radio" id="oferta" name="filtro" value="enOferta">
-                    <label for="oferta">En Oferta</label>
+                    <input type="radio" id="hombres" name="tipo" value="hombres">
+                    <label for="hombres">Hombres</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="mujeres" name="tipo" value="mujeres">
+                    <label for="mujeres">Mujeres</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="hotsale" name="tipo" value="hotsale">
+                    <label for="hotsale">Hot Sale</label>
+                </div><br>
+                <div class="radio-button">
+                    <input type="radio" id="promociones" name="tipo" value="enOferta">
+                    <label for="promociones">Promociones</label>
                 </div><br>
             </div>
         </form>

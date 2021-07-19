@@ -1,7 +1,7 @@
 <div class="contenedor_input_50">
     <div class="contenedor_input">
         <label for="item_nombre">Nombre del producto *</label>
-        <input type="text" id="item_nombre" name="nombre" value="<%=producto.nombre? producto.nombre : null%>" required>
+        <input type="text" id="item_nombre" name="nombre" value="<%= locals.producto && producto.nombre ? producto.nombre : null%>" required>
         <% if (locals.errors && errors.nombre) { %>
             <label class="feedback"><%= errors.nombre.msg %></label>
         <% } %>
@@ -10,9 +10,9 @@
         <label for="item_coleccion">Colección</label>
         <select id="item_coleccion" name="coleccion">
             <optgroup label="2021">
-                <option value="1" <%= producto.coleccion==="1" ? "selected" : null %>>Otoño</option>
-                <option value="2" <%= producto.coleccion==="2" ? "selected" : null %>>Verano</option>
-                <option value="3" <%= producto.coleccion==="3" ? "selected" : null %>>Invierno</option>
+                <option value="1" <%= locals.producto && producto.coleccion==='1' ? "selected" : null %>>Otoño</option>
+                <option value="2" <%= locals.producto && producto.coleccion==='2' ? "selected" : null %>>Verano</option>
+                <option value="3" <%= locals.producto && producto.coleccion==='3' ? "selected" : null %>>Invierno</option>
             </optgroup>
         </select>
         <% if (locals.errors && errors.coleccion) { %>
@@ -24,9 +24,9 @@
     <div class="contenedor_input">
         <label for="item_categoria">Categoría *</label>
         <select id="item_categoria" name="categoria" required>
-            <option value="Hombres" <%= producto.categoria==="Hombres" ? "selected" : null %>>Hombres</option>
-            <option value="Mujeres" <%= producto.categoria==="Mujeres" ? "selected" : null %>>Mujeres</option>
-            <option value="Unisex" <%= producto.categoria==="Unisex" ? "selected" : null %>>Unisex</option>
+            <option value="Hombre" <%= locals.producto && producto.categoria==="Hombre" ? "selected" : null %>>Hombres</option>
+            <option value="Mujer" <%= locals.producto && producto.categoria==="Mujer" ? "selected" : null %>>Mujeres</option>
+            <option value="Unisex" <%= locals.producto && producto.categoria==="Unisex" ? "selected" : null %>>Unisex</option>
         </select>
         <% if (locals.errors && errors.categoria) { %>
             <label class="feedback"><%= errors.categoria.msg %></label>
@@ -35,11 +35,10 @@
     <div class="contenedor_input">
         <label for="item_subcategoria">Subcategoría *</label>
         <select id="item_subcategoria" name="subcategoria" required>
-            <option value="1" <%= producto.subcategoria==="1" ? "selected" : null %>>Playeras</option>
-            <option value="2" <%= producto.subcategoria==="2" ? "selected" : null %>>Camisas</option>
-            <option value="3" <%= producto.subcategoria==="3" ? "selected" : null %>>Jeans</option>
-            <option value="4" <%= producto.subcategoria==="4" ? "selected" : null %>>Zapatos</option>
-            <option value="5" <%= producto.subcategoria==="5" ? "selected" : null %>>Tenis</option>
+            <option value="1" <%= locals.producto && producto.subcategoria==='1' ? "selected" : null %>>Playeras</option>
+            <option value="2" <%= locals.producto && producto.subcategoria==='2' ? "selected" : null %>>Camisas</option>
+            <option value="3" <%= locals.producto && producto.subcategoria==='3' ? "selected" : null %>>Jeans</option>
+            <option value="4" <%= locals.producto && producto.subcategoria==='4' ? "selected" : null %>>Zapatos</option>
         </select>
         <% if (locals.errors && errors.subcategoria) { %>
             <label class="feedback"><%= errors.subcategoria.msg %></label>
@@ -48,7 +47,7 @@
 </div>
 <div class="contenedor_input">
     <label for="item_info">Informacón del producto</label>
-    <textarea id="item_info" name="descripcion" rows="4" ><%= producto.descripcion %></textarea>
+    <textarea id="item_info" name="descripcion" rows="4" ><%= locals.producto && producto.descripcion ? producto.descripcion : "" %></textarea>
     <% if (locals.errors && errors.descripcion) { %>
         <label class="feedback"><%= errors.descripcion.msg %></label>
     <% } %>
