@@ -38,7 +38,7 @@ app.use('/login', loginRoutes);
 
 app.use('/carrito', carritoRoutes);
 
-app.use('/coleccion', coleccionesRoutes);
+app.use('/products', coleccionesRoutes);
 
 //app.use('/busqueda', busquedaRoutes);
 
