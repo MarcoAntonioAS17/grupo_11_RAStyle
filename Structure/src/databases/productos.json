@@ -2,9 +2,9 @@
   {
     "id": "11111",
     "nombre": "Nombre del Producto.",
-    "coleccion": 1,
-    "categoria": 1,
-    "subcategoria": 1,
+    "coleccion": "1",
+    "categoria": "Mujer",
+    "subcategoria": "1",
     "precio": 199.99,
     "descripcion": "Descripción del producto. Descripción del producto.",
     "photos": [
@@ -26,7 +26,7 @@
     "id": "22222",
     "nombre": "Blazer Dama. Blanco y Negro",
     "coleccion": "1",
-    "categoria": "Mujeres",
+    "categoria": "Unisex",
     "subcategoria": "1",
     "precio": 350,
     "descripcion": "Descripción del producto. Descripción del producto.",
@@ -50,9 +50,9 @@
   {
     "id": "33333",
     "nombre": "Sudadera Negra",
-    "coleccion": 2,
-    "categoria": 2,
-    "subcategoria": 1,
+    "coleccion": "2",
+    "categoria": "Mujer",
+    "subcategoria": "1",
     "precio": 170,
     "descripcion": "Descripción del producto. Descripción del producto.",
     "photos": [
@@ -74,9 +74,9 @@
   {
     "id": "44444",
     "nombre": "Playera juvenil caballero",
-    "coleccion": 1,
-    "categoria": 1,
-    "subcategoria": 1,
+    "coleccion": "1",
+    "categoria": "Hombre",
+    "subcategoria": "1",
     "precio": 180,
     "descripcion": "Descripción del producto. Descripción del producto.",
     "photos": [
@@ -97,9 +97,9 @@
   {
     "id": "55555",
     "nombre": "Sudadera deportiva Rebook",
-    "coleccion": 1,
-    "categoria": 1,
-    "subcategoria": 1,
+    "coleccion": "1",
+    "categoria": "Mujer",
+    "subcategoria": "1",
     "precio": 200,
     "descripcion": "Chamarra basica con estilo liso, bolsillos frontales y capucha ajustable con cordondes.",
     "photos": [

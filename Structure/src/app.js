@@ -32,7 +32,7 @@ app.listen(PORT, () => {
 
 app.use('/', homeRoutes);
 
-app.use('/products', detalleProductoRoutes);
+//app.use('/products', detalleProductoRoutes);
 
 app.use('/registro', registroRoutes);
 

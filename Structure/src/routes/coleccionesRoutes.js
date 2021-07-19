@@ -7,7 +7,7 @@ const detalleProductoController = require("../controllers/detalleProductoControl
 const validaciones = require('../validations/products');
 
 const multer = require('multer');
-let multerDiskStorage = multer.diskStorage({
+const multerDiskStorage = multer.diskStorage({
     destination:(req, file, callback) => {
         let folder = path.join(__dirname,'../../public/images/productos');
         callback(null,folder);
@@ -18,6 +18,17 @@ let multerDiskStorage = multer.diskStorage({
     }
 })
 const upload = multer({storage: multerDiskStorage});
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/images/productos');
+    },
+    filename: function (req, file, cb) {
+        cb(null,
+            `${req.params.idProducto}_${Date.now()}_img_${path.extname(file.originalname)}`);
+    }
+});
+const uploadFile = multer({ storage });
 
 router.get('/', coleccionesController.listadoProductos);
 
@@ -30,5 +41,11 @@ router.post('/', upload.array('photos'), validaciones.nuevoProducto, colecciones
 router.get('/editar', detalleProductoController.editar);
 
 router.get('/:idProducto', detalleProductoController.index);
+
+router.get('/:idProducto/edit', detalleProductoController.editar);
+
+router.put('/:idProducto/edit', uploadFile.array('photos'), validaciones.actualizar,detalleProductoController.actualizar);
+
+router.delete('/:idProducto',detalleProductoController.delete);
 
 module.exports = router;

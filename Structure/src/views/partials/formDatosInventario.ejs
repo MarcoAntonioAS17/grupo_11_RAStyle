@@ -33,7 +33,7 @@
         </div>
         <div class="contenedor_input">
             <label for="precioOferta">Precio en oferta</label>
-            <input type="number" step="0.01" name="precioOferta" id="precioOferta" value="<%= locals.producto && producto.enOferta ? producto.precioOferta : null%>">
+            <input type="number" step="0.01" name="precioOferta" id="precioOferta" value="<%= locals.producto && producto.precioOferta ? producto.precioOferta : null%>">
             <% if (locals.errors && errors.precioOferta) { %>
                 <label class="feedback"><%= errors.precioOferta.msg %></label>
             <% } %>

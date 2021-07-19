@@ -150,7 +150,7 @@ const detalleProductoController = {
         let index = productos.findIndex(productos => productos.id === idProducto);
         productos.splice(index,1);
         fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
-        res.redirect("/coleccion/playeras");
+        res.redirect("/products");
     }
 }
 
