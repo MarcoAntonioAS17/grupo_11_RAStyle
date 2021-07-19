@@ -8,7 +8,7 @@ const validacionesProductos = {
         check('coleccion')
             .isNumeric().withMessage("Debe ser número"),
         check('categoria')
-            .isNumeric().withMessage("Debe ser número"),
+            .notEmpty().withMessage("Selecciona una categoría"),
         check('subcategoria')
             .isNumeric().withMessage("Debe ser número"),
         check('precio')

@@ -10,9 +10,9 @@
         <label for="item_coleccion">Colección</label>
         <select id="item_coleccion" name="coleccion">
             <optgroup label="2021">
-                <option value="1" <%= producto.coleccion===1 ? "selected" : null %>>Otoño</option>
-                <option value="2" <%= producto.coleccion===2 ? "selected" : null %>>Verano</option>
-                <option value="3" <%= producto.coleccion===3 ? "selected" : null %>>Invierno</option>
+                <option value="1" <%= producto.coleccion==="1" ? "selected" : null %>>Otoño</option>
+                <option value="2" <%= producto.coleccion==="2" ? "selected" : null %>>Verano</option>
+                <option value="3" <%= producto.coleccion==="3" ? "selected" : null %>>Invierno</option>
             </optgroup>
         </select>
         <% if (locals.errors && errors.coleccion) { %>
@@ -24,8 +24,9 @@
     <div class="contenedor_input">
         <label for="item_categoria">Categoría *</label>
         <select id="item_categoria" name="categoria" required>
-            <option value="1" <%= producto.categoria===1 ? "selected" : null %>>Hombres</option>
-            <option value="2" <%= producto.categoria===2 ? "selected" : null %>>Mujeres</option>
+            <option value="Hombres" <%= producto.categoria==="Hombres" ? "selected" : null %>>Hombres</option>
+            <option value="Mujeres" <%= producto.categoria==="Mujeres" ? "selected" : null %>>Mujeres</option>
+            <option value="Unisex" <%= producto.categoria==="Unisex" ? "selected" : null %>>Unisex</option>
         </select>
         <% if (locals.errors && errors.categoria) { %>
             <label class="feedback"><%= errors.categoria.msg %></label>
@@ -34,10 +35,11 @@
     <div class="contenedor_input">
         <label for="item_subcategoria">Subcategoría *</label>
         <select id="item_subcategoria" name="subcategoria" required>
-            <option value="1" <%= producto.subcategoria===1 ? "selected" : null %>>Playeras</option>
-            <option value="2" <%= producto.subcategoria===2 ? "selected" : null %>>Camisas</option>
-            <option value="3" <%= producto.subcategoria===3 ? "selected" : null %>>Jeans</option>
-            <option value="4" <%= producto.subcategoria===4 ? "selected" : null %>>Zapatos</option>
+            <option value="1" <%= producto.subcategoria==="1" ? "selected" : null %>>Playeras</option>
+            <option value="2" <%= producto.subcategoria==="2" ? "selected" : null %>>Camisas</option>
+            <option value="3" <%= producto.subcategoria==="3" ? "selected" : null %>>Jeans</option>
+            <option value="4" <%= producto.subcategoria==="4" ? "selected" : null %>>Zapatos</option>
+            <option value="5" <%= producto.subcategoria==="5" ? "selected" : null %>>Tenis</option>
         </select>
         <% if (locals.errors && errors.subcategoria) { %>
             <label class="feedback"><%= errors.subcategoria.msg %></label>
