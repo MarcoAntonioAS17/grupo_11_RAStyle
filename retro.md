@@ -1,5 +1,5 @@
 # **Restrospectiva**
-##### Equipo 11 - Sprint 3
+##### Equipo 11 - Sprint 4
 
 ### *Comenzar a hacer:*
 - Empezar a hacer el daily o weekly meeting.

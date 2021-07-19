@@ -1,6 +1,6 @@
 [
   {
-    "id": 11111,
+    "id": "11111",
     "nombre": "Nombre del Producto.",
     "coleccion": 1,
     "categoria": 1,
@@ -23,7 +23,7 @@
     "hotsale": true
   },
   {
-    "id": 22222,
+    "id": "22222",
     "nombre": "Blazer Dama. Blanco y Negro",
     "coleccion": 1,
     "categoria": 1,
@@ -47,7 +47,7 @@
     "hotsale": true
   },
   {
-    "id": 33333,
+    "id": "33333",
     "nombre": "Sudadera Negra",
     "coleccion": 2,
     "categoria": 2,
@@ -71,7 +71,7 @@
     "hotsale": false
   },
   {
-    "id": 44444,
+    "id": "44444",
     "nombre": "Playera juvenil caballero",
     "coleccion": 1,
     "categoria": 1,
@@ -94,7 +94,7 @@
     "hotsale": true
   },
   {
-    "id": 55555,
+    "id": "55555",
     "nombre": "Sudadera deportiva Rebook",
     "coleccion": 1,
     "categoria": 1,
@@ -104,7 +104,8 @@
     "photos": [
       "/images/sudadera1.jpg",
       "/images/sudadera1.jpg",
-      "/images/sudadera1.jpg"
+      "/images/sudadera1.jpg",
+      "/images/productos/55555_1626657558515_img_.png"
     ],
     "color": [
       "blue",

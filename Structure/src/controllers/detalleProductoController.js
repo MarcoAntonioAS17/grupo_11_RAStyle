@@ -7,13 +7,13 @@ const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const detalleProductoController = {
     index: function(req,res) {
-        const idProducto = parseInt(req.params.idProducto);
+        const idProducto = req.params.idProducto;
         let productoSelect = productos.find(producto=>producto.id===idProducto);
 
         res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
     editar: (req, res) => {
-        const idProducto = parseInt(req.params.idProducto);
+        const idProducto = req.params.idProducto;
         let productSelect = productos.find(producto => producto.id === idProducto);
         res.render('editarProductos.ejs', {"producto":productSelect});
     },
@@ -94,7 +94,7 @@ const detalleProductoController = {
             return;
         } 
 
-        const idProducto = parseInt(req.params.idProducto);
+        const idProducto = req.params.idProducto;
         const data = req.body;
         let productoIndex = productos.findIndex(producto=>producto.id===idProducto);
         let files = req.files;
@@ -147,7 +147,7 @@ const detalleProductoController = {
         res.redirect("/products/"+idProducto);
     },
     delete: (req, res) => {
-        const idProducto = parseInt(req.params.idProducto);
+        const idProducto = req.params.idProducto;
         let index = productos.findIndex(productos => productos.id === idProducto);
         productos.splice(index,1);
         fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
