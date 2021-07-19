@@ -25,4 +25,6 @@ router.get('/:idProducto/edit', detalleProductoController.editar);
 
 router.put('/:idProducto/edit', uploadFile.array('photos'), validaciones.actualizar,detalleProductoController.actualizar);
 
+router.delete('/:idProducto',detalleProductoController.delete);
+
 module.exports = router;

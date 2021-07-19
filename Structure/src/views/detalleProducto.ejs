@@ -80,7 +80,10 @@
                 <button class="agregar_item">Agregar al carrito</button>
                 <div class="contenedor_botonesEditar">
                     <a href="/products/<%=producto.id%>/edit">Editar</a>
-                    <a>Eliminar</a>
+                    <form method="post" action="/products/<%=producto.id%>?_method=DELETE">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                    
                 </div>
                 <label for="mas_info">
 

@@ -146,6 +146,13 @@ const detalleProductoController = {
         fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
         res.redirect("/products/"+idProducto);
     },
+    delete: (req, res) => {
+        const idProducto = parseInt(req.params.idProducto);
+        let index = productos.findIndex(productos => productos.id === idProducto);
+        productos.splice(index,1);
+        fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
+        res.redirect("/coleccion/playeras");
+    }
 }
 
 module.exports = detalleProductoController;

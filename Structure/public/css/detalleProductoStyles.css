@@ -109,7 +109,7 @@ main {
     border: 1px solid #bbb;
 }
 
-.contenedor_botonesEditar a{
+.contenedor_botonesEditar a, .contenedor_botonesEditar button{
     height: 2rem;
     width: 45vw;
     padding: 0 8px;
@@ -212,5 +212,14 @@ main {
     }
     input[type="checkbox"]:checked + .info_oculta {
         display: block;
+    }
+    .contenedor_botonesEditar form {
+        width: 45%;
+    }
+    .contenedor_botonesEditar button {
+        width: 100%;
+    }
+    .contenedor_botonesEditar a {
+        width: 45%;
     }
 }
