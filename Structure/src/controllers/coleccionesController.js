@@ -102,8 +102,8 @@ const coleccionesController = {
 
             //console.log("=========Esqueleto======");
             //console.log(esqueleto);
-            //res.render('nuevoProducto.ejs', {errors: errors.mapped(), "producto": esqueleto })
-            //return;
+            res.render('nuevoProducto.ejs', {errors: errors.mapped(), producto: esqueleto })
+            return;
         } 
 
         // FIN DE VALIDACIONES

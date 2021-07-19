@@ -5,12 +5,12 @@ const validacionesProductos = {
         check('nombre')
             .notEmpty().withMessage("Debes poner nombre de producto").bail()
             .isLength({min: 5}).withMessage("El nombre debe ser más largo"),
-        check('coleccion')
+        /*check('coleccion')
             .isNumeric().withMessage("Debe ser número"),
         check('categoria')
-            .isNumeric().withMessage("Debe ser número"),
+            .notEmpty().withMessage("Debe ser número"),
         check('subcategoria')
-            .isNumeric().withMessage("Debe ser número"),
+            .isNumeric().withMessage("Debe ser número"), */
         check('precio')
             .isNumeric().withMessage("Debe ser número decimal"),
         check('descripcion')
