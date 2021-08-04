@@ -1,13 +1,12 @@
 [
     {
-        "id": 1,
+        "id": "00001",
         "firstName": "Marco Antonio",
         "lastName": "Arcos Sanchez",
         "email": "antonioarcosmarco@gmail.com",
         "password": "asd12dsa",
         "category": "admin",
         "image": "",
-        "puntos": "100",
         "direccion": { 
             "cp": 97321,
             "calle": "Av. Encanto",
@@ -19,5 +18,45 @@
             "pais":  "Mexico"
         },
         "tel": "2351002504"
+    },
+    {
+        "id": "00002",
+        "firstName": "Carlos Daniel",
+        "lastName": "Sandoval Puentes",
+        "email": "carlos31sandoval03@gmail.com",
+        "password": "$2a$10$zjCIChNv4EsGJSP8V8Pb3O83E/PwusQtGkF8FS6RRAu6/eKwdxDIi",
+        "category": "admin",
+        "image": "",
+        "direccion": { 
+            "cp": 44460,
+            "calle": "Av. Salvador Lopez",
+            "num": "1750",
+            "num_inter": "201",
+            "ref": "Frente al parte",
+            "ciudad": "Guadalajara",
+            "estado": "Jalisco",
+            "pais":  "Mexico"
+        },
+        "tel": "3461029024"
+    },
+    {
+        "id": "00002",
+        "firstName": "Juan",
+        "lastName": "Perez",
+        "email": "algo.algomas123@algodecorreo.com",
+        "password": "$2a$10$/dRqHzSRCDTU4rmemzTsMeovYQUJtHoI36XFrNqrBnuKg.yaiUB96",
+        "category": "user",
+        "image": "",
+        "direccion": { 
+            "cp": 44460,
+            "calle": "",
+            "num": "",
+            "num_inter": "",
+            "ref": "",
+            "ciudad": "",
+            "estado": "",
+            "pais":  ""
+        },
+        "tel": "1234567891"
     }
 ]

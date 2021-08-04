@@ -6,6 +6,24 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+// Session y Cookies
+const session = require('express-session');
+app.use(session({
+    secret: 'RAStyle',
+    resave: false,
+    saveUninitialized: true,
+    }));
+app.use(function(req, res, next) {
+    res.locals.logeado = req.session;
+    next();
+});
+const cookieParser = require('cookie-parser');
+app.use(cookieParser())
+
+// Middlewares
+const recordarmeMiddleware = require('./middlewares/recordarmeMiddleware');
+app.use(recordarmeMiddleware);
+
 // REQUERIR ARCHIVOS DE RUTAS
 const homeRoutes = require('./routes/homeRoutes.js');
 const carritoRoutes = require('./routes/carritoRoutes.js');
@@ -13,6 +31,7 @@ const loginRoutes = require('./routes/loginRoutes.js');
 const detalleProductoRoutes = require('./routes/detalleProductoRoutes.js');
 const registroRoutes = require('./routes/registroRoutes.js');
 const coleccionesRoutes = require('./routes/coleccionesRoutes');
+const usersRoutes = require('./routes/usersRoutes.js');
 const methodOverride = require('method-override');
 //
 
@@ -36,11 +55,13 @@ app.use('/', homeRoutes);
 
 app.use('/registro', registroRoutes);
 
-app.use('/login', loginRoutes);
+// app.use('/login', loginRoutes);
 
 app.use('/carrito', carritoRoutes);
 
 app.use('/products', coleccionesRoutes);
+
+app.use('/users', usersRoutes);
 
 //app.use('/busqueda', busquedaRoutes);
 

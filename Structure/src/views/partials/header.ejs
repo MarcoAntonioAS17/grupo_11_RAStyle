@@ -14,7 +14,9 @@
                 <li><a href="/products">Hombres</a></li>
                 <li><a href="/products">Mujeres</a></li>
                 <li><a href="/products">Promociones</a></li>
+                <% if (locals.logeado && logeado.logeado && logeado.role=='admin') { %>
                 <li><a href="/products/create">Crear Producto</a></li>
+                <% } %>
             </ul>
             <label for="show-nav" class="close_button">
                 <span id="span_hide" class="material-icons-outlined">close</span>
@@ -22,8 +24,15 @@
         </div>
 
         <div class="contenedor-buttons">
+            <% if (locals.logeado && logeado.logeado) { %>
+                <p id="mensaje-usuario"> Hola <%= logeado.userNombre %>. Bienvenido!</p>
+            <% } %>
             <a href="/products/busqueda"><span class="material-icons">search</span></a>
-            <a href="/login"><span class="material-icons">account_circle</span></a>
+            <% if (locals.logeado && !logeado.logeado) { %>
+            <a href="/users/login"><span class="material-icons">account_circle</span></a>
+            <% } else { %>
+            <a href="/users/logout"><span class="material-icons-outlined">logout</span></a>
+            <% } %>
             <a href="#"><span class="material-icons-outlined">favorite_border</span></a>
             <a href="/carrito"><span class="material-icons-outlined">shopping_bag</span></a>
         </div>
