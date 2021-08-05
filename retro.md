@@ -8,6 +8,7 @@
 - Atención a los detalles para el correcto funcionamiento de heroku.
 ### *Continuar haciendo:*
 - Las entregas en tiempo y forma.
+
 - Reuniones para la presentación de avances.
 - Apoyándonos en equipo para la solución de problemas.
 ### *Hacer menos:*
