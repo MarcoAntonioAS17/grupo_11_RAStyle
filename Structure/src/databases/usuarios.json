@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "firstName": "Marco Antonio",
+        "lastName": "Arcos Sanchez",
+        "email": "antonioarcosmarco@gmail.com",
+        "password": "asd12dsa",
+        "category": "admin",
+        "image": "",
+        "puntos": "100",
+        "direccion": { 
+            "cp": 97321,
+            "calle": "Av. Encanto",
+            "num": "10",
+            "num_inter": "20",
+            "ref": "Frente al parte",
+            "ciudad": "Veracruz",
+            "estado": "Veracruz",
+            "pais":  "Mexico"
+        },
+        "tel": "2351002504"
+    }
+]

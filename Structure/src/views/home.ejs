@@ -20,7 +20,7 @@
         <h2 class="titulos-carrusel">PROMOCIONES</h2>
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
-                <a href=<%="/detalle_producto/"+productos[i].id%>>
+                <a href=<%="/products/"+productos[i].id%>>
                     <article class="producto-en-carrusel">
                         <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img-carrusel">
                         <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
@@ -42,7 +42,7 @@
         <h2 class="titulos-carrusel">NUEVOS PRODUCTOS</h2>
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
-                <a href=<%="/detalle_producto/"+productos[i].id%>><article class="producto-en-carrusel">
+                <a href=<%="/products/"+productos[i].id%>><article class="producto-en-carrusel">
                     <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                     <p class="precio-producto-carrusel"> MXN $<%= productos[i].precio %> </p>

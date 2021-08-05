@@ -1,0 +1,43 @@
+<h1>Inventario</h1>
+<div>
+    <div class="contenedor_input_50">
+        <div class="contenedor_input">
+            <label for="precio">Precio *</label>
+            <input type="number" name="precio" step="0.01" id="precio" value="<%= locals.producto && producto.precio ? producto.precio : null%>" required>
+            <% if (locals.errors && errors.precio) { %>
+                <label class="feedback"><%= errors.precio.msg %></label>
+            <% } %>
+        </div>
+        <div class="contenedor_input">
+            <label for="cantidad">Cantidad *</label>
+            <input type="number" name="cantidad" id="cantidad" value="<%= locals.producto && producto.cantidad ? producto.cantidad : null %>" required>
+            <% if (locals.errors && errors.cantidad) { %>
+                <label class="feedback"><%= errors.cantidad.msg %></label>
+            <% } %>
+        </div>
+    </div>
+    <div class="contenedor_input_50">
+        <div class="contenedor_checkboxs">
+            <div>
+                <input type="checkbox" name="enOferta" id="checkbox_enOferta"
+                <%= locals.producto && producto.enOferta ? "checked" : null%>
+                />
+                <label for="checkbox_enOferta">En oferta</label>
+            </div>
+            <div>
+                <input type="checkbox" name="hotsale" id="checkbox_hotSale"
+                <%= locals.producto && producto.hotsale ? "checked" : null%>
+                />
+                <label for="checkbox_hotSale">Hot Sale</label>
+            </div>
+        </div>
+        <div class="contenedor_input">
+            <label for="precioOferta">Precio en oferta</label>
+            <input type="number" step="0.01" name="precioOferta" id="precioOferta" value="<%= locals.producto && producto.precioOferta ? producto.precioOferta : null%>">
+            <% if (locals.errors && errors.precioOferta) { %>
+                <label class="feedback"><%= errors.precioOferta.msg %></label>
+            <% } %>
+        </div>
+    </div>
+    
+</div>

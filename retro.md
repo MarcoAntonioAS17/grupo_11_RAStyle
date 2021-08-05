@@ -8,8 +8,10 @@
 - Atención a los detalles para el correcto funcionamiento de heroku.
 ### *Continuar haciendo:*
 - Las entregas en tiempo y forma.
-- Reuniones intermedias para revisión de avances.
+
+- Reuniones para la presentación de avances.
+- Apoyándonos en equipo para la solución de problemas.
 ### *Hacer menos:*
-- 
+- N/A
 ### *Dejar de hacer:*
 - Duplicados de archivos innecesarios.
