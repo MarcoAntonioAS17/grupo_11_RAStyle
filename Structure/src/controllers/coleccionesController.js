@@ -12,7 +12,7 @@ const coleccionesController = {
     busqueda: function(req,res) {
         res.render('busqueda.ejs');
     },
-    leerFormulario: function(req,res) {
+    leerFormularioBusqueda: function(req,res) {
         const data = req.query;
         const field = data.filtro;
         const clave = data.buscar.split(" ");

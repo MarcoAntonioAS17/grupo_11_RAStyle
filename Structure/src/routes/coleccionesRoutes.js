@@ -5,6 +5,7 @@ const path = require('path');
 const coleccionesController = require('../controllers/coleccionesController');
 const detalleProductoController = require("../controllers/detalleProductoController");
 const validaciones = require('../validations/products');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 const multer = require('multer');
 const multerDiskStorage = multer.diskStorage({
@@ -30,22 +31,24 @@ const storage = multer.diskStorage({
 });
 const uploadFile = multer({ storage });
 
+// Rutas
+
 router.get('/', coleccionesController.listadoProductos);
 
 router.get('/busqueda', coleccionesController.busqueda);
-router.get('/busqueda/buscar', coleccionesController.leerFormulario);
+router.get('/busqueda/buscar', coleccionesController.leerFormularioBusqueda);
 
-router.get('/create', coleccionesController.create);
-router.post('/', upload.array('photos'), validaciones.nuevoProducto, coleccionesController.createPost);
+router.get('/create', adminMiddleware,coleccionesController.create);
+router.post('/', adminMiddleware, upload.array('photos'), validaciones.nuevoProducto, coleccionesController.createPost);
 
 router.get('/editar', detalleProductoController.editar);
 
 router.get('/:idProducto', detalleProductoController.index);
 
-router.get('/:idProducto/edit', detalleProductoController.editar);
+router.get('/:idProducto/edit', adminMiddleware, detalleProductoController.editar);
 
-router.put('/:idProducto/edit', uploadFile.array('photos'), validaciones.actualizar,detalleProductoController.actualizar);
+router.put('/:idProducto/edit', adminMiddleware, uploadFile.array('photos'), validaciones.actualizar,detalleProductoController.actualizar);
 
-router.delete('/:idProducto',detalleProductoController.delete);
+router.delete('/:idProducto', adminMiddleware, detalleProductoController.delete);
 
 module.exports = router;

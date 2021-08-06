@@ -27,9 +27,6 @@ app.use(recordarmeMiddleware);
 // REQUERIR ARCHIVOS DE RUTAS
 const homeRoutes = require('./routes/homeRoutes.js');
 const carritoRoutes = require('./routes/carritoRoutes.js');
-const loginRoutes = require('./routes/loginRoutes.js');
-const detalleProductoRoutes = require('./routes/detalleProductoRoutes.js');
-const registroRoutes = require('./routes/registroRoutes.js');
 const coleccionesRoutes = require('./routes/coleccionesRoutes');
 const usersRoutes = require('./routes/usersRoutes.js');
 const methodOverride = require('method-override');
@@ -51,19 +48,11 @@ app.listen(PORT, () => {
 
 app.use('/', homeRoutes);
 
-//app.use('/products', detalleProductoRoutes);
-
-app.use('/registro', registroRoutes);
-
-// app.use('/login', loginRoutes);
-
 app.use('/carrito', carritoRoutes);
 
 app.use('/products', coleccionesRoutes);
 
 app.use('/users', usersRoutes);
-
-//app.use('/busqueda', busquedaRoutes);
 
 app.use((req,res)=>{
     res.status(404).render('error404.ejs');

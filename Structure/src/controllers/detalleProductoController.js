@@ -14,27 +14,11 @@ const detalleProductoController = {
     editar: (req, res) => {
         const idProducto = req.params.idProducto;
         let productSelect = productos.find(producto => producto.id === idProducto);
-        res.render('editarProductos.ejs', {"producto":productSelect});
-    },
-    nuevo: (req, res) => {
-        console.log("Nuevo producto");
-        const esqueleto = {
-            id: null,
-            nombre: "",
-            coleccion: "1",
-            categoria: "Hombres",
-            subcategoria: "1",
-            precio: 0,
-            descripcion: "",
-            "photos": [],
-            "color": [],
-            "talla": [],
-            "cantidad": 0,
-            "enOferta": false,
-            "precioOferta": 0,
-            "hotsale": false
-          };
-        res.render('nuevoProducto.ejs', {"producto": esqueleto});
+        if (productSelect != undefined) {
+            res.render('editarProductos.ejs', {"producto":productSelect});
+        } else {
+            res.render('busquedaVacia.ejs')
+        }
     },
     actualizar: (req, res) => {
         let errors = validationResult(req);

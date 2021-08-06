@@ -13,6 +13,9 @@ const usersController = {
     index: function(req,res) {
         res.render('login.ejs');
     },
+    registroUsuario: function(req,res) {
+        res.render('registro.ejs');
+    },
     iniciarSesion: function(req,res) {
         let errores = validationResult(req);
         if (!errores.isEmpty()) {
@@ -68,7 +71,7 @@ const usersController = {
         req.session.role = null;
         res.clearCookie('user');
         res.clearCookie('logeado');
-        res.redirect('/');
+        res.redirect('/users/login');
     }
 }
 
