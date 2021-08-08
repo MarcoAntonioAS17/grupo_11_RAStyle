@@ -3,7 +3,9 @@ const router = express.Router();
 
 const carritoController = require("../controllers/carritoController");
 
-router.get('/', carritoController.index);
+const loggedMeddleware = require('../middlewares/loggedMiddleware')
+
+router.get('/', loggedMeddleware, carritoController.index);
 
 
 module.exports = router;
