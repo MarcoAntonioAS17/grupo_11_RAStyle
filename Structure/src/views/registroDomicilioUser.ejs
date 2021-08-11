@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <link href="/css/userPerfilDomicilioStyles.css" rel="stylesheet" type="text/css">
+    <title>Perfil</title>
+</head>
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <!-- Body -->
+    <main>
+        <div class="contenedor_main">
+            <div class="ruta">
+                <span class="material-icons-outlined">home</span>
+                <span class="material-icons-outlined">navigate_next</span>
+                Perfil
+                <span class="material-icons-outlined">navigate_next</span>
+                Información
+            </div>
+            <div id="div-info">
+                <div id="enlaces">
+                    <h1>Información</h1>
+                    <a href="/registro/usuario/general">Datos generales</a>
+                    <a href="/registro/usuario/domicilio">Dirección</a>
+                    <a href="#">Compras</a>
+                </div>
+                <div id="div-formulario">
+                    <h1>Datos de domicilio</h1>
+                    <form>
+                        <div id="contenedor_inputs">
+                            <div id="input-calle">
+                                <label for="calle">Calle</label>
+                                <input type="text" name="calle" id="calle">
+                            </div>
+                            <div class="div-input">
+                                <label for="num_ext">Número exterior</label>
+                                <input type="text" name="NumExterior" id="num_ext">
+                            </div>
+                            <div class="div-input">
+                                <label for="num_int">Número interior</label>
+                                <input type="text" name="NumInterior" id="num_int">
+                            </div>
+                            <div class="div-input">
+                                <label for="cp">Código Postal</label>
+                                <input type="text" name="CP" id="cp">
+                            </div>
+                            <div class="div-input">
+                                <label for="ciudad">Ciudad</label>
+                                <input type="text" name="ciudad" id="ciudad">
+                            </div>
+                            <div class="div-input">
+                                <label for="estado">Estado</label>
+                                <input type="text" name="estado" id="estado">
+                            </div>
+                            <div class="div-input">
+                                <label for="pais">País</label>
+                                <input type="text" name="pais" id="pais">
+                            </div>
+                            <div id="input-referencias" >
+                                <label for="referencia">Referencias</label>
+                                <input type="text" name="referencia" id="referencia">
+                            </div>
+                        </div>
+                        <div id="div-button">
+                            <button type="submit">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+</body>
+</html>
