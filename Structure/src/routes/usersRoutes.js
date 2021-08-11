@@ -12,6 +12,9 @@ router.get('/register', noLoggedMiddleware, usersController.registroUsuario);
 router.get('/login', noLoggedMiddleware, usersController.index);
 router.post('/login', validacionesLoginUsuario.formatoDatosLogin, usersController.iniciarSesion);
 
+router.get('/info', noLoggedMiddleware, usersController.perfil);
+router.get('/info/domicilio', noLoggedMiddleware, usersController.perfilDomicilio);
+
 router.get('/logout', usersController.logout);
 
 

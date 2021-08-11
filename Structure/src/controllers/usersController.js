@@ -72,7 +72,13 @@ const usersController = {
         res.clearCookie('user');
         res.clearCookie('logeado');
         res.redirect('/users/login');
-    }
+    },
+    perfil: (req, res) => {
+        res.render('registroUser');
+    },
+    perfilDomicilio: (req, res) => {
+        res.render('registroDomicilioUser');
+    },
 }
 
 module.exports = usersController;

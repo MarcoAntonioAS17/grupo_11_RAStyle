@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+.feedback {
+    color: red;
+}
+
+body {
+    background-color: white;
+}
+
+main {
+    padding: 60px 8px 8px 8px;   
+}
+
+.ruta {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: 12px;
+}
+
+/***/
+h1 {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#enlaces a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+#div-formulario {
+    margin-top: 16px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+#contenedor_inputs {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#perfil-picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#perfil-picture img {
+    width: 150px;
+}
+#perfil-picture input {
+    border: 0px;
+}
+.div-input, .div-nombre{
+    display: flex;
+    flex-direction: column;
+    margin: 8px 8px;
+}
+
+#div-button {
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#div-button button {
+    height: 2rem;
+    color: white;
+    background-color: black;
+    padding: 0 2rem;
+    border-radius: 5px;
+    border: 0px;
+}
+
+input {
+    height: 2rem;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+}
+
+@media (min-width: 767px) {
+    
+    main {
+        display: flex;
+        justify-content: center;
+    }
+    .contenedor_main {
+        max-width: 1300px;
+        min-width: 100vh;
+        width: 100%;
+        min-height: calc(100vh - 60px);
+    }
+    #div-info {
+        display: flex;
+        margin-top: 1rem;
+    }
+    #enlaces {
+        width: 250px;
+    }
+    #enlaces h1 {
+        margin-bottom: 2rem;
+    }
+    #div-formulario {
+        margin-top: 0px;
+        padding: 4rem 2rem;
+        width: 100%;
+    }
+    #div-formulario form {
+        padding: 2rem 4rem;
+    }
+
+    #div-input-nombre {
+        width: 100%;
+        padding-left: 2rem;
+    }
+    #div-perfil {
+        display: flex;
+    }
+    .div-nombre {
+        width: calc(100% - 16px);
+    }
+    .div-input {
+        width: calc(50% - 16px);
+    }
+    #div-email {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #div-button {
+        margin-top: 2rem;
+    }
+    #div-button button {
+        padding: 0 4rem;
+    }
+}
