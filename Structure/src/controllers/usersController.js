@@ -96,7 +96,7 @@ const usersController = {
                         res.cookie('logeado',true, {maxAge: 1800000});
                     }
 
-                    res.redirect('/');
+                    res.redirect('/users/info');
                     return;
                 } else {
                     let contrasenaIncorrecta = {
