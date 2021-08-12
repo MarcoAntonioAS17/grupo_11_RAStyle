@@ -12,25 +12,37 @@
     <!-- Body -->
     <main>
         <div class="contenedor">
-            <form action="" method="post">
+            <form action="/users/register" method="post">
                 <h3>Crea tu cuenta</h3>
                 <div class="full_name">
                     <div> 
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" required>
+                        <input type="text" name="nombre" id="nombre" required value="<%=locals.usuario && usuario.nombre ? usuario.nombre : null%>">
+                        <% if (locals.errors && errors.nombre) {%>
+                            <p class="feedback"><%=errors.nombre.msg%></p>
+                        <% } %>
                     </div>
                     <div>
                         <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" required>
+                        <input type="text" name="apellido" id="apellido" required value="<%=locals.usuario && usuario.apellido ? usuario.apellido : null%>">
+                        <% if (locals.errors && errors.apellido) {%>
+                            <p class="feedback">Error<%=errors.apellido.msg%></p>
+                        <% } %>
                     </div>
                 </div>
                 <div class="contenedor_email">
                     <label for="correo">Correo electronico</label>
-                    <input type="email" name="correo" id="correo" required>
+                    <input type="email" name="correo" id="correo" required value="<%=locals.usuario && usuario.correo ? usuario.correo : null%>">
+                    <% if (locals.errors && errors.correo) {%>
+                        <p class="feedback"><%=errors.correo.msg%></p>
+                    <% } %>
                 </div>
                 <div class="contenedor_password">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" required value="<%=locals.usuario && usuario.password ? usuario.password : null%>">
+                    <% if (locals.errors && errors.password) {%>
+                        <p class="feedback"><%=errors.password.msg%></p>
+                    <% } %>
                 </div>
                 <div class="contenedor_button">
                     <button type="submit">Registrarse</button>

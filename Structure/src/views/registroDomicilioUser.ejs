@@ -28,39 +28,63 @@
                 </div>
                 <div id="div-formulario">
                     <h1>Datos de domicilio</h1>
-                    <form>
+                    <form method="POST" action="/users/info/domicilio?_method=PUT">
                         <div id="contenedor_inputs">
                             <div id="input-calle">
-                                <label for="calle">Calle</label>
-                                <input type="text" name="calle" id="calle">
+                                <label for="calle">Calle *</label>
+                                <input type="text" name="calle" id="calle" value="<%=usuario.calle%>" required>
+                                <% if (locals.errors && errors.calle) {%>
+                                    <p class="feedback"><%=errors.calle.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
-                                <label for="num_ext">Número exterior</label>
-                                <input type="text" name="NumExterior" id="num_ext">
+                                <label for="num_ext">Número exterior *</label>
+                                <input type="text" name="num" id="num_ext" value="<%=usuario.num%>" required>
+                                <% if (locals.errors && errors.num) {%>
+                                    <p class="feedback"><%=errors.num.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
                                 <label for="num_int">Número interior</label>
-                                <input type="text" name="NumInterior" id="num_int">
+                                <input type="text" name="num_inter" id="num_int" value="<%=usuario.num_inter%>">
+                                <% if (locals.errors && errors.num_inter) {%>
+                                    <p class="feedback"><%=errors.num_inter.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
-                                <label for="cp">Código Postal</label>
-                                <input type="text" name="CP" id="cp">
+                                <label for="cp">Código Postal *</label>
+                                <input type="text" name="cp" id="cp" value="<%=usuario.cp%>" required>
+                                <% if (locals.errors && errors.cp) {%>
+                                    <p class="feedback"><%=errors.cp.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
-                                <label for="ciudad">Ciudad</label>
-                                <input type="text" name="ciudad" id="ciudad">
+                                <label for="ciudad">Ciudad *</label>
+                                <input type="text" name="ciudad" id="ciudad" value="<%=usuario.ciudad%>" required>
+                                <% if (locals.errors && errors.ciudad) {%>
+                                    <p class="feedback"><%=errors.ciudad.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
-                                <label for="estado">Estado</label>
-                                <input type="text" name="estado" id="estado">
+                                <label for="estado">Estado *</label>
+                                <input type="text" name="estado" id="estado" value="<%=usuario.estado%>" required>
+                                <% if (locals.errors && errors.estado) {%>
+                                    <p class="feedback"><%=errors.estado.msg%></p>
+                                <% } %>
                             </div>
                             <div class="div-input">
-                                <label for="pais">País</label>
-                                <input type="text" name="pais" id="pais">
+                                <label for="pais">País *</label>
+                                <input type="text" name="pais" id="pais" value="<%=usuario.pais%>" required>
+                                <% if (locals.errors && errors.pais) {%>
+                                    <p class="feedback"><%=errors.pais.msg%></p>
+                                <% } %>
                             </div>
                             <div id="input-referencias" >
-                                <label for="referencia">Referencias</label>
-                                <input type="text" name="referencia" id="referencia">
+                                <label for="referencia">Referencias *</label>
+                                <input type="text" name="ref" id="referencia" value="<%=usuario.ref%>">
+                                <% if (locals.errors && errors.ref) {%>
+                                    <p class="feedback"><%=errors.ref.msg%></p>
+                                <% } %>
                             </div>
                         </div>
                         <div id="div-button">

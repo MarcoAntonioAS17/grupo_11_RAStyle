@@ -8,6 +8,7 @@
 
 .feedback {
     color: red;
+    font-size: 12px;
 }
 
 body {
@@ -59,6 +60,8 @@ h1 {
 }
 #perfil-picture img {
     width: 150px;
+    height: 150px;
+    border-radius: 75px;
 }
 #perfil-picture input {
     border: 0px;
@@ -87,6 +90,7 @@ h1 {
 input {
     height: 2rem;
     border: 1px solid #ccc;
+    padding: 0 8px;
     margin-top: 8px;
 }
 

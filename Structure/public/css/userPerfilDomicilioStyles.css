@@ -8,6 +8,7 @@
 
 .feedback {
     color: red;
+    font-size: 12px;
 }
 
 body {
@@ -83,6 +84,7 @@ h1 {
 
 input {
     height: 2rem;
+    padding: 0 8px;
     border: 1px solid #ccc;
     margin-top: 8px;
 }

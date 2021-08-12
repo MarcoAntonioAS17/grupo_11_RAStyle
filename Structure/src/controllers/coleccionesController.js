@@ -126,7 +126,7 @@ const coleccionesController = {
         });
 
         productos.push(data);
-        fs.writeFileSync(__dirname+'/../databases/productos.json', JSON.stringify(productos));
+        fs.writeFileSync(__dirname+'/../databases/productos.json', JSON.stringify(productos,null,2));
         
         res.redirect('/products/'+idProducto);
     }

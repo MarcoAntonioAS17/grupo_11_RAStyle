@@ -11,6 +11,11 @@ main {
     min-height: 100vh;
     padding-top: 60px;
 }
+.feedback {
+    font-size: 12px;
+    color: red;
+    width: 250px;
+}
 
 .contenedor {
     padding: 2rem 1rem;
