@@ -5,8 +5,19 @@ const busquedaModels = require('../models/funcionesBusqueda');
 const { validationResult } = require('express-validator');
 const fs = require('fs');
 
+// USO DE SEQUELIZE
+const db = require("../database/models");
+// %%%%%%%%%%%%%%%%
+
 const coleccionesController = {
     listadoProductos: function (req, res) {
+        // Uso de Sequelize
+        db.Usuarios.findAll({
+            where: {id: '000007'}
+        }).then(function(todosProductos){
+            console.log(todosProductos.length)
+        })
+        //
         res.render('listadoProductos.ejs',{'productos':productos});
     },
     busqueda: function(req,res) {
