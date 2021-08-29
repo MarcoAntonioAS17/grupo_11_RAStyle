@@ -2,16 +2,21 @@
 ##### Equipo 11 - Sprint 4
 
 ### *Comenzar a hacer:*
-- Empezar a hacer el weekly meeting con anticipación.
+- Optimización del código para conexión con modelos y base de datos.
+
 ### *Hacer más:*
 - Atención a los detalles para el correcto funcionamiento de heroku.
-- Atención a los nombre de los archivos
-### *Continuar haciendo:*
-- Las entregas en tiempo y forma. 
 - Reuniones intermedias para revisión de avances.
-- Dividir el trabajo solo en dos integrantes.
+- Énfasis en seguridad del código y protección contra errores.
+
+### *Continuar haciendo:*
+- Las entregas en tiempo y forma.
+- Dividir el trabajo equitativamente.
+- Atención a los nombres de los archivos.
+
 ### *Hacer menos:*
 - No dar el tiempo suficiente al proyecto y terminar presionados para concluir el sprint.
+
 ### *Dejar de hacer:*
-- Duplicados de archivos innecesarios.
+- Postergar el trabajo en el sprint.
 
