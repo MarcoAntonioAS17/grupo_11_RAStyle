@@ -35,6 +35,11 @@ const uploadFile = multer({ storage });
 
 router.get('/', coleccionesController.listadoProductos);
 
+router.get('/hombres', coleccionesController.productosHombres);
+router.get('/mujeres', coleccionesController.productosMujeres);
+router.get('/promociones', coleccionesController.productosPromociones);
+router.get('/HotSale', coleccionesController.productosHotSale);
+
 router.get('/busqueda', coleccionesController.busqueda);
 router.get('/busqueda/buscar', coleccionesController.leerFormularioBusqueda);
 

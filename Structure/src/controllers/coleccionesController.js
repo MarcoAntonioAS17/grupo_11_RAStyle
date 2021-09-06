@@ -200,7 +200,23 @@ const coleccionesController = {
         res.redirect('/products/'+newProduct.id);
 
         }).catch(err => console.log(err))
-    }
+    },
+    productosHombres: async function(req, res) {
+        datosProductos = await db.Productos.findAll({where: {id_Categoria: 1}});
+        res.render('listadoProductos.ejs',{'productos':datosProductos});
+    },
+    productosMujeres: async function(req, res) {
+        datosProductos = await db.Productos.findAll({where: {id_Categoria: 2}});
+        res.render('listadoProductos.ejs',{'productos':datosProductos});
+    },
+    productosPromociones: async function(req, res) {
+        datosProductos = await db.Productos.findAll({where: {enOferta: true}});
+        res.render('listadoProductos.ejs',{'productos':datosProductos});
+    },
+    productosHotSale: async function(req, res) {
+        datosProductos = await db.Productos.findAll({where: {hotSale: true}});
+        res.render('listadoProductos.ejs',{'productos':datosProductos});
+    },
 }
 
 module.exports = coleccionesController;

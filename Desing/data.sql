@@ -1,8 +1,8 @@
 insert into rastyle.categoriausuario
 (id,Nombre) 
 values
-(1,'Admin'),
-(2,'User'); 
+(1,'admin'),
+(2,'user'); 
 
 INSERT INTO rastyle.categoria
 (id,Nombre)

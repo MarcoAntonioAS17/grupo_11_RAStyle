@@ -8,37 +8,61 @@ const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 const db = require("../database/models");
 
 const detalleProductoController = {
-    index: function(req,res) {
+    index: async function(req,res) {
         const idProducto = req.params.idProducto;
-        db.Productos.findOne({
+        const item = await db.Productos.findOne({
             where: {id: idProducto},
             include: [
                 {association: "fotosDelProducto"},
                 {association: "tallasDelProducto"},
                 {association: "coloresDelProducto"}
             ]
-        }).then(item => {
-            res.render('detalleProducto.ejs',{producto: item})
         })
+        const tallas = await db.TallasProducto.findAll({
+            where: {Productos_id: idProducto},
+            include: [{association: "tallaDeLasTallas"}]
+        })
+        const colores = await db.ColoresProducto.findAll({
+            where: {Productos_id: idProducto},
+            include: [{association: "color"}]
+        })
+        res.render('detalleProducto.ejs',{producto: item, talla: tallas, color: colores})
         //let productoSelect = productos.find(producto=>producto.id===idProducto);
         //res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
-    editar: (req, res) => {
+    editar: async (req, res) => {
         const idProducto = req.params.idProducto;
-        db.Productos.findOne({
+        const item = await db.Productos.findOne({
             where: {id: idProducto},
             include: [
                 {association: "fotosDelProducto"},
                 {association: "tallasDelProducto"},
                 {association: "coloresDelProducto"}
             ]
-        }).then(item => {
-            if (item != undefined) {
-                res.render('editarProductos.ejs', {"producto": item});
-            } else {
-                res.render('busquedaVacia.ejs')
-            }
         })
+        const tallas = await db.TallasProducto.findAll({
+            where: {Productos_id: idProducto},
+            include: [{association: "tallaDeLasTallas"}]
+        })
+        let indexTallas = [];
+        for(let t of tallas) {
+            indexTallas.push(t.Tallas_id)
+        }
+
+        const colores = await db.ColoresProducto.findAll({
+            where: {Productos_id: idProducto},
+            include: [{association: "color"}]
+        })
+        let indexColores = [];
+        for(let c of colores) {
+            indexColores.push(c.Colores_id)
+        }
+
+        if (item != undefined) {
+            res.render('editarProductos.ejs', {producto: item, tallas: indexTallas, colores: indexColores});
+        } else {
+            res.render('busquedaVacia.ejs')
+        }
         /* let productSelect = productos.find(producto => producto.id === idProducto);
         if (productSelect != undefined) {
             res.render('editarProductos.ejs', {"producto":productSelect});
@@ -46,36 +70,29 @@ const detalleProductoController = {
             res.render('busquedaVacia.ejs')
         } */
     },
-    actualizar: (req, res) => {
+    actualizar: async (req, res) => {
         let errors = validationResult(req);
-        
         if (!errors.isEmpty()) {
-            console.log("=========Datos======");
-            console.log(req.body);
-            console.log("=========Errores======");
-            console.log(errors.mapped());
             let esqueleto = {
-                id: req.params.idProducto,
-                nombre: "",
-                coleccion: "1",
-                categoria: "Hombres",
-                subcategoria: "1",
+                id: "",
+                Nombre: "",
+                id_Colecciones: 1,
+                id_Categoria: 1,
+                id_Subcategoria: 1,
                 precio: 0,
-                descripcion: "",
+                Descripcion: "",
                 photos: [],
                 color: [],
                 talla: [],
-                cantidad: 0,
+                Cantidad: 0,
                 enOferta: false,
                 precioOferta: 0,
-                hotsale: false
+                hotSale: false
             };
             esqueleto = {
                 ...esqueleto,
                 ...req.body
             }
-            console.log("------------Datos y Esqueleto----------");
-            console.log(esqueleto);
             if (typeof esqueleto.color === "object") {
                 esqueleto = {
                     ...esqueleto,
@@ -97,62 +114,50 @@ const detalleProductoController = {
                 esqueleto.talla = [esqueleto.talla];
             }
 
-            console.log("=========Esqueleto======");
-            console.log(esqueleto);
             res.render('editarProductos.ejs', {errors: errors.mapped(), "producto": esqueleto })
             return;
         } 
 
         const idProducto = req.params.idProducto;
         const data = req.body;
-        let productoIndex = productos.findIndex(producto=>producto.id===idProducto);
         let files = req.files;
 
-        productos[productoIndex] = { 
-            ...productos[productoIndex],
-            nombre: data.nombre,
-            categoria: data.categoria,
-            subcategoria: data.subcategoria,
-            coleccion: data.coleccion,
-            precio: parseFloat(data.precio),
-            descripcion: data.descripcion,
-            talla: [...data.talla],
-            cantidad: parseInt(data.cantidad),
-            enOferta: data.enOferta == 'on' ? true : false,
-            hotsale: data.hotsale == 'on' ? true : false,
-            precioOferta: parseFloat(data.precioOferta)
-        };
+        data.enOferta ? data.enOferta=true : data.enOferta=false;
+        data.hotSale ? data.hotSale=true : data.hotSale=false;
 
-        files.forEach(item => {
-            console.log("/images/productos/"+item.filename);
-            productos[productoIndex].photos.push(`/images/productos/${item.filename}`);
-        });
+        await db.Productos.update({
+            Nombre: data.Nombre,
+            id_Colecciones: parseInt(data.id_Colecciones,10),
+            id_Categoria: parseInt(data.id_Categoria, 10),
+            id_Subcategoria: parseInt(data.id_Subcategoria,10),
+            precio: data.precio,
+            Descripcion: data.Descripcion,
+            Cantidad: data.Cantidad,
+            enOferta: data.enOferta,
+            precioOferta: data.precioOferta,
+            hotSale: data.hotSale
+        }, {
+            where: {id: idProducto}
+        })
 
-        if (typeof data.color === "object") {
-            productos[productoIndex] = {
-                ...productos[productoIndex],
-                color: [...data.color],
-            };
-        } else if (typeof data.color === "string"){
-            productos[productoIndex] = {
-                ...productos[productoIndex],
-                color: [data.color],
-            };
+        await db.TallasProducto.destroy({where: {Productos_id: idProducto}});
+        await db.ColoresProducto.destroy({where: {Productos_id: idProducto}});
+
+        // Tabla de Colores de Productos
+        for (let itemC of data.color) {
+            db.ColoresProducto.create({
+                Colores_id: parseInt(itemC,10),
+                Productos_id: idProducto
+            })
         }
+        // Tabla de Tallas de Productos
+        for (let itemT of data.talla) {
+            db.TallasProducto.create({
+                Tallas_id: parseInt(itemT,10),
+                Productos_id: idProducto
+            })
+        } 
 
-        if (typeof data.talla === "object") {
-            productos[productoIndex] = {
-                ...productos[productoIndex],
-                talla: [...data.talla],
-            };
-        } else if (typeof data.talla === "string"){
-            productos[productoIndex] = {
-                ...productos[productoIndex],
-                talla: [data.talla],
-            };
-        }
-        
-        fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
         res.redirect("/products/"+idProducto);
     },
     delete: (req, res) => {

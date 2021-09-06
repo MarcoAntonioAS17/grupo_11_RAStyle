@@ -50,9 +50,9 @@
                 <div class="contenedor_color">
                     <p>Selecciona color </p>
                     <div>
-                        <% if(producto.coloresDelProducto) { %>
-                            <% for (let i=0; i<producto.coloresDelProducto.length;i++) { %>
-                                <button name="color" class="item_color" style=<%="background-color:"+producto.coloresDelProducto[i]%>>
+                        <% if(locals.color) { %>
+                            <% for (let i=0; i<color.length;i++) { %>
+                                <button name="color" class="item_color" style=<%="background-color:"+color[i].color.Nombre%>>
                             <% } %>
                         <% } %>
                     </div>
@@ -60,9 +60,9 @@
                 <div class="contenedor_talla">
                     <p>Selecciona tu talla </p>
                     <div>
-                        <% if(producto.tallasDelProducto) { %>
-                            <% for (let i=0; i<producto.tallasDelProducto.length;i++) { %>
-                                <button class="item_talla"><%= producto.tallasDelProducto[i] %></button>
+                        <% if(locals.talla) { %>
+                            <% for (let i=0; i<talla.length;i++) { %>
+                                <button class="item_talla"><%= talla[i].tallaDeLasTallas.Nombre %></button>
                             <% } %>
                         <% } %>
                         <button class="guia_talla">Guía de tallas</button>
