@@ -2,30 +2,30 @@ const { check } = require('express-validator');
 
 const validacionesProductos = {
     actualizar: [
-        check('nombre')
+        check('Nombre')
             .notEmpty().withMessage("Debes poner nombre de producto").bail()
             .isLength({min: 5}).withMessage("El nombre debe ser más largo"),
-        check('coleccion')
+        check('id_Colecciones')
             .isNumeric().withMessage("Debe ser número"),
-        check('categoria')
+        check('id_Categoria')
             .notEmpty().withMessage("Selecciona una categoría"),
-        check('subcategoria')
+        check('id_Subcategoria')
             .isNumeric().withMessage("Debe ser número"),
         check('precio')
             .isNumeric().withMessage("Debe ser número decimal"),
-        check('descripcion')
+        check('Descripcion')
             .isLength({min:10}).withMessage("Ingresa al menos 10 caracteres"),
         check('color')
             .notEmpty().withMessage("Selecciona al menos un color"),
         check('talla')
             .notEmpty().withMessage("Selecciona al menos una talla"),
-        check('cantidad')
+        check('Cantidad')
             .isNumeric().withMessage("La cantidad debe ser positiva"),
         check('precioOferta')
             .isNumeric().withMessage("El precio oferta debe ser positivo")
     ],
     nuevoProducto: [
-        check('nombre')
+        check('Nombre')
             .notEmpty().withMessage("Debes poner nombre de producto").bail()
             .isLength({min: 5}).withMessage("El nombre debe ser más largo"),
         /* check('coleccion')
@@ -36,13 +36,13 @@ const validacionesProductos = {
             .isNumeric().withMessage("Debe ser número"), */
         check('precio')
             .isNumeric().withMessage("Debe ser número decimal"),
-        check('descripcion')
+        check('Descripcion')
             .isLength({min:10}).withMessage("Ingresa al menos 10 caracteres"),
         check('color')
             .notEmpty().withMessage("Selecciona al menos un color"),
         check('talla')
             .notEmpty().withMessage("Selecciona al menos una talla"),
-        check('cantidad')
+        check('Cantidad')
             .isNumeric().withMessage("La cantidad debe ser positiva"),
         check('precioOferta')
             .isNumeric().withMessage("El precio oferta debe ser positivo")

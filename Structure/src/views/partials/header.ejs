@@ -10,10 +10,10 @@
         <input type="checkbox" id="show-nav" hidden>
         <div class="contenedor_menu">
             <ul class="navbar_menu">
-                <li><a href="/products">Hot Sale</a></li>
-                <li><a href="/products">Hombres</a></li>
-                <li><a href="/products">Mujeres</a></li>
-                <li><a href="/products">Promociones</a></li>
+                <li><a href="/products/HotSale">Hot Sale</a></li>
+                <li><a href="/products/hombres">Hombres</a></li>
+                <li><a href="/products/mujeres">Mujeres</a></li>
+                <li><a href="/products/promociones">Promociones</a></li>
                 <% if (locals.logeado && logeado.logeado && logeado.role=='admin') { %>
                 <li><a href="/products/create">Crear Producto</a></li>
                 <% } %>

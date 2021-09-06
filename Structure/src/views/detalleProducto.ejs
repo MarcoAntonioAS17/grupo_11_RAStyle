@@ -17,24 +17,28 @@
             <span class="material-icons-outlined">navigate_next</span>
             Detalle de producto
             <span class="material-icons-outlined">navigate_next</span>
-            <%= producto.nombre%>
+            <%= producto.Nombre%>
         </div>
         <div class="contenedor_producto">
             <div class="carrusel_imagenes">
                 <span class="material-icons-outlined">expand_less</span>
-                <% for (let i=0; i<producto.photos.length; i++) { %>
-                    <% if(producto.photos[i]) { %>
-                        <img class="image_carrusel" src="<%= producto.photos[i] %>" alt="sudadera">
+                <% if(producto.fotosDelProducto) { %>
+                    <% for (let i=0; i<producto.fotosDelProducto.length; i++) { %>
+                        <% if(producto.fotosDelProducto[i]) { %>
+                            <img class="image_carrusel" src="<%= producto.fotosDelProducto[i] %>" alt="sudadera">
+                        <% } %>
                     <% } %>
                 <% } %>
                 <span class="material-icons-outlined">expand_more</span>
             </div>
             <div class="carrusel">
-                <img class="image_carrusel" src="<%= producto.photos[0] %>" alt="sudadera">
+                <% if(producto.fotosDelProducto[0]) { %>
+                    <img class="image_carrusel" src="<%= producto.fotosDelProducto[0] %>" alt="sudadera">
+                <% } %>
             </div>
             <div class="contenedor_datos">
                 <div class="contenedor_titulo">
-                    <h3 class="item_nombre"><%= producto.nombre%></h3>
+                    <h3 class="item_nombre"><%= producto.Nombre%></h3>
                     <span id="icon_encanta" class="material-icons-outlined">favorite_border</span>
                     <% if (producto.enOferta == false) { %>
                         <p class="item_precio">MXN $<%=producto.precio%></p>
@@ -46,16 +50,20 @@
                 <div class="contenedor_color">
                     <p>Selecciona color </p>
                     <div>
-                        <% for (let i=0; i<producto.color.length;i++) { %>
-                            <button name="color" class="item_color" style=<%="background-color:"+producto.color[i]%>>
+                        <% if(locals.color) { %>
+                            <% for (let i=0; i<color.length;i++) { %>
+                                <button name="color" class="item_color" style=<%="background-color:"+color[i].color.Nombre%>>
+                            <% } %>
                         <% } %>
                     </div>
                 </div>
                 <div class="contenedor_talla">
                     <p>Selecciona tu talla </p>
                     <div>
-                        <% for (let i=0; i<producto.talla.length;i++) { %>
-                            <button class="item_talla"><%= producto.talla[i] %></button>
+                        <% if(locals.talla) { %>
+                            <% for (let i=0; i<talla.length;i++) { %>
+                                <button class="item_talla"><%= talla[i].tallaDeLasTallas.Nombre %></button>
+                            <% } %>
                         <% } %>
                         <button class="guia_talla">Guía de tallas</button>
                     </div>
@@ -100,8 +108,8 @@
                 <div class="info_oculta">
                     <h3>Descripción </h3> 
                     <p>
-                        <% if (producto.descripcion) { %>
-                            <%= producto.descripcion %> 
+                        <% if (producto.Descripcion) { %>
+                            <%= producto.Descripcion %> 
                         <% } %>
                     </p>
                     <h3> Composición + Cuidados </h3>
