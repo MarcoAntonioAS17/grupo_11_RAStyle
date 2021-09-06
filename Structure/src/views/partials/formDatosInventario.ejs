@@ -10,7 +10,7 @@
         </div>
         <div class="contenedor_input">
             <label for="cantidad">Cantidad *</label>
-            <input type="number" name="cantidad" id="cantidad" value="<%= locals.producto && producto.cantidad ? producto.cantidad : null %>" required>
+            <input type="number" name="Cantidad" id="cantidad" value="<%= locals.producto && producto.Cantidad ? producto.Cantidad : null %>" required>
             <% if (locals.errors && errors.cantidad) { %>
                 <label class="feedback"><%= errors.cantidad.msg %></label>
             <% } %>
@@ -25,8 +25,8 @@
                 <label for="checkbox_enOferta">En oferta</label>
             </div>
             <div>
-                <input type="checkbox" name="hotsale" id="checkbox_hotSale"
-                <%= locals.producto && producto.hotsale ? "checked" : null%>
+                <input type="checkbox" name="hotSale" id="checkbox_hotSale"
+                <%= locals.producto && producto.hotSale ? "checked" : null%>
                 />
                 <label for="checkbox_hotSale">Hot Sale</label>
             </div>

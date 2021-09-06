@@ -6,53 +6,77 @@ const { validationResult } = require('express-validator');
 const fs = require('fs');
 
 // USO DE SEQUELIZE
+const { Op } = require("sequelize");
 const db = require("../database/models");
 // %%%%%%%%%%%%%%%%
 
 const coleccionesController = {
     listadoProductos: function (req, res) {
         // Uso de Sequelize
-        db.Usuarios.findAll({
-            where: {id: '000007'}
+        db.Productos.findAll({
+            include: [{association: "fotosDelProducto"}],
+            limit: 12
         }).then(function(todosProductos){
-            console.log(todosProductos.length)
+            res.render('listadoProductos.ejs',{'productos': todosProductos});
         })
-        //
-        res.render('listadoProductos.ejs',{'productos':productos});
     },
     busqueda: function(req,res) {
         res.render('busqueda.ejs');
     },
-    leerFormularioBusqueda: function(req,res) {
+    leerFormularioBusqueda: async function(req,res) {
         const data = req.query;
-        const field = data.filtro;
+        //const campoBusqueda = data.filtro;
         const clave = data.buscar.split(" ");
-        const tipo = data.tipo;
+        const primerFiltro = data.tipo;
         let filtrados=[];
         let datosProductos=[];
 
-        switch (tipo) {
+        switch (primerFiltro) {
             case "hombres": 
-                datosProductos = productos.filter(item => {return item.categoria==="Hombre"});
-                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                datosProductos = await db.Productos.findAll({where: {id_Categoria: 1}});
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
                 break;
             case "mujeres": 
-                datosProductos = productos.filter(item => {return item.categoria==="Mujer"});
-                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                datosProductos = await db.Productos.findAll({where: {id_Categoria: 2}});
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
+                break;
+            case "unisex": 
+                datosProductos = await db.Productos.findAll({where: {id_Categoria: 3}});
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
                 break;
             case "hotsale": 
-                datosProductos = productos.filter(item => {return item.hotsale===true});
-                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                datosProductos = await db.Productos.findAll({where: {hotSale: true}});
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
                 break;
             case "enOferta": 
-                datosProductos = productos.filter(item => {return item.enOferta===true});
-                filtrados = busquedaModels.elegirBusqueda(clave, datosProductos, field);
+                datosProductos = await db.Productos.findAll({where: {enOferta: true}});
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
                 break;
             default: 
-                filtrados = busquedaModels.elegirBusqueda(clave,productos,field);
+                datosProductos = await db.Productos.findAll();
+                filtrados = busquedaModels.buscarId(clave, datosProductos);
+                if (filtrados.length<1) {
+                    filtrados = busquedaModels.buscarNombre(clave, datosProductos);
+                }
+                console.log(filtrados)
         }
         
-        if (filtrados.length > 0) {
+        if (filtrados && filtrados.length > 0) {
             res.render('listadoProductos.ejs',{'productos':filtrados});
         } else {
             res.render('busquedaVacia.ejs')
@@ -70,19 +94,19 @@ const coleccionesController = {
             //console.log(errors.mapped());
             let esqueleto = {
                 id: "",
-                nombre: "",
-                coleccion: '1',
-                categoria: 'Hombre',
-                subcategoria: '1',
+                Nombre: "",
+                id_Colecciones: 1,
+                id_Categoria: 1,
+                id_Subcategoria: 1,
                 precio: 0,
-                descripcion: "",
+                Descripcion: "",
                 photos: [],
                 color: [],
                 talla: [],
-                cantidad: 0,
+                Cantidad: 0,
                 enOferta: false,
                 precioOferta: 0,
-                hotsale: false
+                hotSale: false
             };
             esqueleto = {
                 ...esqueleto,
@@ -118,28 +142,64 @@ const coleccionesController = {
         } 
 
         // FIN DE VALIDACIONES
-        console.log("YA ESTOY AQUI")
+        //console.log("YA ESTOY AQUI")
         const data = req.body;
-        let idProducto = (productos.length + 1).toString();
-        idProducto = idProducto.padStart(5,"00000");
-        let color2 = [];
-
-        Array.isArray(data.color) === true ? "" : color2.push(data.color);
-        data.color = color2;
+        db.Productos.findAll().then(products=> {
+            let idProducto = (parseInt(products[products.length - 1].id, 10) + 1).toString();
+            idProducto = idProducto.padStart(6,"000000");
+            data.id = idProducto;
+        
+        
+        //Array.isArray(data.color) === true ? "" : color2.push(data.color);
+        //data.color = color2;
         data.enOferta ? data.enOferta=true : data.enOferta=false;
-        data.hotsale ? data.hotsale=true : data.hotsale=false;
-        data.id = idProducto;
+        data.hotSale ? data.hotSale=true : data.hotSale=false;
         data.photos=[];
 
-        let files = req.files;
+        // Guardar Sequelize
+        let newProduct ={
+            id: data.id,
+            Nombre: data.Nombre,
+            id_Colecciones: parseInt(data.id_Colecciones,10),
+            id_Categoria: parseInt(data.id_Categoria, 10),
+            id_Subcategoria: parseInt(data.id_Subcategoria,10),
+            precio: data.precio,
+            Descripcion: data.Descripcion,
+            Cantidad: data.Cantidad,
+            enOferta: data.enOferta,
+            precioOferta: data.precioOferta,
+            hotSale: data.hotSale
+        }
+
+        db.Productos.create(newProduct)
+        // Tabla de Fotos de Productos
+        
+        // Tabla de Colores de Productos
+        for (let itemC of data.color) {
+            db.ColoresProducto.create({
+                Colores_id: parseInt(itemC,10),
+                Productos_id: newProduct.id
+            })
+        }
+        // Tabla de Tallas de Productos
+        for (let itemT of data.talla) {
+            db.TallasProducto.create({
+                Tallas_id: parseInt(itemT,10),
+                Productos_id: newProduct.id
+            })
+        } 
+
+        /*let files = req.files;
         files.forEach(item => {
             data.photos.push(`/images/productos/${item.filename}`);
-        });
+        }); 
 
         productos.push(data);
-        fs.writeFileSync(__dirname+'/../databases/productos.json', JSON.stringify(productos,null,2));
+        fs.writeFileSync(__dirname+'/../databases/productos.json', JSON.stringify(productos,null,2)); */
         
-        res.redirect('/products/'+idProducto);
+        res.redirect('/products/'+newProduct.id);
+
+        }).catch(err => console.log(err))
     }
 }
 

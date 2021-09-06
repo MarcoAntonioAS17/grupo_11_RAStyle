@@ -5,20 +5,46 @@ const { validationResult } = require('express-validator');
 const productsFilePath = path.join(__dirname,"../databases/productos.json");
 const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
+const db = require("../database/models");
+
 const detalleProductoController = {
     index: function(req,res) {
         const idProducto = req.params.idProducto;
-        let productoSelect = productos.find(producto=>producto.id===idProducto);
-        res.render('detalleProducto.ejs',{"producto":productoSelect});
+        db.Productos.findOne({
+            where: {id: idProducto},
+            include: [
+                {association: "fotosDelProducto"},
+                {association: "tallasDelProducto"},
+                {association: "coloresDelProducto"}
+            ]
+        }).then(item => {
+            res.render('detalleProducto.ejs',{producto: item})
+        })
+        //let productoSelect = productos.find(producto=>producto.id===idProducto);
+        //res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
     editar: (req, res) => {
         const idProducto = req.params.idProducto;
-        let productSelect = productos.find(producto => producto.id === idProducto);
+        db.Productos.findOne({
+            where: {id: idProducto},
+            include: [
+                {association: "fotosDelProducto"},
+                {association: "tallasDelProducto"},
+                {association: "coloresDelProducto"}
+            ]
+        }).then(item => {
+            if (item != undefined) {
+                res.render('editarProductos.ejs', {"producto": item});
+            } else {
+                res.render('busquedaVacia.ejs')
+            }
+        })
+        /* let productSelect = productos.find(producto => producto.id === idProducto);
         if (productSelect != undefined) {
             res.render('editarProductos.ejs', {"producto":productSelect});
         } else {
             res.render('busquedaVacia.ejs')
-        }
+        } */
     },
     actualizar: (req, res) => {
         let errors = validationResult(req);
@@ -131,10 +157,18 @@ const detalleProductoController = {
     },
     delete: (req, res) => {
         const idProducto = req.params.idProducto;
-        let index = productos.findIndex(productos => productos.id === idProducto);
+        db.ColoresProducto.destroy({where: {Productos_id: idProducto}}).then(()=>{
+            db.TallasProducto.destroy({where: {Productos_id: idProducto}})
+        }).then(()=>{
+            db.FotosProducto.destroy({where:{id_Productos: idProducto}})
+        }).then(() => {
+            db.Productos.destroy({where: {id: idProducto}}).then(()=>res.redirect("/products"))
+        })
+
+        /* let index = productos.findIndex(productos => productos.id === idProducto);
         productos.splice(index,1);
         fs.writeFileSync(productsFilePath,JSON.stringify(productos, null, 2),);
-        res.redirect("/products");
+        res.redirect("/products"); */
     }
 }
 

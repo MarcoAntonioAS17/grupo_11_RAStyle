@@ -39,7 +39,7 @@ router.get('/busqueda', coleccionesController.busqueda);
 router.get('/busqueda/buscar', coleccionesController.leerFormularioBusqueda);
 
 router.get('/create', adminMiddleware,coleccionesController.create);
-router.post('/', adminMiddleware, upload.array('photos'), validaciones.nuevoProducto, coleccionesController.createPost);
+router.post('/create', adminMiddleware, upload.array('photos'), validaciones.nuevoProducto, coleccionesController.createPost);
 
 router.get('/editar', detalleProductoController.editar);
 

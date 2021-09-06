@@ -1,19 +1,19 @@
 <div class="contenedor_input_50">
     <div class="contenedor_input">
         <label for="item_nombre">Nombre del producto *</label>
-        <input type="text" id="item_nombre" name="nombre" value="<%= locals.producto && producto.nombre ? producto.nombre : null%>" required>
+        <input type="text" id="item_nombre" name="Nombre" value="<%= locals.producto && producto.Nombre ? producto.Nombre : null%>" required>
         <% if (locals.errors && errors.nombre) { %>
             <label class="feedback"><%= errors.nombre.msg %></label>
         <% } %>
     </div>
     <div class="contenedor_input">
         <label for="item_coleccion">Colección</label>
-        <select id="item_coleccion" name="coleccion">
+        <select id="item_coleccion" name="id_Colecciones">
             <optgroup label="2021">
-                <option value="1" <%= locals.producto && producto.coleccion==='1' ? "selected" : null %>>Otoño</option>
-                <option value="2" <%= locals.producto && producto.coleccion==='2' ? "selected" : null %>>Verano</option>
-                <option value="3" <%= locals.producto && producto.coleccion==='3' ? "selected" : null %>>Invierno</option>
-                <option value="4" <%= locals.producto && producto.coleccion==='4' ? "selected" : null %>>Primavera</option>
+                <option value=1 <%= locals.producto && producto.id_Colecciones===1 ? "selected" : null %>>Otoño</option>
+                <option value=2 <%= locals.producto && producto.id_Colecciones===2 ? "selected" : null %>>Verano</option>
+                <option value=3 <%= locals.producto && producto.id_Colecciones===3 ? "selected" : null %>>Invierno</option>
+                <option value=4 <%= locals.producto && producto.id_Colecciones===4 ? "selected" : null %>>Primavera</option>
             </optgroup>
         </select>
         <% if (locals.errors && errors.coleccion) { %>
@@ -24,10 +24,10 @@
 <div class="contenedor_input_50">
     <div class="contenedor_input">
         <label for="item_categoria">Categoría *</label>
-        <select id="item_categoria" name="categoria" required>
-            <option value="Hombre" <%= locals.producto && producto.categoria==="Hombre" ? "selected" : null %>>Hombres</option>
-            <option value="Mujer" <%= locals.producto && producto.categoria==="Mujer" ? "selected" : null %>>Mujeres</option>
-            <option value="Unisex" <%= locals.producto && producto.categoria==="Unisex" ? "selected" : null %>>Unisex</option>
+        <select id="item_categoria" name="id_Categoria" required>
+            <option value=1 <%= locals.producto && producto.id_Categoria===1 ? "selected" : null %>>Hombres</option>
+            <option value=2 <%= locals.producto && producto.id_Categoria===2 ? "selected" : null %>>Mujeres</option>
+            <option value=3 <%= locals.producto && producto.id_Categoria===3 ? "selected" : null %>>Unisex</option>
         </select>
         <% if (locals.errors && errors.categoria) { %>
             <label class="feedback"><%= errors.categoria.msg %></label>
@@ -35,12 +35,12 @@
     </div>
     <div class="contenedor_input">
         <label for="item_subcategoria">Subcategoría *</label>
-        <select id="item_subcategoria" name="subcategoria" required>
-            <option value="1" <%= locals.producto && producto.subcategoria==='1' ? "selected" : null %>>Tops</option>
-            <option value="2" <%= locals.producto && producto.subcategoria==='2' ? "selected" : null %>>Sudaderas</option>
-            <option value="3" <%= locals.producto && producto.subcategoria==='3' ? "selected" : null %>>Jeans</option>
-            <option value="4" <%= locals.producto && producto.subcategoria==='4' ? "selected" : null %>>Zapatos</option>
-            <option value="5" <%= locals.producto && producto.subcategoria==='5' ? "selected" : null %>>Vestidos</option>
+        <select id="item_subcategoria" name="id_Subcategoria" required>
+            <option value=1 <%= locals.producto && producto.id_Subcategoria===1 ? "selected" : null %>>Tops</option>
+            <option value=2 <%= locals.producto && producto.id_Subcategoria===2 ? "selected" : null %>>Sudaderas</option>
+            <option value=3 <%= locals.producto && producto.id_Subcategoria===3 ? "selected" : null %>>Jeans</option>
+            <option value=4 <%= locals.producto && producto.id_Subcategoria===4 ? "selected" : null %>>Zapatos</option>
+            <option value=5 <%= locals.producto && producto.id_Subcategoria===5 ? "selected" : null %>>Vestidos</option>
         </select>
         <% if (locals.errors && errors.subcategoria) { %>
             <label class="feedback"><%= errors.subcategoria.msg %></label>
@@ -49,7 +49,7 @@
 </div>
 <div class="contenedor_input">
     <label for="item_info">Informacón del producto</label>
-    <textarea id="item_info" name="descripcion" rows="4" ><%= locals.producto && producto.descripcion ? producto.descripcion : "" %></textarea>
+    <textarea id="item_info" name="Descripcion" rows="4" ><%= locals.producto && producto.Descripcion ? producto.Descripcion : "" %></textarea>
     <% if (locals.errors && errors.descripcion) { %>
         <label class="feedback"><%= errors.descripcion.msg %></label>
     <% } %>

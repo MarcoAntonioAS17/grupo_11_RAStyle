@@ -58,5 +58,25 @@
       "pais": "México"
     },
     "tel": "2351002020"
+  },
+  {
+    "id": "000004",
+    "firstName": "Usuario",
+    "lastName": "De Prueba 1",
+    "email": "usuario_creado1@gmail.com",
+    "password": "$2b$12$sVu/26YfiHo/vsB/8zmbzOMkPklO3WKeFugLD7ifIT.7KnyHSrt7S",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
   }
 ]

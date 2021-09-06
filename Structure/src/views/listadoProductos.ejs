@@ -113,7 +113,7 @@
                         <% for(let i=0; i < productos.length; i++) { %>
                             <a href=<%="/products/"+productos[i].id%>>
                                 <article class="contenedor_producto">
-                                    <img src="<%= productos[i].photos[0] %>" alt="foto del producto" class="producto-img">
+                                    <img src="<%= productos[i].fotosDelProducto ? productos[i].fotosDelProducto[0] : null %>" alt="foto del producto" class="producto-img">
                                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                                     <p class="precio-producto">MXN $<%= productos[i].precio %></p>
                                     <p class="nombre-producto"><%= productos[i].nombre %> </p>

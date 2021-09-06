@@ -3,14 +3,14 @@
     <div class="list_tallas">
         <div >
             <% [
-                { s: "XXL", l: "Extra Extra Grande" },
-                { s: "XL", l: "Extra Grande" },
-                { s: "L", l: "Grande" }
+                { s: "XXL", l: "Extra Extra Grande", c:1 },
+                { s: "XL", l: "Extra Grande", c:2 },
+                { s: "L", l: "Grande", c:3 }
             ].forEach(talla => { %>
                 <div>
                     <input type="checkbox" name="talla" 
-                        id="item_talla_<%=talla.s%>" value= "<%= talla.s%>"
-                        <%= locals.producto && producto.talla.findIndex(tallaFind => tallaFind === talla.s) != -1 ? "checked" : null %>
+                        id="item_talla_<%=talla.s%>" value= "<%= talla.c%>"
+                        <%= locals.producto && producto.talla && producto.talla.findIndex(tallaFind => tallaFind === talla.c) != -1 ? "checked" : null %>
                     />
                     <label for="item_talla_<%=talla.s %>"> <%=talla.l%> (<%=talla.s%>) </label>
                 </div>
@@ -18,14 +18,14 @@
         </div>
         <div >
             <% [
-                { s: "M", l: "Mediana" },
-                { s: "S", l: "Pequeña" },
-                { s: "XS", l: "Extra Pequeña"}
+                { s: "M", l: "Mediana", c:4 },
+                { s: "S", l: "Pequeña", c:5 },
+                { s: "XS", l: "Extra Pequeña", c:6}
             ].forEach(talla => { %>
                 <div>
                     <input type="checkbox" name="talla" 
-                        id="item_talla_<%= talla.s %>" value= "<%= talla.s %>"
-                        <%= locals.producto && producto.talla.findIndex(tallaFind => tallaFind === talla.s) != -1 ? "checked" : null %>
+                        id="item_talla_<%= talla.s %>" value= "<%= talla.c %>"
+                        <%= locals.producto && producto.talla && producto.talla.findIndex(tallaFind => tallaFind === talla.c) != -1 ? "checked" : null %>
                     />
                     <label for="item_talla_<%= talla.s %>"> <%= talla.l %> (<%= talla.s %>) </label>
                 </div>
@@ -41,15 +41,15 @@
     <div class="list_colores">
         <div >
             <% [
-                { es: 'Blanco', en: 'white'},
-                { es: "Rojo", en: "red" },
-                { es: "Azul", en: "blue"}
+                { es: 'Blanco', en: 'white', c:1},
+                { es: "Rojo", en: "red", c:2 },
+                { es: "Azul", en: "blue", c:3}
             ].forEach(color => { %>
             <div>
                 <label for="item_color_<%= color.es %>">
                     <input type="checkbox" name="color" 
-                        id="item_color_<%= color.es %>" value= "<%= color.en %>"
-                        <%= locals.producto && producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                        id="item_color_<%= color.es %>" value= "<%= color.c %>"
+                        <%= locals.producto && producto.color && producto.color.findIndex(colorProd => colorProd === color.c) != -1 ? "checked" : null %>
                     />
                     <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
                     <%= color.es %>
@@ -59,15 +59,15 @@
         </div>
         <div >
             <% [
-                { es: "Negro", en: "black"},
-                { es: "Rosa", en: "pink" },
-                { es: "Verde", en: "green"}
+                { es: "Negro", en: "black", c:4},
+                { es: "Rosa", en: "pink", c:5 },
+                { es: "Verde", en: "green", c:6}
             ].forEach(color => { %>
             <div>
                 <label for="item_color_<%= color.es %>">
                     <input type="checkbox" name="color" 
-                    id="item_color_<%= color.es %>" value= "<%= color.en %>"
-                        <%= locals.producto && producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                    id="item_color_<%= color.es %>" value= "<%= color.c %>"
+                        <%= locals.producto && producto.color && producto.color.findIndex(colorProd => colorProd === color.c) != -1 ? "checked" : null %>
                     />
                     <div class="circulo_color" style="background-color: <%= color.en %>"></div>    
                     <%= color.es %>
@@ -77,15 +77,15 @@
         </div>
         <div >
             <% [
-                { es: "Amarillo", en: "yellow"},
-                { es: "Naranja", en: "orange"},
-                { es: "Marron", en: "brown" },
+                { es: "Amarillo", en: "yellow", c:7},
+                { es: "Naranja", en: "orange", c:8},
+                { es: "Marron", en: "brown", c:9 },
             ].forEach(color => { %>
             <div>
                 <label for="item_color_<%= color.es %>">
                     <input type="checkbox" name="color" 
-                    id="item_color_<%= color.es %>" value= "<%= color.en %>"
-                    <%= locals.producto && producto.color.findIndex(colorProd => colorProd === color.en) != -1 ? "checked" : null %>
+                    id="item_color_<%= color.es %>" value= "<%= color.c %>"
+                    <%= locals.producto && producto.color && producto.color.findIndex(colorProd => colorProd === color.c) != -1 ? "checked" : null %>
                     />
                     <div class="circulo_color" style="background-color: <%= color.en %>;"></div>    
                     <%= color.es %>
