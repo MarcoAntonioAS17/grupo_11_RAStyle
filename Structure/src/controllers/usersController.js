@@ -9,6 +9,11 @@ const usuarios = JSON.parse(fs.readFileSync(pathFileUser, "utf-8"));
 const productsFilePath = path.join(__dirname,"../databases/productos.json");
 const productos = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
+// USO DE SEQUELIZE
+const { Op } = require("sequelize");
+const db = require("../database/models");
+// %%%%%%%%%%%%%%%%
+
 const usersController = {
     index: function(req,res) {
         res.render('login.ejs');
@@ -16,12 +21,21 @@ const usersController = {
     registroUsuario: function(req,res) {
         res.render('registro.ejs');
     },
-    registrarUsuario: (req, res, next) => {
+    registrarUsuario: async (req, res, next) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            console.log("Errores\n\n");
-            console.log(errors.mapped());
-
+            //console.log("Errores\n\n");
+            //console.log(errors.mapped());
+            let errorsMapped = errors.mapped();
+            if (!errorsMapped.correo) {
+                let resultsUsers = await db.Usuarios.findAll({where: {email: req.body.correo}});
+                //console.log(resultsUsers)
+                if (resultsUsers.length >= 1) {
+                    errorsMapped.correo = {};
+                    errorsMapped.correo.msg = "Este correo ya está registrado, intenta con otro.";
+                    //console.log(errorsMapped)
+                }
+            }
             let strc = {
                 nombre: "",
                 apellido: "",
@@ -29,7 +43,7 @@ const usersController = {
                 password: ""
             }
             strc = { ...strc, ...req.body}
-            res.render('registro', {errors: errors.mapped(), usuario: strc});
+            res.render('registro', {errors: errorsMapped, usuario: strc});
             return;
         }
         const newUser = req.body;
@@ -69,7 +83,7 @@ const usersController = {
         res.redirect('/users/info');
         
     },
-    iniciarSesion: function(req,res) {
+    iniciarSesion: async function(req,res) {
         let errores = validationResult(req);
         if (!errores.isEmpty()) {
             let strc = {
@@ -83,7 +97,31 @@ const usersController = {
 
         const currentUser = req.body;
         
-        for (let user of usuarios) {
+        let resultsUsers = await db.Usuarios.findOne({where: {email: req.body.correo}});
+        if (resultsUsers != undefined) {
+            if (bcrypt.compareSync(currentUser.password, bcrypt.hashSync(resultsUsers.password, 12))) {
+                    req.session.userEmail = currentUser.correo;
+                    req.session.userNombre = resultsUsers.firstName;
+                    req.session.logeado = true;
+                    req.session.role = resultsUsers.category;
+                    if (currentUser.recordarme != undefined) {
+                        res.cookie('user',currentUser.correo, {maxAge: 1800000});
+                        res.cookie('logeado',true, {maxAge: 1800000});
+                    }
+                    res.redirect('/users/info');
+                    return;
+            } else {
+                let contrasenaIncorrecta = {
+                    password: {
+                        msg: "Contraseña incorrecta"
+                    }
+                }
+                res.render('login.ejs', {errors: contrasenaIncorrecta, usuario: currentUser})
+                return;
+            }
+        } 
+
+        /* for (let user of usuarios) {
             if (user.email == currentUser.correo) {
                 if (bcrypt.compareSync(currentUser.password, user.password)) {
                     // Guardar datos de sesión
@@ -108,7 +146,8 @@ const usersController = {
                     return;
                 }
             } 
-        }
+        } */
+
         let noEncontrado = {
             correo: {
                 msg: "Usuario no encontrado"
@@ -126,11 +165,12 @@ const usersController = {
         res.clearCookie('logeado');
         res.redirect('/users/login');
     },
-    perfil: (req, res) => {     
+    perfil: async (req, res) => {     
         
         const session = req.session;
 
-        const user = usuarios.find( elem => elem.email === session.userEmail);
+        //const user = usuarios.find( elem => elem.email === session.userEmail);
+        const user = await db.Usuarios.findOne({where: {email: session.userEmail}})
         const usuario = {
             firstName: user.firstName,
             lastName: user.lastName,
@@ -140,11 +180,28 @@ const usersController = {
         }
         res.render('registroUser', {usuario});
     },
-    actualizarPerfil: (req, res) => {
-        
+    actualizarPerfil: async (req, res) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            console.log(errors.mapped());
+            //console.log(errors.mapped());
+            let errorsMapped = errors.mapped();
+            if (!errorsMapped.email) {
+                let resultsUsers = await db.Usuarios.findAll({where: {email: req.body.email}});
+                //console.log(resultsUsers)
+                if (resultsUsers.length == undefined) {
+                    errorsMapped.email = {};
+                    errorsMapped.email.msg = "Este correo NO está registrado, intenta con uno válido.";
+                    //console.log(errorsMapped)
+                }
+            }
+            if (!errorsMapped.image) {
+                const fileImage = req.file;
+                console.log(path.extname(fileImage.originalname))
+                if (![".jpg","png","gif"].includes(path.extname(fileImage.originalname))) {
+                    errorsMapped.image = {};
+                    errorsMapped.image.msg = "La extensión de la imagen debe ser JPG, JPEG, PNG o GIF.";
+                }
+            }
             let strc = {
                 firstName: "",
                 lastName: "",
@@ -152,13 +209,16 @@ const usersController = {
                 tel: ""
             }
             strc = { ...strc, ...req.body}
-            res.render('registroUser', {errors: errors.mapped(), usuario: strc});
+            console.log("Antes RENDER")
+            res.render('registroUser', {errors: errorsMapped, usuario: strc});
+            console.log("Después RENDER")
             return;
         }
 
-        let findIndex = usuarios.findIndex(elem => elem.email === req.session.userEmail);
-        
-        if (!bcrypt.compareSync(req.body.password, usuarios[findIndex].password)) {
+        //let findIndex = usuarios.findIndex(elem => elem.email === req.session.userEmail);
+        let findUser = await db.Usuarios.findOne({where: {email: req.body.email}});
+
+        if (!bcrypt.compareSync(req.body.password, bcrypt.hashSync(findUser.password, 12))) {
             let strc = {
                 firstName: "",
                 lastName: "",

@@ -4,10 +4,10 @@ const validacionesUsuarios = {
     nuevoUsuario: [
         check('nombre')
             .notEmpty().withMessage('Debes ingresar un nombre').bail()
-            .isLength( {min: 3}).withMessage('El nombre debe tener más de 5 caracteres'),
+            .isLength( {min: 2}).withMessage('El nombre debe tener más de 2 caracteres'),
         check('apellido')
             .notEmpty().withMessage('Debes ingresar un apellido por lo menos').bail()
-            .isLength( {min: 2}).withMessage('Ingresa un apellido valido'),
+            .isLength( {min: 2}).withMessage('El apellido debe tener al menos 2 caracteres'),
         check('correo')
             .notEmpty().withMessage('Ingresa un correo').bail()
             .isEmail().withMessage('Ingresa un correo valido'),
@@ -18,10 +18,10 @@ const validacionesUsuarios = {
     updatePerfil: [
         check('firstName')
             .notEmpty().withMessage('Debes ingresar un nombre').bail()
-            .isLength( {min: 3}).withMessage('El nombre debe tener más de 5 caracteres'),
+            .isLength( {min: 2}).withMessage('El nombre debe tener más de 2 caracteres'),
         check('lastName')
             .notEmpty().withMessage('Debes ingresar un apellido por lo menos').bail()
-            .isLength( {min: 2}).withMessage('Ingresa un apellido valido'),
+            .isLength( {min: 2}).withMessage('El apellido debe tener al menos 2 caracteres'),
         check('email')
             .notEmpty().withMessage('Ingresa un correo').bail()
             .isEmail().withMessage('Ingresa un correo valido'),

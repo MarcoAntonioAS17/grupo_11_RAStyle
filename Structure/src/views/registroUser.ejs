@@ -33,7 +33,10 @@
                             <div id="div-perfil">
                                 <div id="perfil-picture">
                                     <img src="<%= usuario.image ? usuario.image : '/images/profile.png' %>" alt="foto-perfil">
-                                    <input type="file" name="image" id="">
+                                    <input type="file" name="image" id="" required>
+                                    <% if (locals.errors && errors.image) {%>
+                                        <p class="feedback"><%=errors.image.msg%></p>
+                                    <% } %>
                                 </div>
                                 <div id="div-input-nombre">
                                     <div class="div-nombre">

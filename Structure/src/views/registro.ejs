@@ -26,7 +26,7 @@
                         <label for="apellido">Apellido</label>
                         <input type="text" name="apellido" id="apellido" required value="<%=locals.usuario && usuario.apellido ? usuario.apellido : null%>">
                         <% if (locals.errors && errors.apellido) {%>
-                            <p class="feedback">Error<%=errors.apellido.msg%></p>
+                            <p class="feedback"><%=errors.apellido.msg%></p>
                         <% } %>
                     </div>
                 </div>
