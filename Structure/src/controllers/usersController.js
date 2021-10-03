@@ -197,7 +197,7 @@ const usersController = {
             if (!errorsMapped.image) {
                 const fileImage = req.file;
                 console.log(path.extname(fileImage.originalname))
-                if (![".jpg","png","gif"].includes(path.extname(fileImage.originalname))) {
+                if (![".jpg",".jpeg",".png",".gif"].includes(path.extname(fileImage.originalname))) {
                     errorsMapped.image = {};
                     errorsMapped.image.msg = "La extensión de la imagen debe ser JPG, JPEG, PNG o GIF.";
                 }
