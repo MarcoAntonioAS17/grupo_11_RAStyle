@@ -1,10 +1,5 @@
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
-const path = require('path');
-const fs = require('fs');
-
-const pathFileUser = path.join(__dirname,'../databases/usuarios.json');
-const usuarios = JSON.parse(fs.readFileSync(pathFileUser, "utf-8"));
 
 // USO DE SEQUELIZE
 const db = require("../database/models");

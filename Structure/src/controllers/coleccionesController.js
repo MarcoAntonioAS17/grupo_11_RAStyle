@@ -1,4 +1,3 @@
-const path = '../databases/productos.json';
 
 const busquedaModels = require('../models/funcionesBusqueda');
 const { validationResult } = require('express-validator');
