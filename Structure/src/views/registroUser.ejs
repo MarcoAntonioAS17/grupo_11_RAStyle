@@ -28,12 +28,20 @@
                 </div>
                 <div id="div-formulario">
                     <h1>Datos de la cuenta</h1>
-                    <form method="POST" action="/users/info?_method=PUT" enctype="multipart/form-data">
+                    <form method="POST" action="/users/info/<%= usuario.id %>?_method=PUT" enctype="multipart/form-data">
                         <div id="contenedor_inputs">
                             <div id="div-perfil">
                                 <div id="perfil-picture">
                                     <img src="<%= usuario.image ? usuario.image : '/images/profile.png' %>" alt="foto-perfil">
-                                    <input type="file" name="image" id="">
+                                    <input type="file" name="image" id="image" required>
+                                    <% if (locals.errors && errors.image) {%>
+                                        <p class="feedback"><%=errors.image.msg%></p>
+                                    <% } %>
+                                    <div id="erroresImage" class="feedback">
+                                        <ul>
+            
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div id="div-input-nombre">
                                     <div class="div-nombre">
@@ -42,6 +50,11 @@
                                         <% if (locals.errors && errors.firstName) {%>
                                             <p class="feedback"><%=errors.firstName.msg%></p>
                                         <% } %>
+                                        <div id="erroresNombre" class="feedback">
+                                            <ul>
+                
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="div-nombre">
                                         <label for="apellidos">Apellidos *</label>
@@ -49,6 +62,11 @@
                                         <% if (locals.errors && errors.lastName) {%>
                                             <p class="feedback"><%=errors.lastName.msg%></p>
                                         <% } %>
+                                        <div id="erroresApellidos" class="feedback">
+                                            <ul>
+                
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="div-nombre">
                                         <label for="telefono">Telefono</label>
@@ -66,6 +84,11 @@
                                     <% if (locals.errors && errors.email) {%>
                                         <p class="feedback"><%=errors.email.msg%></p>
                                     <% } %>
+                                    <div id="erroresEmail" class="feedback">
+                                        <ul>
+            
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="div-input">
                                     <label for="password">Contraseña</label>
@@ -73,6 +96,11 @@
                                     <% if (locals.errors && errors.password) {%>
                                         <p class="feedback"><%=errors.password.msg%></p>
                                     <% } %>
+                                    <div id="erroresPassword" class="feedback">
+                                        <ul>
+            
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -86,5 +114,6 @@
     </main>
     <!-- Footer -->
     <%- include('./partials/footer') %>
+    <script src="/js/registroUserFrontValidation.js"></script>
 </body>
 </html>

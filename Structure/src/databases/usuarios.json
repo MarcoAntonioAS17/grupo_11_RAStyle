@@ -3,7 +3,7 @@
     "id": "00002",
     "firstName": "Carlos Daniel",
     "lastName": "Sandoval Puentes",
-    "email": "carlos31sandoval03@gmail.com",
+    "email": "carlos31sandoval04@gmail.com",
     "password": "$2a$10$zjCIChNv4EsGJSP8V8Pb3O83E/PwusQtGkF8FS6RRAu6/eKwdxDIi",
     "category": "admin",
     "image": "",
@@ -65,6 +65,106 @@
     "lastName": "De Prueba 1",
     "email": "usuario_creado1@gmail.com",
     "password": "$2b$12$sVu/26YfiHo/vsB/8zmbzOMkPklO3WKeFugLD7ifIT.7KnyHSrt7S",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
+  },
+  {
+    "id": "000005",
+    "firstName": "Carlos",
+    "lastName": "Sand",
+    "email": "carlos31sandoval03@gmail.com",
+    "password": "$2b$12$8afFvhtTZqThCPkkKbNAsOkGhwpzJ595YYMbSSJt2O97lT.LYrZ82",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
+  },
+  {
+    "id": "000006",
+    "firstName": "Carlos1",
+    "lastName": "Prueba1",
+    "email": "yo123@correo.com",
+    "password": "$2b$12$Jgr5f1lGYWSjLMQSl6IEl./bCy/OkB0uyAj0be9zK69Q88XBvPTFm",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
+  },
+  {
+    "id": "000007",
+    "firstName": "Carlos Daniel",
+    "lastName": "Sandoval Puentes",
+    "email": "carlos31sandoval03@gmail.com",
+    "password": "$2b$12$PIO/JPxxuAqGEA0iYaf6ruzu0zXUvdzhFR5Q7.Hm3MMDmYV5wWT0a",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
+  },
+  {
+    "id": "000008",
+    "firstName": "Carlos Daniel",
+    "lastName": "Sandoval Puentes",
+    "email": "carlos31sandoval03@gmail.com",
+    "password": "$2b$12$UyyFwZ7bVhOM0/hWMMshZeS9wMlUaHyIHNuS7m7zwMpzKaMjqTizG",
+    "category": "user",
+    "image": "",
+    "direccion": {
+      "cp": null,
+      "calle": "",
+      "num": "",
+      "num_inter": "",
+      "ref": "",
+      "ciudad": "",
+      "estado": "",
+      "pais": ""
+    },
+    "tel": ""
+  },
+  {
+    "id": "000009",
+    "firstName": "Carlos Daniel",
+    "lastName": "Sandoval Puentes",
+    "email": "carlos31sandoval03@gmail.com",
+    "password": "$2b$12$fbC40rqAkDydAY8QDNVBPu5tdyqQ1q.tKtcoPQ5vXkk.vql4qooG.",
     "category": "user",
     "image": "",
     "direccion": {
