@@ -28,7 +28,7 @@
                 </div>
                 <div id="div-formulario">
                     <h1>Datos de la cuenta</h1>
-                    <form method="POST" action="/users/info?_method=PUT" enctype="multipart/form-data">
+                    <form method="POST" action="/users/info/<%= usuario.id %>?_method=PUT" enctype="multipart/form-data">
                         <div id="contenedor_inputs">
                             <div id="div-perfil">
                                 <div id="perfil-picture">

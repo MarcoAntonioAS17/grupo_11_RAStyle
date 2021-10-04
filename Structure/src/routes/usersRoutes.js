@@ -28,11 +28,12 @@ router.post('/register', noLoggedMiddleware, validaciones.nuevoUsuario, usersCon
 router.get('/login', noLoggedMiddleware, usersController.index);
 router.post('/login', validacionesLoginUsuario.formatoDatosLogin, usersController.iniciarSesion);
 
-router.get('/info', loggedMeddleware, usersController.perfil);
-router.put('/info', loggedMeddleware, uploadFile.single('image'), validaciones.updatePerfil, usersController.actualizarPerfil);
 
 router.get('/info/domicilio', loggedMeddleware, usersController.perfilDomicilio);
-router.put('/info/domicilio', loggedMeddleware, validaciones.updatePerfilDomicilio, usersController.actualizarPerfilDomicilio);
+router.put('/domicilio/:id', loggedMeddleware, validaciones.updatePerfilDomicilio, usersController.actualizarPerfilDomicilio);
+
+router.get('/info', loggedMeddleware, usersController.perfil);
+router.put('/info/:id', loggedMeddleware, uploadFile.single('image'), validaciones.updatePerfil, usersController.actualizarPerfil);
 
 router.get('/logout', usersController.logout);
 
