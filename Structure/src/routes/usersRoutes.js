@@ -30,7 +30,7 @@ router.post('/login', validacionesLoginUsuario.formatoDatosLogin, usersControlle
 
 
 router.get('/info/domicilio', loggedMeddleware, usersController.perfilDomicilio);
-router.put('/domicilio/:id', loggedMeddleware, validaciones.updatePerfilDomicilio, usersController.actualizarPerfilDomicilio);
+router.post('/info/domicilio/', loggedMeddleware, validaciones.updatePerfilDomicilio, usersController.actualizarPerfilDomicilio);
 
 router.get('/info', loggedMeddleware, usersController.perfil);
 router.put('/info/:id', loggedMeddleware, uploadFile.single('image'), validaciones.updatePerfil, usersController.actualizarPerfil);

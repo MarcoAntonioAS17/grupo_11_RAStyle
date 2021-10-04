@@ -93,7 +93,7 @@ const usersController = {
         //Validar que pasa si por alguna razón el usuario no existe 
     },
     actualizarPerfil: async function (req, res) {
-        console.log("Actualizando Perfil");
+        
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             const strc = crearObjeto(req.body);
@@ -133,8 +133,6 @@ const usersController = {
         res.render('registroDomicilioUser', {usuario});
     },
     actualizarPerfilDomicilio: async function(req, res) {
-        console.log("Actualizando Perfil->Domicilio");
-        console.log(req.body);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
