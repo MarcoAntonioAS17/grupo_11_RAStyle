@@ -2,7 +2,7 @@ const { check } = require('express-validator');
 
 const validacionesUsuarios = {
     nuevoUsuario: [
-        check('nombre')
+        check('firstName')
             .notEmpty().withMessage('Debes ingresar un nombre').bail()
             .isLength( {min: 2}).withMessage('El nombre debe tener más de 2 caracteres'),
         check('apellido')

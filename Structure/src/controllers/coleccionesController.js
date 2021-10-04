@@ -1,12 +1,8 @@
-const path = '../databases/productos.json';
 
-const productos = require(path);
 const busquedaModels = require('../models/funcionesBusqueda');
 const { validationResult } = require('express-validator');
-const fs = require('fs');
 
 // USO DE SEQUELIZE
-const { Op } = require("sequelize");
 const db = require("../database/models");
 // %%%%%%%%%%%%%%%%
 
@@ -188,14 +184,6 @@ const coleccionesController = {
                 Productos_id: newProduct.id
             })
         } 
-
-        /*let files = req.files;
-        files.forEach(item => {
-            data.photos.push(`/images/productos/${item.filename}`);
-        }); 
-
-        productos.push(data);
-        fs.writeFileSync(__dirname+'/../databases/productos.json', JSON.stringify(productos,null,2)); */
         
         res.redirect('/products/'+newProduct.id);
 

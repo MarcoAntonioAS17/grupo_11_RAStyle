@@ -18,6 +18,8 @@
                 Perfil
                 <span class="material-icons-outlined">navigate_next</span>
                 Información
+                <span class="material-icons-outlined">navigate_next</span>
+                Domicilio
             </div>
             <div id="div-info">
                 <div id="enlaces">
@@ -28,7 +30,7 @@
                 </div>
                 <div id="div-formulario">
                     <h1>Datos de domicilio</h1>
-                    <form method="POST" action="/users/info/domicilio?_method=PUT">
+                    <form method="POST" action="/users/info/domicilio">
                         <div id="contenedor_inputs">
                             <div id="input-calle">
                                 <label for="calle">Calle *</label>
@@ -80,7 +82,7 @@
                                 <% } %>
                             </div>
                             <div id="input-referencias" >
-                                <label for="referencia">Referencias *</label>
+                                <label for="referencia">Referencias </label>
                                 <input type="text" name="ref" id="referencia" value="<%=usuario.ref%>">
                                 <% if (locals.errors && errors.ref) {%>
                                     <p class="feedback"><%=errors.ref.msg%></p>

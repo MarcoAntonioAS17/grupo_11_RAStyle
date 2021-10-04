@@ -16,25 +16,25 @@
                 <h3>Crea tu cuenta</h3>
                 <div class="full_name">
                     <div> 
-                        <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" required value="<%=locals.usuario && usuario.nombre ? usuario.nombre : null%>">
-                        <% if (locals.errors && errors.nombre) {%>
-                            <p class="feedback"><%=errors.nombre.msg%></p>
+                        <label for="firstName">Nombre</label>
+                        <input type="text" name="firstName" id="firstName" required value="<%=locals.usuario && usuario.firstName ? usuario.firstName : null%>">
+                        <% if (locals.errors && errors.firstName) {%>
+                            <p class="feedback"><%=errors.firstName.msg%></p>
                         <% } %>
                     </div>
                     <div>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" required value="<%=locals.usuario && usuario.apellido ? usuario.apellido : null%>">
-                        <% if (locals.errors && errors.apellido) {%>
-                            <p class="feedback"><%=errors.apellido.msg%></p>
+                        <label for="lastName">Apellido</label>
+                        <input type="text" name="lastName" id="lastName" required value="<%=locals.usuario && usuario.lastName ? usuario.lastName : null%>">
+                        <% if (locals.errors && errors.lastName) {%>
+                            <p class="feedback">Error<%=errors.lastName.msg%></p>
                         <% } %>
                     </div>
                 </div>
                 <div class="contenedor_email">
-                    <label for="correo">Correo electronico</label>
-                    <input type="email" name="correo" id="correo" required value="<%=locals.usuario && usuario.correo ? usuario.correo : null%>">
-                    <% if (locals.errors && errors.correo) {%>
-                        <p class="feedback"><%=errors.correo.msg%></p>
+                    <label for="email">Correo electronico</label>
+                    <input type="email" name="email" id="email" required value="<%=locals.usuario && usuario.email ? usuario.email : null%>">
+                    <% if (locals.errors && errors.email) {%>
+                        <p class="feedback"><%=errors.email.msg%></p>
                     <% } %>
                 </div>
                 <div class="contenedor_password">
