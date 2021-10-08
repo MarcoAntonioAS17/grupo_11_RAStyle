@@ -42,11 +42,19 @@ module.exports = (sequelize, dataTypes) => {
         },
         Descripcion: {
             type: dataTypes.TEXT
+        },
+        createdAt: {
+          type: dataTypes.DATE,
+          field: 'createdAt'
+        },
+        updatedAt: {
+          type: dataTypes.DATE,
+          field: 'updatedAt'
         }
     };
     let extraData = {
         tableName: "productos",
-        timestamps: false
+        timestamps: true
     }
 
     const Product = sequelize.define(tableName, columns, extraData);

@@ -29,6 +29,7 @@ const homeRoutes = require('./routes/homeRoutes.js');
 const carritoRoutes = require('./routes/carritoRoutes.js');
 const coleccionesRoutes = require('./routes/coleccionesRoutes');
 const usersRoutes = require('./routes/usersRoutes.js');
+const APIRoutes = require('./routes/APIRoutes.js');
 const methodOverride = require('method-override');
 //
 
@@ -53,6 +54,8 @@ app.use('/carrito', carritoRoutes);
 app.use('/products', coleccionesRoutes);
 
 app.use('/users', usersRoutes);
+
+app.use('/api', APIRoutes);
 
 app.use((req,res)=>{
     res.status(404).render('error404.ejs');

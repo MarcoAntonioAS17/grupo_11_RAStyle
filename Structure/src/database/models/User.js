@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
     };
     let extraData = {
         tableName: "Clientes",
-        timestamps: false
+        timestamps: true
     }
 
     const User = sequelize.define(tableName, columns, extraData);
