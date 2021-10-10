@@ -13,29 +13,35 @@ const usersController = {
     registroUsuario: function(req,res) {
         console.log("Mostrando->vista->registro");
         res.render('registro.ejs');
-    },  
+    },
     registrarUsuario: async function(req, res, next) {
         const errors = validationResult(req);
         console.log("Registrando->Nuevo usuario");
         if (!errors.isEmpty()) {
+            console.log("Registrando->Nuevo usuario :: Errores de validaciones");
+            console.log(errors.mapped());
             let strc = crearObjeto(req.body);
             return res.render('registro', {errors: errors.mapped(), usuario: strc});
         }
-        const resultsUsers = await db.Usuarios.findAll({where: {email: req.body.correo}});
+        console.log("Registrando->Nuevo usuario :: Pasando validaciones");
+        const resultsUsers = await db.Usuarios.findOne({where: {email: req.body.email}});
+        console.log(resultsUsers);
         if (resultsUsers) {
+            console.log("Registrando->Nuevo usuario :: Email existente");
             const result = {
-                correo: {
+                email: {
                     msg: "Este correo ya está registrado, intenta con otro."
                 }
             }
             return res.render('registro', {errors: result, usuario: crearObjeto(req.body)});
         }  
+        console.log("Registrando->Nuevo usuario :: Usuario diferente");
         let newUser = req.body;
         newUser.password = bcrypt.hashSync(newUser.password, 12).toString();
         
         newUser = crearObjeto(newUser);
         await db.Usuarios.create(newUser);
-        console.log("GUARDADO...");
+        console.log("Registrando->Nuevo usuario :: Guardando");
         req.session.userNombre = newUser.firstName;
         req.session.userEmail = newUser.email;
         req.session.logeado = true;
