@@ -7,13 +7,16 @@ const db = require("../database/models");
 
 const usersController = {
     index: function(req,res) {
+        console.log("Mostrando->vista->login");
         res.render('login.ejs');
     },
     registroUsuario: function(req,res) {
+        console.log("Mostrando->vista->registro");
         res.render('registro.ejs');
     },  
     registrarUsuario: async function(req, res, next) {
         const errors = validationResult(req);
+        console.log("Registrando->Nuevo usuario");
         if (!errors.isEmpty()) {
             let strc = crearObjeto(req.body);
             return res.render('registro', {errors: errors.mapped(), usuario: strc});
@@ -42,6 +45,7 @@ const usersController = {
         
     },
     iniciarSesion: async function(req,res) {
+        console.log("->Iniciando sesion");
         let errores = validationResult(req);
         if (!errores.isEmpty()) {
             const strc = crearObjeto(req.body);
@@ -78,6 +82,7 @@ const usersController = {
         }
     },
     logout: function(req, res) {
+        console.log("->Saliendo");
         req.session.userEmail = null;
         req.session.userNombre = null;
         req.session.logeado = false;
@@ -87,7 +92,7 @@ const usersController = {
         res.redirect('/users/login');
     },
     perfil: async function (req, res) {     
-        
+        console.log("Mostrando->vista->perfil");
         const session = req.session;
         let  usuario = await db.Usuarios.findOne({
             where: { email: session.userEmail }
@@ -97,7 +102,7 @@ const usersController = {
         //Validar que pasa si por alguna razón el usuario no existe 
     },
     actualizarPerfil: async function (req, res) {
-        
+        console.log("Actualizando->Info->Perfil");
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             const strc = crearObjeto(req.body);
@@ -127,6 +132,7 @@ const usersController = {
         //Validar que si actualiza
     },
     perfilDomicilio: async function(req, res) {
+        console.log("Mostrando->Info->Domicilio");
         const session = req.session;
 
         const user = await db.Usuarios.findOne({
@@ -137,6 +143,7 @@ const usersController = {
         res.render('registroDomicilioUser', {usuario});
     },
     actualizarPerfilDomicilio: async function(req, res) {
+        console.log("Actualizar->Info->Domicilio");
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
