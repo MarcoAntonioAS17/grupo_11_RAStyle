@@ -1,3 +1,4 @@
+let url = require('url')
 // USO DE SEQUELIZE
 const db = require("../database/models");
 // %%%%%%%%%%%%%%%%
@@ -7,8 +8,20 @@ const APIControllerUsers = {
         const usuarios = await db.Usuarios.findAll({attributes: ['id', 'firstName', 'lastName', 'email', 'createdAt', 'updatedAt']});
         let ultimoUsuario
         let fechaCreacion
+        let actualLoc0 = req.protocol
+        let actualLoc1 = req.get('host');
+        let actualLoc2 = req.originalUrl;
+        let location = url.format({
+            protocol: actualLoc0,
+            host: actualLoc1,
+            pathname: actualLoc2
+          })
+          if (location[location.length-1]!=="/") {
+              location = location + "/"
+          }
+
         for(let i=0; i < usuarios.length; i++) {
-            usuarios[i].dataValues.detail = "http://localhost:3000/api/users/" + usuarios[i].id;
+            usuarios[i].dataValues.detail = location + usuarios[i].id;
             usuarios[i].dataValues.name = usuarios[i].firstName + " " + usuarios[i].lastName;
             if (fechaCreacion != undefined) {
                 if (fechaCreacion < (usuarios[i].dataValues.createdAt).getTime()) {
@@ -46,10 +59,23 @@ const APIControllerUsers = {
         });
         let ultimoProducto
         let fechaCreacion
+        console.log(req)
+        let actualLoc0 = req.protocol
+        let actualLoc1 = req.get('host');
+        let actualLoc2 = req.originalUrl;
+        let location = url.format({
+            protocol: actualLoc0,
+            host: actualLoc1,
+            pathname: actualLoc2
+          })
+          if (location[location.length-1]!=="/") {
+              location = location + "/"
+          }
+
         for(let i=0; i < productos.length; i++) {
             productos[i].dataValues.name = productos[i].Nombre;
             productos[i].dataValues.description = productos[i].Descripcion;
-            productos[i].dataValues.detail = "http://localhost:3000/api/products/" + productos[i].id;
+            productos[i].dataValues.detail = location + productos[i].id;
             if (fechaCreacion != undefined) {
                 if (fechaCreacion < (productos[i].dataValues.createdAt).getTime()) {
                     fechaCreacion = (productos[i].dataValues.createdAt).getTime();

@@ -33,7 +33,7 @@ const APIRoutes = require('./routes/APIRoutes.js');
 const methodOverride = require('method-override');
 //
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 const publicPath= path.resolve(__dirname, '../public');
 app.use(express.static(publicPath));
