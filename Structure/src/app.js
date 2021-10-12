@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(cookieParser())
 // Middlewares
 const recordarmeMiddleware = require('./middlewares/recordarmeMiddleware');
 app.use(recordarmeMiddleware);
+app.use(cors());
 
 // REQUERIR ARCHIVOS DE RUTAS
 const homeRoutes = require('./routes/homeRoutes.js');
