@@ -81,13 +81,10 @@ const coleccionesController = {
     create: function(req,res) {
         res.render('nuevoProducto.ejs');
     },
-    createPost: function(req,res,next) {
+    createPost: async function(req,res,next) {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
-            //console.log("=========Datos======");
-            //console.log(req.body);
-            //console.log("=========Errores======");
-            //console.log(errors.mapped());
+            console.log(errors.mapped());
             let esqueleto = {
                 id: "",
                 Nombre: "",
@@ -108,8 +105,7 @@ const coleccionesController = {
                 ...esqueleto,
                 ...req.body
             }
-            //console.log("------------Datos y Esqueleto----------");
-            //console.log(esqueleto);
+            
             if (typeof esqueleto.color === "object") {
                 esqueleto = {
                     ...esqueleto,
@@ -130,31 +126,24 @@ const coleccionesController = {
             } else if (typeof esqueleto.talla === "string"){
                 esqueleto.talla = [esqueleto.talla];
             }
-
-            //console.log("=========Esqueleto======");
-            //console.log(esqueleto);
             res.render('nuevoProducto.ejs', {errors: errors.mapped(), producto: esqueleto })
             return;
         } 
 
-        // FIN DE VALIDACIONES
-        //console.log("YA ESTOY AQUI")
         const data = req.body;
-        db.Productos.findAll().then(products=> {
-            let idProducto = (parseInt(products[products.length - 1].id, 10) + 1).toString();
-            idProducto = idProducto.padStart(6,"000000");
-            data.id = idProducto;
+        // db.Productos.findAll().then(products=> {
+        //     let idProducto = (parseInt(products[products.length - 1].id, 10) + 1).toString();
+        //     idProducto = idProducto.padStart(6,"000000");
+        //     data.id = idProducto;
         
         
-        //Array.isArray(data.color) === true ? "" : color2.push(data.color);
-        //data.color = color2;
-        data.enOferta ? data.enOferta=true : data.enOferta=false;
-        data.hotSale ? data.hotSale=true : data.hotSale=false;
+        data.enOferta ? data.enOferta=1 : data.enOferta=0;
+        data.hotSale ? data.hotSale=1 : data.hotSale=0;
         data.photos=[];
 
         // Guardar Sequelize
         let newProduct ={
-            id: data.id,
+            //id: data.id,
             Nombre: data.Nombre,
             id_Colecciones: parseInt(data.id_Colecciones,10),
             id_Categoria: parseInt(data.id_Categoria, 10),
@@ -167,27 +156,29 @@ const coleccionesController = {
             hotSale: data.hotSale
         }
 
-        db.Productos.create(newProduct)
         // Tabla de Fotos de Productos
+        const productCreated = await db.Productos.create(newProduct);
+        console.log("--> Log de product --> ");
+        console.log(productCreated);
         
         // Tabla de Colores de Productos
         for (let itemC of data.color) {
             db.ColoresProducto.create({
                 Colores_id: parseInt(itemC,10),
-                Productos_id: newProduct.id
+                Productos_id: productCreated.null
             })
         }
         // Tabla de Tallas de Productos
         for (let itemT of data.talla) {
             db.TallasProducto.create({
                 Tallas_id: parseInt(itemT,10),
-                Productos_id: newProduct.id
+                Productos_id: productCreated.null
             })
         } 
         
-        res.redirect('/products/'+newProduct.id);
+        res.redirect('/products/'+productCreated.null);
 
-        }).catch(err => console.log(err))
+        //}).catch(err => console.log(err))
     },
     productosHombres: async function(req, res) {
         datosProductos = await db.Productos.findAll({where: {id_Categoria: 1}});

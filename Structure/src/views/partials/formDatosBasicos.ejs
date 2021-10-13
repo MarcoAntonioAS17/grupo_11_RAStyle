@@ -50,7 +50,7 @@
 <div class="contenedor_input">
     <label for="item_info">Informacón del producto</label>
     <textarea id="item_info" name="Descripcion" rows="4" ><%= locals.producto && producto.Descripcion ? producto.Descripcion : "" %></textarea>
-    <% if (locals.errors && errors.descripcion) { %>
-        <label class="feedback"><%= errors.descripcion.msg %></label>
+    <% if (locals.errors && errors.Descripcion) { %>
+        <label class="feedback"><%= errors.Descripcion.msg %></label>
     <% } %>
 </div>

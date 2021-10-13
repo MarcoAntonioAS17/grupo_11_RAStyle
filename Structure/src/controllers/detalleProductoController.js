@@ -21,8 +21,6 @@ const detalleProductoController = {
             include: [{association: "color"}]
         })
         res.render('detalleProducto.ejs',{producto: item, talla: tallas, color: colores})
-        //let productoSelect = productos.find(producto=>producto.id===idProducto);
-        //res.render('detalleProducto.ejs',{"producto":productoSelect});
     },
     editar: async (req, res) => {
         const idProducto = req.params.idProducto;
