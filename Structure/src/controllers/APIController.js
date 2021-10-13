@@ -59,7 +59,6 @@ const APIControllerUsers = {
         });
         let ultimoProducto
         let fechaCreacion
-        console.log(req)
         let actualLoc0 = req.protocol
         let actualLoc1 = req.get('host');
         let actualLoc2 = req.originalUrl;
@@ -105,12 +104,14 @@ const APIControllerUsers = {
                 where: {id_Categoria: 3}
             })).length
         }
-        return res.status(200).json({
+        let objectF = {
             count: productos.length,
             countByCategory: countByCategory,
             lastProduct: ultimoProducto,
             products: productos
-        })
+        }
+        console.log(objectF.countByCategory)
+        return res.status(200).json(objectF)
     },
     productDetail: async function(req, res) {
         let id = req.params.id;
