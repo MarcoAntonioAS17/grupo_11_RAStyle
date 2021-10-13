@@ -5,10 +5,10 @@ const validacionesUsuarios = {
         check('firstName')
             .notEmpty().withMessage('Debes ingresar un nombre').bail()
             .isLength( {min: 2}).withMessage('El nombre debe tener más de 2 caracteres'),
-        check('apellido')
+        check('lastName')
             .notEmpty().withMessage('Debes ingresar un apellido por lo menos').bail()
             .isLength( {min: 2}).withMessage('El apellido debe tener al menos 2 caracteres'),
-        check('correo')
+        check('email')
             .notEmpty().withMessage('Ingresa un correo').bail()
             .isEmail().withMessage('Ingresa un correo valido'),
         check('password')

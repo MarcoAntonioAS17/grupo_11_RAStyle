@@ -15,11 +15,13 @@ const usersController = {
     registrarUsuario: async function(req, res, next) {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            console.log(errors.mapped());
             let strc = crearObjeto(req.body);
             return res.render('registro', {errors: errors.mapped(), usuario: strc});
         }
-        const resultsUsers = await db.Usuarios.findAll({where: {email: req.body.correo}});
+        const resultsUsers = await db.Usuarios.findOne({where: {email: req.body.email}});
         if (resultsUsers) {
+            console.log("Correo ya registrado");
             const result = {
                 correo: {
                     msg: "Este correo ya está registrado, intenta con otro."
