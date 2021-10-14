@@ -143,6 +143,32 @@ const APIControllerUsers = {
 
 
         return res.status(200).json(producto)
+    },
+    productsBySubcategory: async (req, res) => {
+        console.log("--> Consultando por subcategoria")
+        const countBySubcategory = {
+            tops: (await db.Productos.findAll({
+                attributes: ['id'],
+                where: {id_Subcategoria: 1}
+            })).length,
+            sudaderas: (await db.Productos.findAll({
+                attributes: ['id'],
+                where: {id_Subcategoria: 2}
+            })).length,
+            jeans: (await db.Productos.findAll({
+                attributes: ['id'],
+                where: {id_Subcategoria: 3}
+            })).length,
+            zapatos: (await db.Productos.findAll({
+                attributes: ['id'],
+                where: {id_Subcategoria: 4}
+            })).length,
+            vestidos: (await db.Productos.findAll({
+                attributes: ['id'],
+                where: {id_Subcategoria: 5}
+            })).length,
+        }
+        return res.status(200).json(countBySubcategory)
     }
 }
 
