@@ -75,9 +75,10 @@ const usersController = {
             req.session.userEmail = user.dataValues.email;
             req.session.userNombre = user.dataValues.firstName;
             req.session.logeado = true;
-            req.session.role = user.dataValues.category == 2? "user": "admin";
+            console.log(user.id_CategoriaUsuario);
+            req.session.role = user.id_CategoriaUsuario == 2? "user": "admin";
             if (currentUser.recordarme != undefined) {
-                res.cookie('user',currentUser.correo, {maxAge: 1800000});
+                res.cookie('user', currentUser.correo, {maxAge: 1800000});
                 res.cookie('logeado',true, {maxAge: 1800000});
             }
             return res.redirect('/users/info');

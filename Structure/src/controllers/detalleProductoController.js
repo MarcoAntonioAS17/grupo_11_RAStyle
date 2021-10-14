@@ -1,5 +1,11 @@
+require('dotenv').config();
 const { validationResult } = require('express-validator');
 const db = require("../database/models");
+
+const {Storage} = require('@google-cloud/storage');
+// Instantiate a storage client
+const storage = new Storage();
+const bucket = storage.bucket("gs://rastyle-9c7f2.appspot.com");
 
 const detalleProductoController = {
     index: async function(req,res) {
@@ -59,7 +65,7 @@ const detalleProductoController = {
         }
         
     },
-    actualizar: async (req, res) => {
+    actualizar: async (req, res, next) => {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             let esqueleto = {
@@ -109,10 +115,19 @@ const detalleProductoController = {
 
         const idProducto = req.params.idProducto;
         const data = req.body;
-        let files = req.files;
+        
+        const files = req.files;
+        const enlaces = [];
+        if (files.length > 0) {
+            console.log("Tiene archivos");
+            for(file of files){
+                enlaces.push(`https://storage.googleapis.com/${bucket.name}/img_${Date.now()}_${file.originalname}`);
+                subirArchivo(file, next);
+            }
+        }
 
-        data.enOferta ? data.enOferta=true : data.enOferta=false;
-        data.hotSale ? data.hotSale=true : data.hotSale=false;
+        data.enOferta ? data.enOferta=1 : data.enOferta=0;
+        data.hotSale ? data.hotSale=1 : data.hotSale=0;
 
         await db.Productos.update({
             Nombre: data.Nombre,
@@ -146,6 +161,13 @@ const detalleProductoController = {
                 Productos_id: idProducto
             })
         } 
+          // Table de link a imagenes
+        for (link of enlaces) {
+            db.FotosProducto.create({
+                path: link,
+                id_Productos: productCreated.null
+            }).catch(err => console.log(err))
+        }
 
         res.redirect("/products/"+idProducto);
     },
@@ -165,5 +187,21 @@ const detalleProductoController = {
         res.redirect("/products"); */
     }
 }
+
+function subirArchivo(file,next){
+    file.originalname = `img_${Date.now()}_${file.originalname}`;
+    const blob = bucket.file(file.originalname);
+    const blobStream = blob.createWriteStream();
+    
+    blobStream.on('error', err => {
+        next(err);
+    });
+    blobStream.on('finish', () => {
+        // The public URL can be used to directly access the file via HTTP.
+        console.log(`https://storage.googleapis.com/${bucket.name}/${file.originalname}`);
+    });
+    blobStream.end(file.buffer);
+}
+
 
 module.exports = detalleProductoController;
