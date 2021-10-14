@@ -20,7 +20,8 @@ const detalleProductoController = {
             where: {Productos_id: idProducto},
             include: [{association: "color"}]
         })
-        console.log(item);
+        if (!item) 
+            return res.render('busquedaVacia.ejs');
         res.render('detalleProducto.ejs',{producto: item, talla: tallas, color: colores})
     },
     editar: async (req, res) => {

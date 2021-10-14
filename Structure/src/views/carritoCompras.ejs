@@ -29,11 +29,11 @@
                     <% for(let i=0; i<productos.length; i++) { %>
                         <div class="contenedor1">
                             <a href=<%="/products/"+productos[i].id%>><div class="contenedor_img">
-                                <img src="<%= productos[i].photos[0] %>">
+                                <img src="<%= productos[i].fotosDelProducto[0] ? productos[i].fotosDelProducto[0].path : '/images/Logo.png' %>">
                             </div></a>
                             <div class="contenedor_descripcion">
                                 <div class="texto">
-                                    <a href=<%="/products/"+productos[i].id%>><p><%= productos[i].nombre %></p></a>
+                                    <a href=<%="/products/"+productos[i].id%>><p><%= productos[i].Nombre %></p></a>
                                 </div>
                                 <% if (productos[i].enOferta == true) { %>
                                     <div class="precio">
@@ -51,10 +51,10 @@
                                 <% } %>
                                 <div class="contenedor_detalles">
                                     <div class="color" >
-                                        <p>Color <div class="circulo_color" style=<%="background-color:"+productos[i].color%>></div>    </p>
+                                        <p>Color <div class="circulo_color" style=<%="background-color:"+colores[i].Nombre%>></div>    </p>
                                     </div>
                                     <div class="talla">
-                                        <p>Talla <%= productos[i].talla[0] %></p>
+                                        <p>Talla <%= tallas[i].Nombre %></p>
                                     </div>
                                     <div class="contenedor_cantidad">
                                         <p>Cantidad 

@@ -12,14 +12,12 @@ const storage = new Storage();
 const bucket = storage.bucket("gs://rastyle-9c7f2.appspot.com");
 
 const coleccionesController = {
-    listadoProductos: function (req, res) {
+    listadoProductos: async function (req, res) {
         // Uso de Sequelize
-        db.Productos.findAll({
-            include: [{association: "fotosDelProducto"}],
-            limit: 12
-        }).then(function(todosProductos){
-            res.render('listadoProductos.ejs',{'productos': todosProductos});
+        const productos = await db.Productos.findAll({
+            include: [{association: "fotosDelProducto"}]
         })
+        res.render('listadoProductos.ejs',{'productos': productos});
     },
     busqueda: function(req,res) {
         res.render('busqueda.ejs');
@@ -34,42 +32,57 @@ const coleccionesController = {
 
         switch (primerFiltro) {
             case "hombres": 
-                datosProductos = await db.Productos.findAll({where: {id_Categoria: 1}});
+                datosProductos = await db.Productos.findAll({
+                    include: [{association: "fotosDelProducto"}],
+                    where: {id_Categoria: 1}
+                });
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
                 }
                 break;
             case "mujeres": 
-                datosProductos = await db.Productos.findAll({where: {id_Categoria: 2}});
+                datosProductos = await db.Productos.findAll({
+                    include: [{association: "fotosDelProducto"}],
+                    where: {id_Categoria: 2}
+                });
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
                 }
                 break;
             case "unisex": 
-                datosProductos = await db.Productos.findAll({where: {id_Categoria: 3}});
+                datosProductos = await db.Productos.findAll({
+                    include: [{association: "fotosDelProducto"}],
+                    where: {id_Categoria: 3}
+                });
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
                 }
                 break;
             case "hotsale": 
-                datosProductos = await db.Productos.findAll({where: {hotSale: true}});
+                datosProductos = await db.Productos.findAll({
+                    include: [{association: "fotosDelProducto"}],
+                    where: {hotSale: true}
+                });
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
                 }
                 break;
             case "enOferta": 
-                datosProductos = await db.Productos.findAll({where: {enOferta: true}});
+                datosProductos = await db.Productos.findAll({
+                    include: [{association: "fotosDelProducto"}],
+                    where: {enOferta: true}
+                });
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
                 }
                 break;
             default: 
-                datosProductos = await db.Productos.findAll();
+                datosProductos = await db.Productos.findAll({include: [{association: "fotosDelProducto"}]});
                 filtrados = busquedaModels.buscarId(clave, datosProductos);
                 if (filtrados.length<1) {
                     filtrados = busquedaModels.buscarNombre(clave, datosProductos);
@@ -194,19 +207,31 @@ const coleccionesController = {
         //}).catch(err => console.log(err))
     },
     productosHombres: async function(req, res) {
-        datosProductos = await db.Productos.findAll({where: {id_Categoria: 1}});
+        datosProductos = await db.Productos.findAll({ 
+            include: [{association: "fotosDelProducto"}],
+            where: {id_Categoria: 1}
+        });
         res.render('listadoProductos.ejs',{'productos':datosProductos});
     },
     productosMujeres: async function(req, res) {
-        datosProductos = await db.Productos.findAll({where: {id_Categoria: 2}});
+        datosProductos = await db.Productos.findAll({
+            include: [{association: "fotosDelProducto"}],
+            where: {id_Categoria: 2}
+        });
         res.render('listadoProductos.ejs',{'productos':datosProductos});
     },
     productosPromociones: async function(req, res) {
-        datosProductos = await db.Productos.findAll({where: {enOferta: true}});
+        datosProductos = await db.Productos.findAll({
+            include: [{association: "fotosDelProducto"}],
+            where: {enOferta: 1}
+        });
         res.render('listadoProductos.ejs',{'productos':datosProductos});
     },
     productosHotSale: async function(req, res) {
-        datosProductos = await db.Productos.findAll({where: {hotSale: true}});
+        datosProductos = await db.Productos.findAll({
+            include: [{association: "fotosDelProducto"}],
+            where: {hotSale: 1}
+        });
         res.render('listadoProductos.ejs',{'productos':datosProductos});
     },
 }
