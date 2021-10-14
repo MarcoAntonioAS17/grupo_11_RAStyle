@@ -46,14 +46,16 @@
                     <div class="contenedor_lateral">
                         <div class="contenedor_images">
                             <p>Agregar imagenes</p>
-                            <div class="contenedor_fotos">
+                            <div class="contenedor_fotos" id="contenedorFotos">
                                 <label for="photos" class="button_agregar_foto">
                                     <label >+ </label>
                                     <p> Agregar nueva foto</p>
                                     <input type="file" name="photos" id="photos" 
                                     accept="image/png, image/jpeg, image/jpg" multiple/>
                                 </label>
-                                <div></div>
+                                <div>
+                                    <img src="/images/000008-1.png"  height="100%">
+                                </div>
                                 <div></div>
                             </div>
                         </div>
@@ -71,5 +73,6 @@
     </main>
     <!-- Footer -->
     <%- include('./partials/footer') %>
+    <script src="/js/nuevoProducto.js"></script>
 </body>
 </html>

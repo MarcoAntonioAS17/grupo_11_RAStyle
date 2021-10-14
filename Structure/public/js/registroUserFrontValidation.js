@@ -1,17 +1,18 @@
 window.addEventListener("load", function() {
-    let form = document.querySelector("#registroUser");
-    let image = document.querySelector("#image")
-    let errImage = document.querySelector("#erroresImage ul");
-    let nombre = document.querySelector("#nombre")
-    let errNombre = document.querySelector("#erroresNombre ul");
-    let apellidos = document.querySelector("#apellidos")
-    let errApellidos = document.querySelector("#erroresApellidos ul");
-    let correo = document.querySelector("#email");
-    let errCorreo = document.querySelector("#erroresEmail ul");
-    let password = document.querySelector("#password");
-    let errPassword = document.querySelector("#erroresPassword ul");
+    const form = document.querySelector("#registroUser");
+    const image = document.querySelector("#image")
+    const errImage = document.querySelector("#erroresImage ul");
+    const nombre = document.querySelector("#nombre")
+    const errNombre = document.querySelector("#erroresNombre ul");
+    const apellidos = document.querySelector("#apellidos")
+    const errApellidos = document.querySelector("#erroresApellidos ul");
+    const correo = document.querySelector("#email");
+    const errCorreo = document.querySelector("#erroresEmail ul");
+    const password = document.querySelector("#password");
+    const errPassword = document.querySelector("#erroresPassword ul");
+    const showImage = document.querySelector("#imgOutput");
 
-    image.addEventListener("change", function() {
+    image.addEventListener("change", function(event) {
         let erroresImage = []
         let extension = (image.value).split(".").pop();
         errImage.innerHTML = ""
@@ -22,6 +23,10 @@ window.addEventListener("load", function() {
             for (let i=0; i<erroresImage.length; i++) {
                 errImage.innerHTML += "<li>" + erroresImage[i] + "</li>"
             }
+        } else {
+            console.log(event);
+            errImage.innerHTML += "<li>La imagen tardará unos minutos en reflejarse</li>"
+            showImage.src = URL.createObjectURL(event.target.files[0]);
         }
     })
     

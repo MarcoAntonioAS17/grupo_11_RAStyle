@@ -1,10 +1,15 @@
 
+require('dotenv').config();
 const busquedaModels = require('../models/funcionesBusqueda');
 const { validationResult } = require('express-validator');
 
 // USO DE SEQUELIZE
 const db = require("../database/models");
 // %%%%%%%%%%%%%%%%
+const {Storage} = require('@google-cloud/storage');
+// Instantiate a storage client
+const storage = new Storage();
+const bucket = storage.bucket("gs://rastyle-9c7f2.appspot.com");
 
 const coleccionesController = {
     listadoProductos: function (req, res) {
@@ -81,7 +86,7 @@ const coleccionesController = {
     create: function(req,res) {
         res.render('nuevoProducto.ejs');
     },
-    createPost: async function(req,res,next) {
+    createPost: async function(req, res, next) {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
@@ -130,16 +135,19 @@ const coleccionesController = {
             return;
         } 
 
-        const data = req.body;
-        // db.Productos.findAll().then(products=> {
-        //     let idProducto = (parseInt(products[products.length - 1].id, 10) + 1).toString();
-        //     idProducto = idProducto.padStart(6,"000000");
-        //     data.id = idProducto;
-        
-        
+        const data = req.body;        
         data.enOferta ? data.enOferta=1 : data.enOferta=0;
         data.hotSale ? data.hotSale=1 : data.hotSale=0;
-        data.photos=[];
+        
+        const files = req.files;
+        const enlaces = [];
+        if (files.length > 0) {
+            console.log("Tiene archivos");
+            for(file of files){
+                enlaces.push(`https://storage.googleapis.com/${bucket.name}/img_${Date.now()}_${file.originalname}`);
+                subirArchivo(file, next);
+            }
+        }
 
         // Guardar Sequelize
         let newProduct ={
@@ -155,11 +163,8 @@ const coleccionesController = {
             precioOferta: data.precioOferta,
             hotSale: data.hotSale
         }
-
         // Tabla de Fotos de Productos
         const productCreated = await db.Productos.create(newProduct);
-        console.log("--> Log de product --> ");
-        console.log(productCreated);
         
         // Tabla de Colores de Productos
         for (let itemC of data.color) {
@@ -174,7 +179,15 @@ const coleccionesController = {
                 Tallas_id: parseInt(itemT,10),
                 Productos_id: productCreated.null
             })
-        } 
+        }
+        
+        // Table de link a imagenes
+        for (link of enlaces) {
+            db.FotosProducto.create({
+                path: link,
+                id_Productos: productCreated.null
+            }).catch(err => console.log(err))
+        }
         
         res.redirect('/products/'+productCreated.null);
 
@@ -196,6 +209,21 @@ const coleccionesController = {
         datosProductos = await db.Productos.findAll({where: {hotSale: true}});
         res.render('listadoProductos.ejs',{'productos':datosProductos});
     },
+}
+
+function subirArchivo(file,next){
+    file.originalname = `img_${Date.now()}_${file.originalname}`;
+    const blob = bucket.file(file.originalname);
+    const blobStream = blob.createWriteStream();
+    
+    blobStream.on('error', err => {
+        next(err);
+    });
+    blobStream.on('finish', () => {
+        // The public URL can be used to directly access the file via HTTP.
+        console.log(`https://storage.googleapis.com/${bucket.name}/${file.originalname}`);
+    });
+    blobStream.end(file.buffer);
 }
 
 module.exports = coleccionesController;

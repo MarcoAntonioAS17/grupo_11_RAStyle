@@ -22,7 +22,7 @@
             <% for(let i=0; i<3; i++) {%>
                 <a href=<%="/products/"+productos[i].id%>>
                     <article class="producto-en-carrusel">
-                        <img src="<%= productos[i].fotosDelProducto[0] %>" alt="foto del producto" class="producto-img-carrusel">
+                        <img src="<%= productos[i].fotosDelProducto[0].path %>" alt="foto del producto" class="producto-img-carrusel">
                         <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                         <p class="precio-producto-carrusel"> MXN $<%= productos[i].precio %> </p>
                         <p class="nombre-producto-carrusel"><%= productos[i].Nombre %></p>
@@ -34,7 +34,7 @@
             <%- include('./partials/navegacionCarrusel') %>
         </article>
         <div class="seccion-enfasis">
-            <img src="productos[3].fotosDelProducto[0]" alt="producto de énfasis">
+            <img src="productos[3].fotosDelProducto[0].path" alt="producto de énfasis">
             <p id="titulo-enfasis">SECCIÓN DE ÉNFASIS</p>
             <P id="descripcion-enfasis">Este es un ejemplo de una breve descripción de muestra para esta sección de énfasis. El estilo variará de acuerdo al contenido</P>
             <a href="#" class="ver-mas-button">VER MAS</a>
@@ -43,7 +43,7 @@
         <div class="cassusel-pequeño">
             <% for(let i=0; i<3; i++) {%>
                 <a href=<%="/products/"+productos[i].id%>><article class="producto-en-carrusel">
-                    <img src="<%= productos[i].fotosDelProducto[0] %>" alt="foto del producto" class="producto-img-carrusel">
+                    <img src="<%= productos[i].fotosDelProducto[0].path %>" alt="foto del producto" class="producto-img-carrusel">
                     <a href="#" class="marcar-producto-favorito"><span class="material-icons-outlined">favorite_border</span></a>
                     <p class="precio-producto-carrusel"> MXN $<%= productos[i].precio %> </p>
                     <p class="nombre-producto-carrusel"><%= productos[i].Nombre %></p>

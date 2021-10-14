@@ -20,6 +20,7 @@ const detalleProductoController = {
             where: {Productos_id: idProducto},
             include: [{association: "color"}]
         })
+        console.log(item);
         res.render('detalleProducto.ejs',{producto: item, talla: tallas, color: colores})
     },
     editar: async (req, res) => {
@@ -55,12 +56,7 @@ const detalleProductoController = {
         } else {
             res.render('busquedaVacia.ejs')
         }
-        /* let productSelect = productos.find(producto => producto.id === idProducto);
-        if (productSelect != undefined) {
-            res.render('editarProductos.ejs', {"producto":productSelect});
-        } else {
-            res.render('busquedaVacia.ejs')
-        } */
+        
     },
     actualizar: async (req, res) => {
         let errors = validationResult(req);
